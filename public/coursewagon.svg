@@ -1,0 +1,30 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="logo-svg mb-2">
+    <rect x="100" y="150" width="200" height="80" rx="10" fill="#4a90e2"/>
+    <rect x="90" y="140" width="220" height="20" rx="5" fill="#2c3e50"/>
+    <circle cx="140" cy="240" r="25" fill="#34495e"/>
+    <circle cx="140" cy="240" r="15" fill="#95a5a6"/>
+    <circle cx="260" cy="240" r="25" fill="#34495e"/>
+    <circle cx="260" cy="240" r="15" fill="#95a5a6"/>
+    <rect x="120" y="160" width="30" height="40" rx="5" fill="#f1c40f"/>
+    <rect x="160" y="160" width="30" height="40" rx="5" fill="#f1c40f"/>
+    <rect x="200" y="160" width="30" height="40" rx="5" fill="#f1c40f"/>
+    <rect x="240" y="160" width="30" height="40" rx="5" fill="#f1c40f"/>
+    <text x="135" y="187" font-family="FontAwesome" font-size="20" text-anchor="middle" fill="#e74c3c"></text>
+    <text x="175" y="187" font-family="FontAwesome" font-size="20" text-anchor="middle" fill="#27ae60"></text>
+    <text x="215" y="187" font-family="FontAwesome" font-size="20" text-anchor="middle" fill="#8e44ad"></text>
+    <text x="255" y="187" font-family="FontAwesome" font-size="20" text-anchor="middle" fill="#d35400"></text>
+    <path d="M300 150 L320 150 L320 230 L300 230" fill="#4a90e2"/>
+     <rect x="310" y="160" width="20" height="20" rx="5" fill="#f1c40f"/>
+    <rect x="290" y="120" width="15" height="30" fill="#7f8c8d"/>
+    <circle cx="297" cy="100" r="8" fill="#bdc3c7" opacity="0.8"/>
+    <circle cx="310" cy="85" r="10" fill="#bdc3c7" opacity="0.6"/>
+    <circle cx="325" cy="70" r="12" fill="#bdc3c7" opacity="0.4"/>
+    <line x1="50" y1="265" x2="350" y2="265" stroke="#34495e" stroke-width="8"/>
+    <line x1="50" y1="275" x2="350" y2="275" stroke="#34495e" stroke-width="8"/>
+    <rect x="70" y="265" width="10" height="20" fill="#7f8c8d"/>
+    <rect x="120" y="265" width="10" height="20" fill="#7f8c8d"/>
+    <rect x="170" y="265" width="10" height="20" fill="#7f8c8d"/>
+    <rect x="220" y="265" width="10" height="20" fill="#7f8c8d"/>
+    <rect x="270" y="265" width="10" height="20" fill="#7f8c8d"/>
+    <rect x="320" y="265" width="10" height="20" fill="#7f8c8d"/>
+</svg>

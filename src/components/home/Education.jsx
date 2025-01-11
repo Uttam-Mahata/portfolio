@@ -14,43 +14,31 @@ const Education = () => {
   const education = [
     {
       id: 1,
-      degree: "Master of Science in Computer Science",
-      institution: "Stanford University",
-      location: "Stanford, CA",
-      period: "2018 - 2020",
-      gpa: "3.8/4.0",
-      achievements: [
-        "Published research paper on AI algorithms",
-        "Teaching Assistant for Web Development course",
-        "Won Best Graduate Project Award"
-      ],
-      relevantCourses: [
-        "Advanced Algorithms",
-        "Machine Learning",
-        "Distributed Systems",
-        "Cloud Computing"
-      ],
-      skills: ["AI/ML", "Distributed Systems", "Research", "Algorithm Design"]
-    },
-    {
-      id: 2,
-      degree: "Bachelor of Engineering in Software Engineering",
-      institution: "MIT",
-      location: "Cambridge, MA",
-      period: "2014 - 2018",
-      gpa: "3.7/4.0",
-      achievements: [
-        "Dean's List for all semesters",
-        "Led university hackathon team",
-        "Developed university event management system"
-      ],
+      degree: "Bachelor of Technology in Computer Science & Technology",
+      institution: "Indian Institute of Engineering Science and Technology, Shibpur",
+      location: "Howrah, India",
+      period: "2022 - 2026",
+      // gpa: "3.8/4.0",
+      // achievements: [
+      //   "Published research paper on AI algorithms",
+      //   "Teaching Assistant for Web Development course",
+      //   "Won Best Graduate Project Award"
+      // ],
+
       relevantCourses: [
         "Data Structures",
-        "Software Architecture",
-        "Database Systems",
-        "Web Development"
+        "Design and Analysis of Algorithms",
+        "Programming Paradigms",
+
+        "Computer Architecture and Organization",
+        "Microprocessor based Systems",
+        "Operating Systems",
+        "Database Management Systems",
+        "Software Engineering",
+        "Computer Networks",
+        "Introduction to Data Science",
       ],
-      skills: ["Programming", "Software Design", "Databases", "Team Leadership"]
+      skills: ["Data Structures & Algorithms", 'Data Science', 'Object Oriented Programming', 'Database Management', 'Computer Architecture'],
     }
   ];
 
@@ -108,10 +96,10 @@ const Education = () => {
                       <span className="font-medium">{edu.institution}</span>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2 text-primary-600 dark:text-primary-400">
+                  {/* <div className="flex items-center space-x-2 text-primary-600 dark:text-primary-400">
                     <Star className="w-5 h-5" />
                     <span className="font-medium">GPA: {edu.gpa}</span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -126,7 +114,7 @@ const Education = () => {
                       {edu.location}
                     </div>
                     
-                    <div className="space-y-2">
+                    {/* <div className="space-y-2">
                       <h4 className="font-semibold text-gray-900 dark:text-dark-text flex items-center">
                         <Award className="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" />
                         Key Achievements
@@ -136,7 +124,7 @@ const Education = () => {
                           <li key={index}>{achievement}</li>
                         ))}
                       </ul>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Right Column */}
@@ -179,7 +167,7 @@ const Education = () => {
         </div>
 
         {/* Certifications */}
-        <div className="animate-slide-up" style={{ animationDelay: '600ms' }}>
+        {/* <div className="animate-slide-up" style={{ animationDelay: '600ms' }}>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-dark-text mb-8 text-center">
             Professional Certifications
           </h3>
@@ -209,7 +197,7 @@ const Education = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

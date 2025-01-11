@@ -18,43 +18,76 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with cart, payments, and admin dashboard.',
-      image: '/images/projects/ecommerce.jpg',
+      title: 'Course Wagon',
+      description: 'A web application for automated course management, utilizing the Gemini API for AI-driven content generation.',
+      image: '/coursewagon.svg',
       category: 'fullstack',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      liveUrl: 'https://project.com',
-      githubUrl: 'https://github.com',
-      featured: true
+      technologies: ['Angular', 'HTML', 'CSS', 'TypeScript', 'Python', 'Flask', 'Google Generative AI', 'Bootstrap', 'MySQL', 'REST APIs', 'Firebase'],
+      liveUrl: null,
+      githubUrl: null,
+      featured: true,
+      period:'October 2024 - Present'
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'Real-time task management application with team collaboration features.',
-      image: '/images/projects/taskapp.jpg',
-      category: 'frontend',
-      technologies: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-      liveUrl: 'https://project.com',
-      githubUrl: 'https://github.com'
+      title: 'Loan Approval Prediction',
+      description: 'A machine learning model designed to predict loan status using RandomForest, XGBoost, and LightGBM with Stratified K-Fold and ROC-AUC metrics.',
+      image: '/loanapproval.svg',
+      category: 'datascience',
+      technologies: ['Python', 'Jupyter Notebook', 'Numpy', 'Pandas', 'Scikit-learn'],
+      liveUrl: null,
+      githubUrl: null,
+      period: 'October 2024'
     },
     {
       id: 3,
-      title: 'API Gateway Service',
-      description: 'Microservices API gateway with authentication and rate limiting.',
-      image: '/images/projects/api.jpg',
-      category: 'backend',
-      technologies: ['Node.js', 'Express', 'Redis', 'JWT'],
-      liveUrl: 'https://project.com',
-      githubUrl: 'https://github.com'
+      title: 'Course Recommendation System',
+      description: 'A recommendation model for suggesting similar Coursera courses based on user input, utilizing NLP techniques like CountVectorizer and TF-IDF, paired with cosine similarity.',
+      image: '/course.svg',
+      category: 'datascience',
+      technologies: ['Python', 'Pandas', 'Scikit-learn', 'TF-IDF', 'Cosine Similarity'],
+      liveUrl: null,
+      githubUrl: null,
+      period:'September 2024'
     },
-    // Add more projects as needed
+    {
+      id: 4,
+      title: 'Educational RBAC System',
+      description: 'The Educational Role-Based Access Control (RBAC) system is a web application developed using Angular to demonstrate the concepts of user roles, permissions, and authentication within an educational environment.',
+      image: 'rbac.svg',
+      category: 'frontend',
+      technologies: ['Angular', 'HTML', 'CSS', 'TypeScript', 'Bootstrap'],
+      liveUrl: null,
+      githubUrl: null,
+    },
+    {
+      id: 5,
+      title: 'Travelling-Salesman-Problem-using-Genetic-Algorithm',
+      description: 'A solution to the Traveling Salesman Problem using the genetic algorithm',
+      image: '/tsp.svg',
+      category: 'all',
+      technologies:['Python', 'Genetic Algorithm'],
+      liveUrl: null,
+      githubUrl: null,
+    },
+    {
+      id: 6,
+      title: 'ShortlyUrl url shortner web application',
+      description: 'A url shortening web application',
+      image: '/shortly.svg',
+      category: 'fullstack',
+      technologies:['Python', 'HTML','CSS', 'Spring Boot', 'Angular Material UI', 'MySQL', 'REST APIs', 'Docker'],
+      liveUrl: null,
+      githubUrl: null
+    },
   ];
 
   const categories = [
     { id: 'all', label: 'All Projects' },
     { id: 'frontend', label: 'Frontend' },
     { id: 'backend', label: 'Backend' },
-    { id: 'fullstack', label: 'Full Stack' }
+    { id: 'fullstack', label: 'Full Stack' },
+    { id: 'datascience', label: 'Data Science' }
   ];
 
   const filteredProjects = projects
@@ -69,7 +102,6 @@ const Projects = () => {
 
   return (
     <section id="projects" className="relative py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
-      {/* Background pattern */}
       <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: theme === 'light' 
@@ -87,9 +119,7 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Filters and Search */}
         <div className="mb-12 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 animate-slide-up">
-          {/* Category Filters */}
           <div className="flex items-center space-x-2">
             <FilterIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
             <div className="flex flex-wrap gap-2">
@@ -97,7 +127,7 @@ const Projects = () => {
                 <button
                   key={category.id}
                   onClick={() => setFilter(category.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:-translate-y-0.5
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
                     ${filter === category.id
                       ? 'bg-primary-600 dark:bg-primary-500 text-white'
                       : 'bg-gray-100 dark:bg-dark-card text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-border'
@@ -109,7 +139,6 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Search */}
           <div className="relative">
             <Search className="w-5 h-5 text-gray-400 dark:text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
             <input
@@ -122,10 +151,9 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <div key={project.id} className={`animate-slide-up`} style={{ animationDelay: `${index * 100}ms` }}>
+            <div key={project.id} className="animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
               <ProjectCard project={project} />
             </div>
           ))}
@@ -142,28 +170,31 @@ const Projects = () => {
 };
 
 const ProjectCard = ({ project }) => {
+  const isLiveLinkAvailable = project.liveUrl !== null && project.liveUrl !== undefined;
+  const isGithubLinkAvailable = project.githubUrl !== null && project.githubUrl !== undefined;
+
   return (
-    <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:shadow-dark-border group">
-      {/* Project Image */}
-      <div className="relative h-48 overflow-hidden">
+    <div className="bg-white dark:bg-dark-card rounded-lg border border-gray-200 dark:border-dark-border h-full flex flex-col transition-colors duration-300">
+      <div className="relative h-48">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover"
         />
         {project.featured && (
-          <div className="absolute top-4 right-4 bg-primary-600 dark:bg-primary-500 text-white px-3 py-1 rounded-full text-sm shadow-lg">
+          <div className="absolute top-4 right-4 bg-primary-600 dark:bg-primary-500 text-white px-3 py-1 rounded-full text-sm">
             Featured
           </div>
         )}
       </div>
 
-      {/* Project Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-2 transition-colors duration-300">{project.title}</h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-300">{project.description}</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">
+          {project.period}
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow transition-colors duration-300">{project.description}</p>
 
-        {/* Technologies */}
         <div className="mb-4">
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
@@ -177,27 +208,32 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
 
-        {/* Links */}
-        <div className="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-dark-border">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
-          >
-            <Github className="w-5 h-5 mr-2" />
-            Code
-          </a>
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
-          >
-            <ExternalLink className="w-5 h-5 mr-2" />
-            Live Demo
-          </a>
-        </div>
+        {(isGithubLinkAvailable || isLiveLinkAvailable) && (
+          <div className="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-dark-border mt-auto">
+            {isGithubLinkAvailable && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+              >
+                <Github className="w-5 h-5 mr-2" />
+                Code
+              </a>
+            )}
+            {isLiveLinkAvailable && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Live Demo
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

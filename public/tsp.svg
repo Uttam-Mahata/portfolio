@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Background circle -->
+    <circle cx="100" cy="100" r="90" fill="#f0f8ff" stroke="#2171cd" stroke-width="2"/>
+    
+    <!-- DNA Helix forming a circular path -->
+    <path d="M70,70 Q100,30 130,70 Q160,110 130,150 Q100,190 70,150 Q40,110 70,70" 
+          fill="none" 
+          stroke="#4a90e2" 
+          stroke-width="3"/>
+    <path d="M70,70 Q100,110 130,70 Q160,30 130,150 Q100,110 70,150 Q40,190 70,70" 
+          fill="none" 
+          stroke="#2171cd" 
+          stroke-width="3"/>
+    
+    <!-- Cities/Nodes -->
+    <circle cx="70" cy="70" r="6" fill="#ff6b6b"/>
+    <circle cx="130" cy="70" r="6" fill="#ff6b6b"/>
+    <circle cx="130" cy="150" r="6" fill="#ff6b6b"/>
+    <circle cx="70" cy="150" r="6" fill="#ff6b6b"/>
+    
+    <!-- Connecting lines between cities -->
+    <line x1="70" y1="70" x2="130" y2="70" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="130" y1="70" x2="130" y2="150" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="130" y1="150" x2="70" y2="150" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="70" y1="150" x2="70" y2="70" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,5"/>
+    
+    <!-- DNA base pairs -->
+    <circle cx="85" cy="50" r="3" fill="#ffd700"/>
+    <circle cx="115" cy="50" r="3" fill="#ffd700"/>
+    <circle cx="150" cy="110" r="3" fill="#ffd700"/>
+    <circle cx="115" cy="170" r="3" fill="#ffd700"/>
+    <circle cx="85" cy="170" r="3" fill="#ffd700"/>
+    <circle cx="50" cy="110" r="3" fill="#ffd700"/>
+    
+    <!-- Text -->
+    <text x="100" y="110" 
+          font-family="Arial, sans-serif" 
+          font-size="14" 
+          text-anchor="middle" 
+          font-weight="bold" 
+          fill="#333">TSP-GA</text>
+</svg>
