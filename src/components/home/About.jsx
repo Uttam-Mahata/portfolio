@@ -82,7 +82,7 @@ const About = () => {
             
             {/* Quick Facts */}
             <div className="grid grid-cols-2 gap-4 mt-8">
-              <QuickFact icon={<Coffee />} title="Projects" value="50+" />
+              <QuickFact icon={<Coffee />} title="Projects" value="5+" />
               {/* <QuickFact icon={<Globe />} title="Clients" value="30+" /> */}
               <QuickFact icon={<Award />} title="Experience" value="1+ Years" />
               {/* <QuickFact icon={<Code />} title="Technologies" value="20+" /> */}
