@@ -9,8 +9,7 @@ import {
   Facebook,
   Twitter,
   CheckCircle,
-  AlertCircle,
-  Clock
+  AlertCircle
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -34,19 +33,35 @@ const Contact = () => {
     setIsSubmitting(true);
     setStatus({ type: '', message: '' });
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setStatus({
-        type: 'success',
-        message: 'Message sent successfully! I will get back to you soon.'
-      });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      setStatus({
-        type: 'error',
-        message: 'There was an error sending your message. Please try again.'
-      });
+        const response = await fetch('https://contact-form-v2ph.onrender.com/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+      
+          const result = await response.json();
+
+        if (response.ok) {
+          setStatus({
+            type: 'success',
+            message: result.message
+          });
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        } else {
+            setStatus({
+                type: 'error',
+                message: result.error || 'Failed to send message'
+            });
+          }
+        
+      } catch (error) {
+          setStatus({
+            type: 'error',
+            message: 'There was an error sending your message. Please try again.'
+          });
     } finally {
       setIsSubmitting(false);
     }
@@ -89,7 +104,6 @@ const Contact = () => {
       name: 'Facebook',
       url: 'https://www.facebook.com/dummy.uttam.0.0.0.0/'
     }
-
   ];
 
   return (
