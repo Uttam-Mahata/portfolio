@@ -9,6 +9,7 @@ const Experience = () => {
           id: 1,
           role: 'Full Stack Developer',
           company: 'Winners Education',
+          url: 'https://winnerseducation.org',
           location: 'Remote',
           period: 'Jun 2023 - Present',
           description: 'A scalable web application for a coaching institute, enhancing both UI/UX and backend performance.',
@@ -105,7 +106,7 @@ const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => {
               <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text">{experience.role}</h3>
               <div className="flex items-center mt-1 space-x-2">
                 <Briefcase className="w-4 h-4 text-primary-600 dark:text-primary-400" />
-                <a href="#" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
+                <a href={experience.url} className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
                   {experience.company}
                   <ExternalLink className="inline-block w-4 h-4 ml-1" />
                 </a>
