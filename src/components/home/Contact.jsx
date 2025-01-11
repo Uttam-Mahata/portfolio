@@ -6,6 +6,7 @@ import {
   Send, 
   Linkedin, 
   Github, 
+  Facebook,
   Twitter,
   CheckCircle,
   AlertCircle,
@@ -55,20 +56,20 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      value: 'contact@example.com',
-      link: 'mailto:contact@example.com'
+      value: 'uttam-mahata-cs@outlook.com',
+      link: 'mailto:uttam-mahata-cs@outlook.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+91 9679244057',
+      link: 'tel:+919679244057'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Location',
-      value: 'San Francisco, CA',
-      link: 'https://maps.google.com'
+      value: 'Howrah, India',
+      link: 'https://maps.app.goo.gl/r7WcftPiGACcgZQN8'
     }
   ];
 
@@ -76,18 +77,19 @@ const Contact = () => {
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: 'LinkedIn',
-      url: 'https://linkedin.com'
+      url: 'https://www.linkedin.com/in/uttam-mahata-4b0364259/'
     },
     {
       icon: <Github className="w-6 h-6" />,
       name: 'GitHub',
-      url: 'https://github.com'
+      url: 'https://github.com/Uttam-Mahata'
     },
     {
-      icon: <Twitter className="w-6 h-6" />,
-      name: 'Twitter',
-      url: 'https://twitter.com'
+      icon: <Facebook className="w-6 h-6" />,
+      name: 'Facebook',
+      url: 'https://www.facebook.com/dummy.uttam.0.0.0.0/'
     }
+
   ];
 
   return (
@@ -155,18 +157,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Working Hours */}
-            <div className="bg-gray-50 dark:bg-dark-card rounded-lg p-8 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-center space-x-3 mb-4">
-                <Clock className="w-6 h-6 text-primary-600 dark:text-primary-400" />
-                <h3 className="text-lg font-medium text-gray-900 dark:text-dark-text">Working Hours</h3>
-              </div>
-              <div className="space-y-2 text-gray-600 dark:text-gray-400">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
-            </div>
+          
           </div>
 
           {/* Contact Form */}

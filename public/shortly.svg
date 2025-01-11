@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
+  <!-- Background -->
+  <rect x="0" y="0" width="200" height="80" rx="10" fill="#f8fafc"/>
+  
+  <!-- Link chain symbol - left side (longer) -->
+  <path d="M30 40 L70 40" 
+        stroke="#0ea5e9" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+  
+  <!-- Arrow symbol -->
+  <path d="M75 25 L95 40 L75 55" 
+        fill="none" 
+        stroke="#0f172a" 
+        stroke-width="4" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Link chain symbol - right side (shorter) -->
+  <path d="M100 40 L120 40" 
+        stroke="#0ea5e9" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+  
+  <!-- Text "Shortly" -->
+  <text x="140" 
+        y="48" 
+        font-family="Arial, sans-serif" 
+        font-size="24" 
+        font-weight="bold" 
+        fill="#0f172a">ly</text>
+  
+  <!-- Dot decorations -->
+  <circle cx="130" cy="45" r="2" fill="#0ea5e9"/>
+  <circle cx="165" cy="45" r="2" fill="#0ea5e9"/>
+  
+  <!-- Small decorative lines suggesting speed/motion -->
+  <path d="M95 25 L105 25" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M95 55 L105 55" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+</svg>

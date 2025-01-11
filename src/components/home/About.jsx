@@ -27,8 +27,10 @@ const About = () => {
     'React': 'https://img.icons8.com/color/48/000000/react-native.png',
     'Spring Boot': 'https://img.icons8.com/color/48/000000/spring-logo.png',
     'Bootstrap': 'https://img.icons8.com/color/48/000000/bootstrap.png',
+    'Tailwind CSS': 'https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg',
     'PrimeNG': 'https://www.primefaces.org/presskit/primeng-logo.svg',
     'Flask': 'https://img.icons8.com/cute-clipart/48/000000/flask.png',
+    'Firebase': 'https://img.icons8.com/color/48/000000/firebase.png',
     
     
     // Data Science & ML
@@ -81,9 +83,9 @@ const About = () => {
             {/* Quick Facts */}
             <div className="grid grid-cols-2 gap-4 mt-8">
               <QuickFact icon={<Coffee />} title="Projects" value="50+" />
-              <QuickFact icon={<Globe />} title="Clients" value="30+" />
-              <QuickFact icon={<Award />} title="Experience" value="5+ Years" />
-              <QuickFact icon={<Code />} title="Technologies" value="20+" />
+              {/* <QuickFact icon={<Globe />} title="Clients" value="30+" /> */}
+              <QuickFact icon={<Award />} title="Experience" value="1+ Years" />
+              {/* <QuickFact icon={<Code />} title="Technologies" value="20+" /> */}
             </div>
           </div>
 
@@ -113,7 +115,7 @@ const About = () => {
                 title="Web Development"
                 technologies={[
                   'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'React',
-                  'Spring Boot', 'Bootstrap', 'PrimeNG', 'Flask'
+                  'Spring Boot', 'Bootstrap', 'Tailwind CSS', 'PrimeNG', 'Flask', 'Firebase'
                 ]}
                 techIcons={techIcons}
               />

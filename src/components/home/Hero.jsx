@@ -1,14 +1,22 @@
 import React from 'react';
-import { Github, Mail, Linkedin, Download, ArrowDown } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { MdEmail, MdDownload, MdKeyboardArrowDown } from 'react-icons/md';
 import { useTheme } from '../../context/ThemeContext';
 
 const Hero = () => {
   const { theme } = useTheme();
 
+  const handleProjectsClick = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-primary-50 to-primary-100 dark:from-dark-bg dark:to-dark-bg transition-colors duration-300">
       {/* Background pattern */}
-      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10">
+      <div className="absolute inset-0 z-0 opacity-30 dark:opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: theme === 'light' 
             ? 'radial-gradient(circle at 25px 25px, black 1px, transparent 0)'
@@ -44,18 +52,25 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6">
-            <SocialLink href="https://github.com/Uttam-Mahata" icon={<Github />} label="GitHub" />
-            <SocialLink href="https://linkedin.com" icon={<Linkedin />} label="LinkedIn" />
-            <SocialLink href="mailto:contact@example.com" icon={<Mail />} label="Email" />
+            <SocialLink href="https://github.com/Uttam-Mahata" icon={<FaGithub size={20} />} label="GitHub" />
+            <SocialLink href="https://www.linkedin.com/in/uttam-mahata-4b0364259/" icon={<FaLinkedin size={20} />} label="LinkedIn" />
+            <SocialLink href="mailto:uttam-mahata-cs@outlook.com" icon={<MdEmail size={20} />} label="Email" />
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-            <button className="px-6 py-3 rounded-full bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1">
-              <Download className="w-5 h-5 mr-2" />
+            <a 
+              href="/Uttam_Mahata_Resume.pdf" 
+              download
+              className="px-6 py-3 rounded-full bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1"
+            >
+              <MdDownload className="w-5 h-5 mr-2" />
               Download CV
-            </button>
-            <button className="px-6 py-3 rounded-full bg-white dark:bg-dark-card text-primary-600 dark:text-primary-400 hover:bg-gray-50 dark:hover:bg-dark-border transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1">
+            </a>
+            <button 
+              onClick={handleProjectsClick}
+              className="px-6 py-3 rounded-full bg-white dark:bg-dark-card text-primary-600 dark:text-primary-400 hover:bg-gray-50 dark:hover:bg-dark-border transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1"
+            >
               View Projects
             </button>
           </div>
@@ -63,7 +78,7 @@ const Hero = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-6 h-6 text-gray-400 dark:text-gray-500" />
+          <MdKeyboardArrowDown className="w-6 h-6 text-gray-400 dark:text-gray-500" />
         </div>
       </div>
     </section>
@@ -79,7 +94,7 @@ const SocialLink = ({ href, icon, label }) => (
     aria-label={label}
   >
     {React.cloneElement(icon, { 
-      className: 'w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300' 
+      className: 'text-gray-600 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300' 
     })}
   </a>
 );

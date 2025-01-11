@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Book Cover Shadow -->
+  <path d="M40 160 L160 160 L160 60 L40 60 Z" 
+        fill="#1f2937" 
+        opacity="0.1" 
+        transform="translate(5,5)"/>
+  
+  <!-- Book Cover -->
+  <path d="M40 160 L160 160 L160 60 L40 60 Z" 
+        fill="#3b82f6"/>
+  
+  <!-- Book Spine -->
+  <path d="M40 60 L40 160 L30 150 L30 50 Z" 
+        fill="#2563eb"/>
+  
+  <!-- Top of Book -->
+  <path d="M30 50 L40 60 L160 60 L150 50 Z" 
+        fill="#60a5fa"/>
+  
+  <!-- Pages (right side) -->
+  <path d="M160 60 L155 65 L155 165 L160 160 Z" 
+        fill="#f1f5f9"/>
+  
+  <!-- Pages (top) -->
+  <path d="M150 50 L160 60 L155 65 L145 55 Z" 
+        fill="#e2e8f0"/>
+  
+  <!-- Book Cover Design Elements -->
+  <!-- Title Lines -->
+  <rect x="60" y="80" width="80" height="4" fill="#1d4ed8" rx="2"/>
+  <rect x="60" y="100" width="60" height="4" fill="#1d4ed8" rx="2"/>
+  
+  <!-- Decorative Elements -->
+  <rect x="60" y="120" width="80" height="1" fill="#1d4ed8" opacity="0.5"/>
+  <rect x="60" y="130" width="80" height="1" fill="#1d4ed8" opacity="0.5"/>
+  <rect x="60" y="140" width="60" height="1" fill="#1d4ed8" opacity="0.5"/>
+  
+  <!-- Spine Detail -->
+  <rect x="33" y="70" width="4" height="70" fill="#1d4ed8"/>
+  
+  <!-- Page Detail Lines -->
+  <g fill="#cbd5e1">
+    <rect x="155" y="70" width="1" height="90"/>
+    <rect x="156" y="70" width="1" height="90" opacity="0.5"/>
+    <rect x="157" y="70" width="1" height="90" opacity="0.3"/>
+  </g>
+</svg>

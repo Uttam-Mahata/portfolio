@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background shield -->
+  <path d="M100 10 L180 50 L180 140 L100 190 L20 140 L20 50 Z" 
+        fill="#4a90e2" 
+        stroke="#2171cd" 
+        stroke-width="4"/>
+  
+  <!-- Book pages -->
+  <path d="M60 70 L140 70 L140 150 L100 160 L60 150 Z" 
+        fill="white" 
+        stroke="#333" 
+        stroke-width="2"/>
+  <path d="M100 70 L100 160" 
+        fill="none" 
+        stroke="#333" 
+        stroke-width="2"/>
+  
+  <!-- Lock symbol -->
+  <rect x="85" y="90" width="30" height="25" 
+        rx="5" 
+        fill="#ffd700"/>
+  <rect x="90" y="80" width="20" height="15" 
+        rx="10" 
+        fill="none" 
+        stroke="#ffd700" 
+        stroke-width="4"/>
+  
+  <!-- Graduation cap -->
+  <path d="M70 50 L130 50 L100 30 Z" 
+        fill="#333"/>
+  <rect x="95" y="30" width="10" height="10" 
+        fill="#333"/>
+  
+  <!-- Text -->
+  <text x="100" y="120" 
+        fill="#333" 
+        font-family="Arial, sans-serif" 
+        font-size="14" 
+        text-anchor="middle" 
+        font-weight="bold">RBAC</text>
+</svg>

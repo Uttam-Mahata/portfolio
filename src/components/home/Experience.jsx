@@ -5,52 +5,39 @@ import { useTheme } from '../../context/ThemeContext';
 const Experience = () => {
   const { theme } = useTheme();
   const experiences = [
-    {
-      id: 1,
-      role: 'Senior Frontend Developer',
-      company: 'Tech Solutions Inc.',
-      location: 'San Francisco, CA',
-      period: 'Jan 2022 - Present',
-      description: 'Led the frontend development team in creating modern web applications.',
-      achievements: [
-        'Improved application performance by 40% through code optimization',
-        'Led a team of 5 developers in implementing new features',
-        'Established coding standards and best practices',
-        'Mentored junior developers and conducted code reviews'
-      ],
-      technologies: ['React', 'TypeScript', 'Redux', 'Tailwind CSS']
-    },
-    {
-      id: 2,
-      role: 'Full Stack Developer',
-      company: 'Digital Innovations Lab',
-      location: 'New York, NY',
-      period: 'Mar 2020 - Dec 2021',
-      description: 'Developed and maintained full-stack applications for various clients.',
-      achievements: [
-        'Built and deployed 10+ client projects',
-        'Implemented responsive designs and improved UX',
-        'Integrated third-party APIs and services',
-        'Reduced server response time by 50%'
-      ],
-      technologies: ['Node.js', 'React', 'MongoDB', 'Express']
-    },
-    {
-      id: 3,
-      role: 'Junior Developer',
-      company: 'StartUp Vision',
-      location: 'Boston, MA',
-      period: 'Jun 2018 - Feb 2020',
-      description: 'Started as a junior developer working on web applications.',
-      achievements: [
-        'Developed and maintained company website',
-        'Assisted in creating user authentication system',
-        'Collaborated with design team on UI implementations',
-        'Participated in daily scrum meetings'
-      ],
-      technologies: ['JavaScript', 'HTML/CSS', 'PHP', 'MySQL']
-    }
+      {
+          id: 1,
+          role: 'Full Stack Developer',
+          company: 'Winners Education',
+          location: 'Remote',
+          period: 'Jun 2023 - Present',
+          description: 'A scalable web application for a coaching institute, enhancing both UI/UX and backend performance.',
+          achievements: [
+              'Designed a Comprehensive Scoreboard Management System for tracking offline exam scores',
+              'Smooth and responsive UI components for better user engagement and overall interface quality',
+              'Integrated REST APIs with frontend components to facilitate dynamic content updates and real-time functionality',
+              'Developed features for the admin interface, enabling download options for question papers as PDFs'
+          ],
+          technologies: ['Angular', 'TypeScript', 'Spring Boot', 'Bootstrap', 'PrimeNG', 'MySQL', 'REST APIs', 'Docker', 'Bitbucket']
+      },
+    //    {
+    //   id: 2,
+    //   role: 'Junior Developer',
+    //   company: 'StartUp Vision',
+    //   location: 'Boston, MA',
+    //   period: 'Jun 2018 - Feb 2020',
+    //   description: 'Started as a junior developer working on web applications.',
+    //   achievements: [
+    //     'Developed and maintained company website',
+    //     'Assisted in creating user authentication system',
+    //     'Collaborated with design team on UI implementations',
+    //     'Participated in daily scrum meetings'
+    //   ],
+    //   technologies: ['JavaScript', 'HTML/CSS', 'PHP', 'MySQL']
+    // }
   ];
+
+  const isSingleExperience = experiences.length === 1;
 
   return (
     <section id="experience" className="relative py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
@@ -72,17 +59,20 @@ const Experience = () => {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700" />
+        <div className={`relative ${isSingleExperience ? 'flex justify-center' : ''}`}>
+            {/* Conditional Timeline Line (Only when multiple experiences) */}
+          {!isSingleExperience && (
+            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700" />
+          )}
 
           {/* Experience Cards */}
-          <div className="space-y-16">
+          <div className={`space-y-16 ${isSingleExperience ? 'max-w-3xl' : ''}`}>
             {experiences.map((exp, index) => (
               <ExperienceCard 
                 key={exp.id} 
                 experience={exp} 
-                isLeft={index % 2 === 0}
+                isLeft={!isSingleExperience && index % 2 === 0} // Determine side only if multiple
+                isSingle={isSingleExperience}
                 delay={index * 200}
               />
             ))}
@@ -93,22 +83,23 @@ const Experience = () => {
   );
 };
 
-const ExperienceCard = ({ experience, isLeft, delay }) => {
+const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => {
   return (
     <div 
       className={`relative flex flex-col md:flex-row items-center ${
-        isLeft ? 'md:flex-row-reverse' : ''
-      } animate-slide-up`}
+        !isSingle && (isLeft ? 'md:flex-row-reverse' : '')
+      } ${isSingle ? 'justify-center' : ''} animate-slide-up`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      {/* Timeline dot */}
-      <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-600 dark:bg-primary-400 rounded-full border-4 border-white dark:border-dark-bg" />
+      {!isSingle && (
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-600 dark:bg-primary-400 rounded-full border-4 border-white dark:border-dark-bg" />
+      )}
 
       {/* Card */}
-      <div className={`w-full md:w-5/12 ml-12 md:ml-0 ${
-        isLeft ? 'md:ml-8' : 'md:mr-8'
-      }`}>
-        <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div className={`w-full ${isSingle ? 'md:w-full': 'md:w-5/12' } ${
+           !isSingle && (isLeft ? 'md:ml-8' : 'md:mr-8')
+      } ${isSingle ? 'ml-0 md:ml-0' : 'ml-12 md:ml-0'}`}>
+         <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div className="flex justify-between items-start mb-4">
             <div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text">{experience.role}</h3>
