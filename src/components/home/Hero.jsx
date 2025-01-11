@@ -60,8 +60,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
             <a 
-              href="/Uttam_Mahata_Resume.pdf" 
-              download
+              href="/Resume_Uttam_Mahata.pdf"
               className="px-6 py-3 rounded-full bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               <MdDownload className="w-5 h-5 mr-2" />
