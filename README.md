@@ -136,6 +136,4 @@ portfolio/
 - GitHub: [Uttam-Mahata](https://github.com/Uttam-Mahata)
 - Location: Howrah, India
 
-## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
