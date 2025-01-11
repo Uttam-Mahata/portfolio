@@ -38,8 +38,8 @@ const Hero = () => {
             Full Stack Developer & AI/ML Enthusiast
           </p>
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            Crafting digital experiences with modern web technologies. 
-            Specialized in creating responsive, user-friendly applications.
+            I'm a full-stack developer and ML enthusiast who builds innovative web applications with modern technologies. 
+            I focus on writing clean code while exploring AI and creating scalable solutions.
           </p>
 
           {/* Social Links */}
