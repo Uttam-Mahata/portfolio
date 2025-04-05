@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Github, 
   ExternalLink, 
-  Code, 
-  Layout, 
-  Database,
+
   Search,
   FilterIcon
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
-
+import PropTypes from 'prop-types';
 const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
@@ -189,11 +187,15 @@ const ProjectCard = ({ project }) => {
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-2 transition-colors duration-300">{project.title}</h3>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-2 transition-colors duration-300">
+          {project.title}
+        </h3>
         <p className="text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">
           {project.period}
         </p>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow transition-colors duration-300">{project.description}</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow transition-colors duration-300">
+          {project.description}
+        </p>
 
         <div className="mb-4">
           <div className="flex flex-wrap gap-2">
@@ -237,6 +239,21 @@ const ProjectCard = ({ project }) => {
       </div>
     </div>
   );
+};
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+    liveUrl: PropTypes.string,
+    githubUrl: PropTypes.string,
+    featured: PropTypes.bool,
+    period: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Projects;

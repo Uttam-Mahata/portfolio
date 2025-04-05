@@ -1,8 +1,7 @@
-import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail, MdDownload, MdKeyboardArrowDown } from 'react-icons/md';
 import { useTheme } from '../../context/ThemeContext';
-
+import SocialLink from '../SocialLink';
 const Hero = () => {
   const { theme } = useTheme();
 
@@ -46,7 +45,7 @@ const Hero = () => {
             Full Stack Developer & AI/ML Enthusiast
           </p>
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            I'm a full-stack developer and ML enthusiast who builds innovative web applications with modern technologies. 
+            I&apos;m a full-stack developer and ML enthusiast who builds innovative web applications with modern technologies. 
             I focus on writing clean code while exploring AI and creating scalable solutions.
           </p>
 
@@ -83,19 +82,5 @@ const Hero = () => {
     </section>
   );
 };
-
-const SocialLink = ({ href, icon, label }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="p-3 rounded-full bg-white dark:bg-dark-card shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
-    aria-label={label}
-  >
-    {React.cloneElement(icon, { 
-      className: 'text-gray-600 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300' 
-    })}
-  </a>
-);
 
 export default Hero;

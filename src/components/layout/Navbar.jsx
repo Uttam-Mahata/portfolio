@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Github, Linkedin, Mail } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -35,6 +35,7 @@ const Navbar = () => {
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
+    { href: '#blog', label: 'Blog' }, // Add this new navigation link
     { href: '#education', label: 'Education' },
     { href: '#contact', label: 'Contact' },
   ];
