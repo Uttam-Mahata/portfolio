@@ -1,7 +1,6 @@
-import React from 'react';
 import { Briefcase, ExternalLink, Calendar, MapPin } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
-
+import PropTypes from 'prop-types';
 const Experience = () => {
   const { theme } = useTheme();
   const experiences = [
@@ -84,77 +83,96 @@ const Experience = () => {
   );
 };
 
-const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => {
-  return (
-    <div 
-      className={`relative flex flex-col md:flex-row items-center ${
-        !isSingle && (isLeft ? 'md:flex-row-reverse' : '')
-      } ${isSingle ? 'justify-center' : ''} animate-slide-up`}
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      {!isSingle && (
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-600 dark:bg-primary-400 rounded-full border-4 border-white dark:border-dark-bg" />
-      )}
+const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => (
+  <div 
+    className={`relative flex flex-col md:flex-row items-center ${
+      !isSingle && (isLeft ? 'md:flex-row-reverse' : '')
+    } ${isSingle ? 'justify-center' : ''} animate-slide-up`}
+    style={{ animationDelay: `${delay}ms` }}
+  >
+    {!isSingle && (
+      <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-600 dark:bg-primary-400 rounded-full border-4 border-white dark:border-dark-bg" />
+    )}
 
-      {/* Card */}
-      <div className={`w-full ${isSingle ? 'md:w-full': 'md:w-5/12' } ${
-           !isSingle && (isLeft ? 'md:ml-8' : 'md:mr-8')
-      } ${isSingle ? 'ml-0 md:ml-0' : 'ml-12 md:ml-0'}`}>
-         <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text">{experience.role}</h3>
-              <div className="flex items-center mt-1 space-x-2">
-                <Briefcase className="w-4 h-4 text-primary-600 dark:text-primary-400" />
-                <a href={experience.url} className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  {experience.company}
-                  <ExternalLink className="inline-block w-4 h-4 ml-1" />
-                </a>
-              </div>
+    {/* Card */}
+    <div className={`w-full ${isSingle ? 'md:w-full' : 'md:w-5/12'} ${
+      !isSingle && (isLeft ? 'md:ml-8' : 'md:mr-8')
+    } ${isSingle ? 'ml-0 md:ml-0' : 'ml-12 md:ml-0'}`}>
+      <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div className="flex justify-between items-start mb-4">
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text">{experience.role}</h3>
+            <div className="flex items-center mt-1 space-x-2">
+              <Briefcase className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+              <a 
+                href={experience.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
+              >
+                {experience.company}
+                <ExternalLink className="inline-block w-4 h-4 ml-1" />
+              </a>
             </div>
           </div>
+        </div>
 
-          <div className="space-y-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
-            <div className="flex items-center">
-              <Calendar className="w-4 h-4 mr-2" />
-              {experience.period}
-            </div>
-            <div className="flex items-center">
-              <MapPin className="w-4 h-4 mr-2" />
-              {experience.location}
-            </div>
+        <div className="space-y-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex items-center">
+            <Calendar className="w-4 h-4 mr-2" />
+            {experience.period}
           </div>
-
-          <p className="text-gray-600 dark:text-gray-400 mb-4">{experience.description}</p>
-
-          <div className="space-y-2">
-            <h4 className="font-semibold text-gray-900 dark:text-dark-text">Key Achievements:</h4>
-            <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
-              {experience.achievements.map((achievement, index) => (
-                <li key={index} className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
-                  {achievement}
-                </li>
-              ))}
-            </ul>
+          <div className="flex items-center">
+            <MapPin className="w-4 h-4 mr-2" />
+            {experience.location}
           </div>
+        </div>
 
-          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-2">Technologies:</h4>
-            <div className="flex flex-wrap gap-2">
-              {experience.technologies.map((tech, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors duration-200"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">{experience.description}</p>
+
+        <div className="space-y-2">
+          <h4 className="font-semibold text-gray-900 dark:text-dark-text">Key Achievements:</h4>
+          <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
+            {experience.achievements.map((achievement, index) => (
+              <li key={index} className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+          <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-2">Technologies:</h4>
+          <div className="flex flex-wrap gap-2">
+            {experience.technologies.map((tech, index) => (
+              <span 
+                key={index}
+                className="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors duration-200"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </div>
     </div>
-  );
+  </div>
+);
+
+ExperienceCard.propTypes = {
+  experience: PropTypes.shape({
+    role: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    url: PropTypes.string,
+    location: PropTypes.string.isRequired,
+    period: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    achievements: PropTypes.arrayOf(PropTypes.string).isRequired,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  isLeft: PropTypes.bool,
+  delay: PropTypes.number,
+  isSingle: PropTypes.bool,
 };
 
 export default Experience;

@@ -1,11 +1,9 @@
-import React from 'react';
 import { 
   GraduationCap, 
   Calendar, 
-  Award, 
   BookOpen,
-  Star,
-  MapPin
+  MapPin, 
+  Star
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -18,7 +16,7 @@ const Education = () => {
       institution: "Indian Institute of Engineering Science and Technology, Shibpur",
       location: "Howrah, India",
       period: "2022 - 2026",
-      // gpa: "3.8/4.0",
+      gpa: "8.99/10",
       // achievements: [
       //   "Published research paper on AI algorithms",
       //   "Teaching Assistant for Web Development course",
@@ -42,22 +40,6 @@ const Education = () => {
     }
   ];
 
-  const certifications = [
-    {
-      id: 1,
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      date: "2022",
-      credentialUrl: "https://aws.amazon.com"
-    },
-    {
-      id: 2,
-      name: "Google Cloud Professional Developer",
-      issuer: "Google",
-      date: "2021",
-      credentialUrl: "https://cloud.google.com"
-    }
-  ];
 
   return (
     <section id="education" className="relative py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
@@ -96,10 +78,10 @@ const Education = () => {
                       <span className="font-medium">{edu.institution}</span>
                     </div>
                   </div>
-                  {/* <div className="flex items-center space-x-2 text-primary-600 dark:text-primary-400">
+                   <div className="flex items-center space-x-2 text-primary-600 dark:text-primary-400">
                     <Star className="w-5 h-5" />
                     <span className="font-medium">GPA: {edu.gpa}</span>
-                  </div> */}
+                  </div> 
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -165,39 +147,6 @@ const Education = () => {
             </div>
           ))}
         </div>
-
-        {/* Certifications */}
-        {/* <div className="animate-slide-up" style={{ animationDelay: '600ms' }}>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-dark-text mb-8 text-center">
-            Professional Certifications
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certifications.map((cert, index) => (
-              <div 
-                key={cert.id}
-                className="bg-white dark:bg-dark-card rounded-lg shadow p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                style={{ animationDelay: `${(index + 4) * 200}ms` }}
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-dark-text">{cert.name}</h4>
-                    <p className="text-gray-600 dark:text-gray-400">{cert.issuer}</p>
-                  </div>
-                  <span className="text-gray-500 dark:text-gray-400">{cert.date}</span>
-                </div>
-                <a
-                  href={cert.credentialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"
-                >
-                  <Award className="w-4 h-4 mr-1" />
-                  View Credential
-                </a>
-              </div>
-            ))}
-          </div>
-        </div> */}
       </div>
     </section>
   );

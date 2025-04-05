@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Mail, 
   Phone, 
@@ -7,7 +7,6 @@ import {
   Linkedin, 
   Github, 
   Facebook,
-  Twitter,
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
@@ -57,7 +56,7 @@ const Contact = () => {
             });
           }
         
-      } catch (error) {
+      } catch {
           setStatus({
             type: 'error',
             message: 'There was an error sending your message. Please try again.'

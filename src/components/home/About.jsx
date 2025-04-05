@@ -1,6 +1,7 @@
-import React from 'react';
-import { Code, Server, Database, Brain, Terminal, Coffee, Globe, Award } from 'lucide-react';
+import { Code, Server, Database, Brain, Terminal, Coffee, Award } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import QuickFact from '../QuickFact';
+import TechCategory from '../TechCategory';
 
 const About = () => {
   const { theme } = useTheme();
@@ -83,9 +84,7 @@ const About = () => {
             {/* Quick Facts */}
             <div className="grid grid-cols-2 gap-4 mt-8">
               <QuickFact icon={<Coffee />} title="Projects" value="5+" />
-              {/* <QuickFact icon={<Globe />} title="Clients" value="30+" /> */}
               <QuickFact icon={<Award />} title="Experience" value="1+ Years" />
-              {/* <QuickFact icon={<Code />} title="Technologies" value="20+" /> */}
             </div>
           </div>
 
@@ -146,43 +145,5 @@ const About = () => {
     </section>
   );
 };
-
-const QuickFact = ({ icon, title, value }) => (
-  <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-dark-card rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-    {React.cloneElement(icon, { className: 'w-6 h-6 text-primary-600 dark:text-primary-400' })}
-    <div>
-      <div className="font-bold text-gray-900 dark:text-dark-text">{value}</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">{title}</div>
-    </div>
-  </div>
-);
-
-const TechCategory = ({ icon, title, technologies, techIcons }) => (
-  <div className="p-6 bg-gray-50 dark:bg-dark-card rounded-lg hover:shadow-lg transition-all duration-300">
-    <div className="flex items-center space-x-2 mb-4">
-      {React.cloneElement(icon, { className: 'w-5 h-5 text-primary-600 dark:text-primary-400' })}
-      <h4 className="text-lg font-medium text-gray-900 dark:text-dark-text">{title}</h4>
-    </div>
-    <div className="flex flex-wrap gap-3">
-      {technologies.map((tech) => (
-        <div 
-          key={tech}
-          className="flex items-center gap-2 px-3 py-1.5 bg-primary-50 dark:bg-primary-900/20 
-                     text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium 
-                     hover:bg-primary-100 dark:hover:bg-primary-900/30 transition-colors duration-200"
-        >
-          {techIcons[tech] && (
-            <img 
-              src={techIcons[tech]} 
-              alt={`${tech} icon`}
-              className="w-5 h-5"
-            />
-          )}
-          <span>{tech}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-);
 
 export default About;
