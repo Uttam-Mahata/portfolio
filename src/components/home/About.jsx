@@ -23,12 +23,13 @@ const About = () => {
     'HTML': 'https://img.icons8.com/color/48/000000/html-5.png',
     'CSS': 'https://img.icons8.com/color/48/000000/css3.png',
     'JavaScript': 'https://img.icons8.com/color/48/000000/javascript.png',
+    'Tailwind CSS': 'https://img.icons8.com/color/48/000000/tailwindcss.png',
+    'Material UI': 'https://img.icons8.com/color/48/000000/material-ui.png',
     'TypeScript': 'https://img.icons8.com/color/48/000000/typescript.png',
     'Angular': '/angular_gradient.png',
     'React': 'https://img.icons8.com/color/48/000000/react-native.png',
     'Spring Boot': 'https://img.icons8.com/color/48/000000/spring-logo.png',
     'Bootstrap': 'https://img.icons8.com/color/48/000000/bootstrap.png',
-    'Tailwind CSS': 'https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg',
     'PrimeNG': 'https://www.primefaces.org/presskit/primeng-logo.svg',
     'Flask': 'https://img.icons8.com/cute-clipart/48/000000/flask.png',
     'Firebase': 'https://img.icons8.com/color/48/000000/firebase.png',
@@ -53,25 +54,20 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="relative py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
-      {/* Background pattern */}
-      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: theme === 'light' 
-            ? 'radial-gradient(circle at 25px 25px, black 1px, transparent 0)'
-            : 'radial-gradient(circle at 25px 25px, white 1px, transparent 0)',
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
-
+    <section id="about" className="relative py-20 bg-white dark:bg-dark-bg transition-colors duration-300 no-pattern">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="section-title dark:text-dark-text">About <span className="themed-text">Me</span></h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Get to know my skills, experience, and background
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left Column - Personal Info */}
           <div className="space-y-6 animate-slide-up">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-dark-text">
-              My Journey
+              My <span className="themed-text">Journey</span>
             </h3>
             <div className="prose prose-lg text-gray-600 dark:text-gray-400">
               <p>
@@ -91,7 +87,7 @@ const About = () => {
           {/* Right Column - Tech Stacks */}
           <div className="space-y-6 animate-slide-up delay-200">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-dark-text">
-              Technical Skills
+              <span className="themed-text">Technical</span> Skills
             </h3>
             
             <div className="space-y-4">

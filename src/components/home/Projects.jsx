@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { 
   Github, 
   ExternalLink, 
-
   Search,
   FilterIcon
 } from 'lucide-react';
@@ -100,6 +99,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="relative py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
+      {/* Background pattern */}
       <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: theme === 'light' 
@@ -111,7 +111,7 @@ const Projects = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title dark:text-dark-text">Featured Projects</h2>
+          <h2 className="section-title dark:text-dark-text">Featured <span className="themed-text">Projects</span></h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             A collection of my recent work and personal projects
           </p>
@@ -127,7 +127,7 @@ const Projects = () => {
                   onClick={() => setFilter(category.id)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
                     ${filter === category.id
-                      ? 'bg-primary-600 dark:bg-primary-500 text-white'
+                      ? 'themed-bg text-white'
                       : 'bg-gray-100 dark:bg-dark-card text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-border'
                     }`}
                 >
@@ -144,7 +144,7 @@ const Projects = () => {
               placeholder="Search projects..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-dark-card text-gray-900 dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
+              className="pl-10 pr-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus-themed bg-white dark:bg-dark-card text-gray-900 dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
             />
           </div>
         </div>
@@ -172,22 +172,22 @@ const ProjectCard = ({ project }) => {
   const isGithubLinkAvailable = project.githubUrl !== null && project.githubUrl !== undefined;
 
   return (
-    <div className="bg-white dark:bg-dark-card rounded-lg border border-gray-200 dark:border-dark-border h-full flex flex-col transition-colors duration-300">
+    <div className="bg-white dark:bg-dark-card rounded-lg border border-gray-200 dark:border-dark-border h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:themed-border themed-glow-hover group">
       <div className="relative h-48">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-t-lg"
         />
         {project.featured && (
-          <div className="absolute top-4 right-4 bg-primary-600 dark:bg-primary-500 text-white px-3 py-1 rounded-full text-sm">
+          <div className="absolute top-4 right-4 themed-bg text-white px-3 py-1 rounded-full text-sm">
             Featured
           </div>
         )}
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-2 transition-colors duration-300">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-2 transition-colors duration-300 group-hover:themed-text">
           {project.title}
         </h3>
         <p className="text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">
@@ -202,7 +202,7 @@ const ProjectCard = ({ project }) => {
             {project.technologies.map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-gray-100 dark:bg-dark-border text-gray-700 dark:text-gray-300 rounded-full text-sm transition-colors duration-300"
+                className="themed-badge"
               >
                 {tech}
               </span>
@@ -217,7 +217,7 @@ const ProjectCard = ({ project }) => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                className="flex items-center text-gray-600 dark:text-gray-400 hover-themed-text transition-colors duration-300"
               >
                 <Github className="w-5 h-5 mr-2" />
                 Code
@@ -228,7 +228,7 @@ const ProjectCard = ({ project }) => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                className="flex items-center text-gray-600 dark:text-gray-400 hover-themed-text transition-colors duration-300"
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
                 Live Demo
