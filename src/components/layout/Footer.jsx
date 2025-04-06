@@ -27,8 +27,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <p className="text-xl font-semibold">Uttam Mahata</p>
-            {/* <p className="text-sm mt-2">Full Stack Developer</p> */}
+            <p className="text-xl font-semibold themed-text">Uttam Mahata</p>
           </div>
           
           <div className="flex space-x-6 mb-6 md:mb-0">
@@ -38,7 +37,7 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-300"
+                className="hover:text-white hover:themed-text transition-colors duration-300"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -49,7 +48,7 @@ const Footer = () => {
               href="https://hashnode.com/@uttam-mahata" 
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-300"
+              className="hover:text-white hover:themed-text transition-colors duration-300"
               aria-label="Hashnode"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -61,8 +60,8 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
           <p>© {currentYear} Utam Mahata. All rights reserved.</p>
-          <p className="mt-2">
-            {/* Made with ❤️ using React & Tailwind CSS */}
+          <p className="mt-2 themed-text">
+            Made with ❤️ using React & Tailwind CSS
           </p>
         </div>
       </div>

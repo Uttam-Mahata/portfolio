@@ -134,7 +134,7 @@ const Blog = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title dark:text-dark-text">Latest Blog Posts</h2>
+          <h2 className="section-title dark:text-dark-text">Latest <span className="themed-text">Blog Posts</span></h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Thoughts, tutorials, and insights from my technical journey
           </p>
@@ -142,7 +142,7 @@ const Blog = () => {
 
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-8 h-8 text-primary-600 dark:text-primary-400 animate-spin" />
+            <Loader2 className="w-8 h-8 themed-text animate-spin" />
             <span className="ml-2 text-gray-600 dark:text-gray-400">Loading blog posts...</span>
           </div>
         ) : error ? (
@@ -171,7 +171,7 @@ const Blog = () => {
               href="https://hashnode.com/create-blog" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-md"
+              className="inline-flex items-center px-4 py-2 themed-bg hover:bg-opacity-90 text-white rounded-md"
             >
               Create Your First Blog Post
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -193,7 +193,7 @@ const Blog = () => {
               href={`https://hashnode.com/@${HASHNODE_USERNAME}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white themed-gradient-primary hover:opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus-themed"
             >
               View All Posts
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -209,17 +209,19 @@ const BlogPostCard = ({ post, username, placeholderImage }) => {
   const { title, brief, slug, coverImage, dateAdded, url } = post;
 
   return (
-    <div className="bg-white dark:bg-dark-card rounded-lg border border-gray-200 dark:border-dark-border h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div className="relative h-48">
+    <div className="bg-white dark:bg-dark-card rounded-lg border border-gray-200 dark:border-dark-border h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:themed-border themed-glow-hover group">
+      <div className="relative h-48 overflow-hidden rounded-t-lg">
         <img
           src={coverImage || placeholderImage}
           alt={title}
-          className="w-full h-full object-cover rounded-t-lg"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = placeholderImage;
           }}
         />
+        {/* Add a glowing overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
@@ -231,7 +233,7 @@ const BlogPostCard = ({ post, username, placeholderImage }) => {
           <span>Uttam Mahata</span>
         </div>
 
-        <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-3 transition-colors duration-300">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-3 transition-colors duration-300 group-hover:themed-text">
           {title}
         </h3>
 
@@ -243,10 +245,10 @@ const BlogPostCard = ({ post, username, placeholderImage }) => {
           href={url || `https://${username}.hashnode.dev/${slug}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
+          className="mt-auto inline-flex items-center themed-text font-medium"
         >
           Read More
-          <ArrowRight className="ml-1 w-4 h-4" />
+          <ArrowRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
         </a>
       </div>
     </div>
