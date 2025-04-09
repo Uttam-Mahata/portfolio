@@ -77,30 +77,30 @@ const categoryColors = {
 
 const TechCategory = ({ icon, title, technologies, techIcons }) => {
   return (
-    <div className="p-6 rounded-lg transition-all duration-500 hover:shadow-lg group border themed-accent-bg-light hover:themed-glow no-pattern">
-      {/* Remove any background patterns by adding no-pattern class */}
-      {/* Remove any absolute positioning that might be causing pattern issues */}
+    <div className="bg-white dark:bg-dark-card rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-md border border-gray-100 dark:border-gray-700/30 hover:themed-border group relative overflow-hidden">
+      {/* Shimmer effect */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
       
-      <div className="flex items-center space-x-2 mb-4 relative z-10">
-        {React.cloneElement(icon, { className: "w-5 h-5 themed-text" })}
-        <h4 className="text-lg font-medium text-gray-900 dark:text-dark-text">{title}</h4>
+      <div className="flex items-center mb-3">
+        <div className="p-2 rounded-full bg-gray-100 dark:bg-gray-800/50 themed-text mr-3">
+          {icon}
+        </div>
+        <h4 className="font-medium text-gray-900 dark:text-dark-text group-hover:themed-text transition-colors">{title}</h4>
       </div>
-      
-      <div className="flex flex-wrap gap-3 relative z-10">
+      <div className="flex flex-wrap gap-2">
         {technologies.map((tech) => (
           <div 
-            key={tech}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium 
-                     transition-colors duration-300 themed-badge no-pattern"
+            key={tech} 
+            className="flex items-center px-3 py-1.5 bg-gray-50 dark:bg-gray-800/30 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors group-hover:shadow-sm"
           >
             {techIcons[tech] && (
               <img 
                 src={techIcons[tech]} 
-                alt={`${tech} icon`}
-                className="w-5 h-5"
+                alt={tech} 
+                className="w-5 h-5 mr-2" 
               />
             )}
-            <span>{tech}</span>
+            <span className="text-sm text-gray-700 dark:text-gray-300">{tech}</span>
           </div>
         ))}
       </div>
@@ -109,7 +109,7 @@ const TechCategory = ({ icon, title, technologies, techIcons }) => {
 };
 
 TechCategory.propTypes = {
-  icon: PropTypes.element.isRequired,
+  icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
   techIcons: PropTypes.object.isRequired,

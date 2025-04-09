@@ -60,7 +60,7 @@ function App() {
           <Footer />
           
           {/* Fixed Position Controls for Mobile - Now with isMobile prop */}
-          <div className="fixed bottom-6 right-6 z-30 flex flex-col space-y-4 md:hidden">
+          <div className="fixed bottom-6 right-6 z-30 flex flex-col space-y-4">
             <ThemeColorPicker 
               className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
               isMobile={true}
