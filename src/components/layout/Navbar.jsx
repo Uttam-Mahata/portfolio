@@ -107,10 +107,10 @@ const Navbar = () => {
             {/* Theme and Font Controls */}
             <div className="flex items-center space-x-2">
               {/* Font Family Picker */}
-              <FontPicker />
+              {/* <FontPicker /> */}
               
               {/* Color Theme Picker */}
-              <ThemeColorPicker />
+              {/* <ThemeColorPicker /> */}
               
               {/* Light/Dark Toggle Button */}
               <button
