@@ -2,17 +2,308 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --theme-primary: #0ea5e9;
+    --theme-primary-light: #38bdf8;
+    --theme-primary-dark: #0284c7;
+    --theme-secondary: #06b6d4;
+    --theme-secondary-light: #22d3ee;
+    --theme-secondary-dark: #0891b2;
+    --theme-accent-50: #f0f9ff;
+    --theme-accent-100: #e0f2fe;
+    --theme-accent-200: #bae6fd;
+    --font-family: 'Inter', sans-serif;
+  }
+
+  html, body {
+    font-family: var(--font-family);
+  }
+
+  /* Font preview samples */
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-opensans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Additional fonts */
+  .font-lato {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .font-nunito {
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-firacode {
+    font-family: 'Fira Code', monospace;
+  }
+  
+  .font-merriweather {
+    font-family: 'Merriweather', serif;
+  }
+  
+  .font-raleway {
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .font-sourcesans {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+}
+
 @layer components {
+  /* Basic component styles */
   .nav-link {
     @apply text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors;
   }
   
   .btn-primary {
-    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors;
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white transition-colors;
+    background-color: var(--theme-primary);
+  }
+  .btn-primary:hover {
+    background-color: var(--theme-primary-dark);
   }
 
   .section-title {
-    @apply text-3xl font-bold text-gray-900 mb-8;
+    @apply text-3xl font-bold mb-8;
+    color: #111827;
+  }
+  .dark .section-title {
+    color: #e2e8f0;
+  }
+
+  /* Theme text colors */
+  .themed-text {
+    color: var(--theme-primary);
+  }
+  .dark .themed-text {
+    color: var(--theme-primary-light);
+  }
+  
+  .themed-text-secondary {
+    color: var(--theme-secondary);
+  }
+  .dark .themed-text-secondary {
+    color: var(--theme-secondary-light);
+  }
+  
+  /* Theme backgrounds */
+  .themed-bg {
+    background-color: var(--theme-primary);
+  }
+  .dark .themed-bg {
+    background-color: var(--theme-primary-light);
+  }
+  
+  .themed-bg-secondary {
+    background-color: var(--theme-secondary);
+  }
+  .dark .themed-bg-secondary {
+    background-color: var(--theme-secondary-light);
+  }
+  
+  .themed-bg-light {
+    background-color: var(--theme-accent-50);
+  }
+  .dark .themed-bg-light {
+    background-color: rgba(var(--theme-primary-light), 0.1);
+  }
+  
+  /* Theme borders */
+  .themed-border {
+    border-color: var(--theme-primary);
+  }
+  .dark .themed-border {
+    border-color: var(--theme-primary-light);
+  }
+  
+  .themed-border-light {
+    border-color: rgba(var(--theme-primary), 0.3);
+  }
+  .dark .themed-border-light {
+    border-color: rgba(var(--theme-primary-light), 0.3);
+  }
+  
+  /* Theme gradients */
+  .themed-gradient-primary {
+    @apply bg-gradient-to-r;
+    background-image: linear-gradient(to right, var(--theme-primary), var(--theme-primary-dark));
+  }
+  .dark .themed-gradient-primary {
+    background-image: linear-gradient(to right, var(--theme-primary-light), var(--theme-primary));
+  }
+  
+  .themed-gradient-secondary {
+    @apply bg-gradient-to-r;
+    background-image: linear-gradient(to right, var(--theme-primary), var(--theme-secondary));
+  }
+  .dark .themed-gradient-secondary {
+    background-image: linear-gradient(to right, var(--theme-primary-light), var(--theme-secondary-light));
+  }
+  
+  .themed-gradient-accent {
+    @apply bg-gradient-to-br;
+    background-image: linear-gradient(to bottom right, var(--theme-accent-50), var(--theme-accent-100));
+  }
+  .dark .themed-gradient-accent {
+    background-image: linear-gradient(to bottom right, rgba(var(--theme-primary), 0.1), rgba(var(--theme-primary), 0.2));
+  }
+
+  /* Theme hover states */
+  .hover-themed-text:hover {
+    color: var(--theme-primary);
+  }
+  .dark .hover-themed-text:hover {
+    color: var(--theme-primary-light);
+  }
+  
+  .hover-themed-bg:hover {
+    background-color: var(--theme-primary);
+  }
+  .dark .hover-themed-bg:hover {
+    background-color: var(--theme-primary-light);
+  }
+  
+  .hover-themed-border:hover {
+    border-color: var(--theme-primary);
+  }
+  .dark .hover-themed-border:hover {
+    border-color: var(--theme-primary-light);
+  }
+
+  /* Theme glowing effects */
+  .themed-glow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 5px var(--theme-primary);
+  }
+  .dark .themed-glow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 5px var(--theme-primary-light);
+  }
+  
+  .themed-glow-hover:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), 0 0 8px var(--theme-primary);
+  }
+  .dark .themed-glow-hover:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 8px var(--theme-primary-light);
+  }
+
+  /* Theme accent backgrounds */
+  .themed-accent-bg-light {
+    background-color: var(--theme-accent-50);
+  }
+  .dark .themed-accent-bg-light {
+    background-color: rgba(var(--theme-primary-light), 0.05);
+  }
+  
+  .themed-accent-bg {
+    background-color: var(--theme-accent-100);
+  }
+  .dark .themed-accent-bg {
+    background-color: rgba(var(--theme-primary-light), 0.1);
+  }
+  
+  .themed-accent-bg-dark {
+    background-color: var(--theme-accent-200);
+  }
+  .dark .themed-accent-bg-dark {
+    background-color: rgba(var(--theme-primary-light), 0.15);
+  }
+  
+  /* Tag/Badge styling */
+  .themed-badge {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+    background-color: var(--theme-accent-100);
+    color: var(--theme-primary-dark);
+  }
+  .dark .themed-badge {
+    background-color: rgba(var(--theme-primary-light), 0.15);
+    color: var(--theme-primary-light);
+  }
+  
+  .themed-badge:hover {
+    background-color: var(--theme-accent-200);
+    color: var(--theme-primary);
+  }
+  .dark .themed-badge:hover {
+    background-color: rgba(var(--theme-primary-light), 0.25);
+    color: var(--theme-primary-light);
+  }
+
+  /* Animation with theme colors */
+  @keyframes glow-themed {
+    0%, 100% { 
+      box-shadow: 0 0 5px rgba(var(--theme-primary), 0.5); 
+    }
+    50% { 
+      box-shadow: 0 0 15px rgba(var(--theme-primary), 0.8);
+    }
+  }
+  
+  .animate-glow-themed {
+    animation: glow-themed 2s infinite;
+  }
+  
+  /* Form focus styles */
+  .focus-themed:focus {
+    outline: none;
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 0 3px rgba(var(--theme-primary), 0.2);
+  }
+  .dark .focus-themed:focus {
+    border-color: var(--theme-primary-light);
+    box-shadow: 0 0 0 3px rgba(var(--theme-primary-light), 0.2);
+  }
+
+  /* Add a utility class to disable background patterns */
+  .no-pattern {
+    background-image: none !important;
+    background-color: inherit !important;
+  }
+
+  /* Pattern styles that can be applied or disabled */
+  .pattern-dots {
+    background-image: radial-gradient(circle at 25px 25px, currentColor 1px, transparent 0);
+    background-size: 50px 50px;
+  }
+}
+
+@layer utilities {
+  /* Strengthen the no-pattern utility to override any background patterns */
+  .no-pattern {
+    background-image: none !important;
+    background: none !important;
+    background-color: inherit !important;
+  }
+
+  /* For parent elements that might have children with patterns */
+  .no-pattern * {
+    background-image: none !important;
+  }
+  
+  .no-pattern::before,
+  .no-pattern::after {
+    background-image: none !important;
+    background: none !important;
   }
 }
 

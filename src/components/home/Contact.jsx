@@ -119,7 +119,7 @@ const Contact = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title dark:text-dark-text">Get In Touch</h2>
+          <h2 className="section-title dark:text-dark-text">Get In <span className="themed-text">Touch</span></h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Have a question or want to work together? Feel free to contact me!
           </p>
@@ -128,7 +128,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8 animate-slide-up">
-            <div className="bg-gray-50 dark:bg-dark-card rounded-lg p-8 space-y-8 hover:shadow-lg transition-all duration-300">
+            <div className="bg-gray-50 dark:bg-dark-card rounded-lg p-8 space-y-8 hover:shadow-lg transition-all duration-300 hover:themed-border themed-glow-hover">
               {/* Contact Details */}
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -137,9 +137,9 @@ const Contact = () => {
                     href={info.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-4 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    className="flex items-center space-x-4 text-gray-600 dark:text-gray-400 hover-themed-text transition-colors group"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-white dark:bg-dark-bg rounded-lg shadow-sm flex items-center justify-center text-primary-600 dark:text-primary-400">
+                    <div className="flex-shrink-0 w-12 h-12 bg-white dark:bg-dark-bg rounded-lg shadow-sm flex items-center justify-center themed-text">
                       {info.icon}
                     </div>
                     <div>
@@ -160,7 +160,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white dark:bg-dark-bg rounded-lg shadow-sm flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors hover:-translate-y-1 hover:shadow-lg"
+                      className="w-12 h-12 bg-white dark:bg-dark-bg rounded-lg shadow-sm flex items-center justify-center text-gray-600 dark:text-gray-400 hover-themed-text transition-colors hover:-translate-y-1 hover:shadow-lg themed-glow-hover"
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -169,12 +169,10 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
-          
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-50 dark:bg-dark-card rounded-lg p-8 hover:shadow-lg transition-all duration-300 animate-slide-up delay-200">
+          <div className="bg-gray-50 dark:bg-dark-card rounded-lg p-8 hover:shadow-lg transition-all duration-300 animate-slide-up delay-200 hover:themed-border themed-glow-hover">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -188,7 +186,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:text-dark-text"
+                    className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus-themed dark:text-dark-text"
                   />
                 </div>
                 <div>
@@ -202,7 +200,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:text-dark-text"
+                    className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus-themed dark:text-dark-text"
                   />
                 </div>
               </div>
@@ -218,7 +216,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:text-dark-text"
+                  className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus-themed dark:text-dark-text"
                 />
               </div>
 
@@ -233,7 +231,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:text-dark-text"
+                  className="w-full px-4 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-lg focus-themed dark:text-dark-text"
                 />
               </div>
 
@@ -253,16 +251,19 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white rounded-lg transition-colors duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
+                className="w-full px-6 py-3 text-white rounded-lg transition-colors duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg themed-gradient-primary relative overflow-hidden group"
               >
-                {isSubmitting ? (
-                  <span>Sending...</span>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
-                  </>
-                )}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                <span className="relative z-10 flex items-center">
+                  {isSubmitting ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 mr-2" />
+                      Send Message
+                    </>
+                  )}
+                </span>
               </button>
             </form>
           </div>

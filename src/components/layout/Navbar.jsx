@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Github, Linkedin, Mail } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import ThemeColorPicker from '../ThemeColorPicker';
+import FontPicker from '../FontPicker';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,10 +60,10 @@ const Navbar = () => {
             href="#" 
             className="group flex items-center space-x-2 text-xl font-bold text-gray-900 dark:text-dark-text"
           >
-            <div className="w-8 h-8 bg-primary-600 dark:bg-primary-500 rounded-lg flex items-center justify-center text-white transform group-hover:rotate-12 transition-transform duration-300">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white transform group-hover:rotate-12 transition-transform duration-300 themed-bg">
               UM
             </div>
-            <span className="hidden sm:block">Uttam Mahata</span>
+            <span className="hidden sm:block group-hover:glow-text">Uttam Mahata</span>
           </a>
           
           {/* Desktop Navigation */}
@@ -72,14 +74,14 @@ const Navbar = () => {
                 href={href} 
                 className={`relative py-2 text-sm font-medium transition-colors duration-300
                   ${activeSection === href.slice(1)
-                    ? 'text-primary-600 dark:text-primary-400'
+                    ? 'themed-text'
                     : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }
                 `}
               >
                 {label}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 dark:bg-primary-400 transform origin-left transition-transform duration-300 ${
-                  activeSection === href.slice(1) ? 'scale-x-100' : 'scale-x-0'
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 transform origin-left transition-transform duration-300 themed-bg ${
+                  activeSection === href.slice(1) ? 'scale-x-100 animate-glow-pulse' : 'scale-x-0'
                 }`} />
               </a>
             ))}
@@ -94,7 +96,7 @@ const Navbar = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                  className="text-gray-600 dark:text-gray-300 hover:themed-text transition-colors duration-300"
                   aria-label={label}
                 >
                   {icon}
@@ -102,18 +104,27 @@ const Navbar = () => {
               ))}
             </div>
             
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-border transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              ) : (
-                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              )}
-            </button>
+            {/* Theme and Font Controls */}
+            <div className="flex items-center space-x-2">
+              {/* Font Family Picker */}
+              {/* <FontPicker /> */}
+              
+              {/* Color Theme Picker */}
+              {/* <ThemeColorPicker /> */}
+              
+              {/* Light/Dark Toggle Button */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-border transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 hover:animate-glow-pulse"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? (
+                  <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                ) : (
+                  <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation Button and Theme Toggle */}
@@ -152,7 +163,7 @@ const Navbar = () => {
                 href={href}
                 className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors duration-300 ${
                   activeSection === href.slice(1)
-                    ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
+                    ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 glow-border-hover'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-border'
                 }`}
                 onClick={() => setIsOpen(false)}
@@ -172,7 +183,7 @@ const Navbar = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-border hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                  className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-border hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 hover:animate-glow-pulse"
                   aria-label={label}
                 >
                   {icon}

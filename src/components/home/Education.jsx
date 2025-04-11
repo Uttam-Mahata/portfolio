@@ -55,7 +55,7 @@ const Education = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title dark:text-dark-text">Education & Certifications</h2>
+          <h2 className="section-title dark:text-dark-text">Education & <span className="themed-text">Certifications</span></h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             My academic background and professional certifications
           </p>
@@ -66,19 +66,22 @@ const Education = () => {
           {education.map((edu, index) => (
             <div 
               key={edu.id}
-              className="bg-white dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl animate-slide-up"
+              className="bg-white dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl animate-slide-up hover:themed-border themed-glow-hover group relative"
               style={{ animationDelay: `${index * 200}ms` }}
             >
+              {/* Add glowing accent bar at top */}
+              <div className="absolute top-0 left-0 right-0 h-1 themed-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              
               <div className="p-8">
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-dark-text">{edu.degree}</h3>
                     <div className="flex items-center mt-2 text-gray-600 dark:text-gray-400">
-                      <GraduationCap className="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" />
+                      <GraduationCap className="w-5 h-5 mr-2 themed-text" />
                       <span className="font-medium">{edu.institution}</span>
                     </div>
                   </div>
-                   <div className="flex items-center space-x-2 text-primary-600 dark:text-primary-400">
+                   <div className="flex items-center space-x-2 themed-text">
                     <Star className="w-5 h-5" />
                     <span className="font-medium">GPA: {edu.gpa}</span>
                   </div> 
@@ -95,32 +98,20 @@ const Education = () => {
                       <MapPin className="w-5 h-5 mr-2" />
                       {edu.location}
                     </div>
-                    
-                    {/* <div className="space-y-2">
-                      <h4 className="font-semibold text-gray-900 dark:text-dark-text flex items-center">
-                        <Award className="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" />
-                        Key Achievements
-                      </h4>
-                      <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
-                        {edu.achievements.map((achievement, index) => (
-                          <li key={index}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </div> */}
                   </div>
 
                   {/* Right Column */}
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <h4 className="font-semibold text-gray-900 dark:text-dark-text flex items-center">
-                        <BookOpen className="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" />
+                        <BookOpen className="w-5 h-5 mr-2 themed-text" />
                         Relevant Coursework
                       </h4>
                       <div className="grid grid-cols-2 gap-2">
                         {edu.relevantCourses.map((course, index) => (
                           <div 
                             key={index}
-                            className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-dark-bg rounded-lg p-2"
+                            className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-dark-bg rounded-lg p-2 hover:themed-accent-bg-light hover:text-gray-900 transition-colors duration-300"
                           >
                             {course}
                           </div>
@@ -134,7 +125,7 @@ const Education = () => {
                         {edu.skills.map((skill, index) => (
                           <span
                             key={index}
-                            className="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm"
+                            className="themed-badge group-hover:animate-pulse"
                           >
                             {skill}
                           </span>
