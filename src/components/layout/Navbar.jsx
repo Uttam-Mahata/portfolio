@@ -129,7 +129,6 @@ const Navbar = () => {
 
           {/* Mobile Navigation Button and Theme Toggle */}
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeColorPicker />
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-border transition-colors duration-300"
