@@ -1,4 +1,5 @@
 import { ThemeProvider } from './context/ThemeContext';
+import { FontProvider } from './context/FontContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/home/Hero';
@@ -8,7 +9,9 @@ import Projects from './components/home/Projects';
 import Education from './components/home/Education';
 import Contact from './components/home/Contact';
 import Certifications from './components/home/Certifications';
-import Blog from './components/home/Blog'; // Add this import
+import Blog from './components/home/Blog';
+import ThemeColorPicker from './components/ThemeColorPicker';
+import FontPicker from './components/FontPicker';
 
 const certifications = [
 
@@ -38,20 +41,37 @@ const certifications = [
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gray-50 dark:bg-dark-bg transition-colors duration-300">
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Education />
-          <Experience />
-          <Projects />
-          <Blog /> {/* Add the Blog component here */}
-          <Certifications certifications={certifications} />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <FontProvider>
+        <div className="min-h-screen bg-white dark:bg-dark-bg transition-colors duration-300">
+          <Navbar />
+          <main>
+            <Hero />
+            {/* Apply the no-pattern class to completely disable any background patterns */}
+            <div className="no-pattern">
+              <About />
+            </div>
+            <Education />
+            <Experience />
+            <Projects />
+            <Blog />
+            <Certifications certifications={certifications} />
+            <Contact />
+          </main>
+          <Footer />
+          
+          {/* Fixed Position Controls for Mobile - Now with isMobile prop */}
+          <div className="fixed bottom-6 right-6 z-30 flex flex-col space-y-4">
+            <ThemeColorPicker 
+              className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
+              isMobile={true}
+            />
+            <FontPicker 
+              className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
+              isMobile={true}
+            />
+          </div>
+        </div>
+      </FontProvider>
     </ThemeProvider>
   );
 }

@@ -53,7 +53,7 @@ const Experience = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title dark:text-dark-text">Professional Experience</h2>
+          <h2 className="section-title dark:text-dark-text">Professional <span className="themed-text">Experience</span></h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             My professional journey and key achievements throughout my career
           </p>
@@ -91,24 +91,29 @@ const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => (
     style={{ animationDelay: `${delay}ms` }}
   >
     {!isSingle && (
-      <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-600 dark:bg-primary-400 rounded-full border-4 border-white dark:border-dark-bg" />
+      <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 themed-bg rounded-full border-4 border-white dark:border-dark-bg"></div>
     )}
 
     {/* Card */}
     <div className={`w-full ${isSingle ? 'md:w-full' : 'md:w-5/12'} ${
       !isSingle && (isLeft ? 'md:ml-8' : 'md:mr-8')
     } ${isSingle ? 'ml-0 md:ml-0' : 'ml-12 md:ml-0'}`}>
-      <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:themed-border themed-glow-hover group">
+        {/* Glowing accent on hover */}
+        <div className="absolute inset-0 rounded-lg overflow-hidden">
+          <div className="absolute inset-x-0 bottom-0 h-1 themed-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+        </div>
+        
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text">{experience.role}</h3>
             <div className="flex items-center mt-1 space-x-2">
-              <Briefcase className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+              <Briefcase className="w-4 h-4 themed-text" />
               <a 
                 href={experience.url} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
+                className="themed-text hover:text-theme-primary-dark dark:hover:text-theme-primary-light font-medium"
               >
                 {experience.company}
                 <ExternalLink className="inline-block w-4 h-4 ml-1" />
@@ -134,7 +139,7 @@ const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => (
           <h4 className="font-semibold text-gray-900 dark:text-dark-text">Key Achievements:</h4>
           <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
             {experience.achievements.map((achievement, index) => (
-              <li key={index} className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
+              <li key={index} className="hover-themed-text transition-colors duration-200">
                 {achievement}
               </li>
             ))}
@@ -147,7 +152,7 @@ const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => (
             {experience.technologies.map((tech, index) => (
               <span 
                 key={index}
-                className="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors duration-200"
+                className="themed-badge group-hover:animate-pulse"
               >
                 {tech}
               </span>
