@@ -32,7 +32,10 @@ const About = () => {
     'Bootstrap': 'https://img.icons8.com/color/48/000000/bootstrap.png',
     'PrimeNG': 'https://www.primefaces.org/presskit/primeng-logo.svg',
     'Flask': 'https://img.icons8.com/cute-clipart/48/000000/flask.png',
+    'FastAPI': 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.svg',
     'Firebase': 'https://img.icons8.com/color/48/000000/firebase.png',
+    'Computer Architecture & Organization': 'https://www.flaticon.com/svg/static/icons/svg/1835/1835276.svg',
+    'Google Cloud': 'https://gcpicons.com/gcp-logo.svg',
     
     
     // Data Science & ML
@@ -100,14 +103,14 @@ const About = () => {
               <TechCategory 
                 icon={<Code />}
                 title="Programming Languages"
-                technologies={['C/C++', 'Java', 'Python']}
+                technologies={['C/C++', 'Java', 'Python', 'TypeScript']}
                 techIcons={techIcons}
               />
 
               <TechCategory 
                 icon={<Database />}
                 title="Technical Skills"
-                technologies={['Data Structures', 'Algorithms', 'DBMS', 'OS', 'Computer Networking']}
+                technologies={['Data Structures', 'Algorithms', 'DBMS', 'OS', 'Computer Networking', 'Computer Architecture & Organization']}
                 techIcons={techIcons}
               />
 
@@ -116,7 +119,7 @@ const About = () => {
                 title="Web Development"
                 technologies={[
                   'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'React',
-                  'Spring Boot', 'Bootstrap', 'Tailwind CSS', 'PrimeNG', 'Flask', 'Firebase'
+                  'Spring Boot', 'Bootstrap', 'Tailwind CSS', 'PrimeNG', 'Flask', 'FastAPI', 'Firebase'
                 ]}
                 techIcons={techIcons}
               />
@@ -136,7 +139,7 @@ const About = () => {
                 title="Others"
                 technologies={[
                   'Linux', 'Git', 'AWS', 'GitHub',
-                  'Bitbucket', 'Docker'
+                  'Bitbucket', 'Docker', 'Google Cloud'
                 ]}
                 techIcons={techIcons}
               />

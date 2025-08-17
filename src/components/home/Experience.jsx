@@ -4,37 +4,21 @@ import PropTypes from 'prop-types';
 const Experience = () => {
   const { theme } = useTheme();
   const experiences = [
-      {
-          id: 1,
-          role: 'Full Stack Developer',
-          company: 'Winners Education',
-          url: 'https://winnerseducation.org',
-          location: 'Remote',
-          period: 'Jun 2023 - Present',
-          description: 'A scalable web application for a coaching institute, enhancing both UI/UX and backend performance.',
-          achievements: [
-              'Designed a Comprehensive Scoreboard Management System for tracking offline exam scores',
-              'Smooth and responsive UI components for better user engagement and overall interface quality',
-              'Integrated REST APIs with frontend components to facilitate dynamic content updates and real-time functionality',
-              'Developed features for the admin interface, enabling download options for question papers as PDFs'
-          ],
-          technologies: ['Angular', 'TypeScript', 'Spring Boot', 'Bootstrap', 'PrimeNG', 'MySQL', 'REST APIs', 'Docker', 'Bitbucket']
-      },
-    //    {
-    //   id: 2,
-    //   role: 'Junior Developer',
-    //   company: 'StartUp Vision',
-    //   location: 'Boston, MA',
-    //   period: 'Jun 2018 - Feb 2020',
-    //   description: 'Started as a junior developer working on web applications.',
-    //   achievements: [
-    //     'Developed and maintained company website',
-    //     'Assisted in creating user authentication system',
-    //     'Collaborated with design team on UI implementations',
-    //     'Participated in daily scrum meetings'
-    //   ],
-    //   technologies: ['JavaScript', 'HTML/CSS', 'PHP', 'MySQL']
-    // }
+    {
+      id: 1,
+      role: 'Software Development Intern',
+      company: 'Alpha AI Service Pvt Ltd',
+      url: null,
+      location: 'Remote | New Delhi, India',
+      period: 'Aug 2024 – Present',
+      description: 'Integrated advanced content generation and features using Gemini and Langchain, supporting 10+ content types.',
+      achievements: [
+        'Built and optimized 15+ scalable, stateless AI service endpoints using Python (FastAPI, Flask), reducing latency by 16%.',
+        'Developed a FastAPI-based backend for a travel assistant mobile app with 6+ AI-powered services (trip planning, landmark recognition, cultural insights) using MongoDB + JWT authentication.',
+        'Created a Generative AI-based voice generation platform (~90% speech synthesis accuracy) with a React interface for real-time interaction.'
+      ],
+      technologies: ['Python', 'FastAPI', 'Flask', 'Gemini', 'Langchain', 'MongoDB', 'JWT', 'React']
+    }
   ];
 
   const isSingleExperience = experiences.length === 1;

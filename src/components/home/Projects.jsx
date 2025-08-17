@@ -15,68 +15,40 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Course Wagon',
-      description: 'A web application for automated course management, utilizing the Gemini API for AI-driven content generation.',
+      title: 'CourseWagon – AI-Powered Course Authoring & Management Tool',
+      description: 'Built using Angular + Flask, automated curriculum generation via Gemini API (60% manual effort reduction). Deployed using Docker on GCP with role-based access control.',
       image: '/coursewagon.svg',
       category: 'fullstack',
-      technologies: ['Angular', 'HTML', 'CSS', 'TypeScript', 'Python', 'Flask', 'Google Generative AI', 'Bootstrap', 'MySQL', 'REST APIs', 'Firebase'],
-      liveUrl: null,
+      technologies: ['Angular', 'Flask', 'Gemini API', 'Docker', 'GCP'],
+      liveUrl: 'https://www.coursewagon.live/',
       githubUrl: null,
       featured: true,
-      period:'October 2024 - Present'
+      period:''
     },
     {
       id: 2,
-      title: 'Loan Approval Prediction',
-      description: 'A machine learning model designed to predict loan status using RandomForest, XGBoost, and LightGBM with Stratified K-Fold and ROC-AUC metrics.',
-      image: '/loanapproval.svg',
-      category: 'datascience',
-      technologies: ['Python', 'Jupyter Notebook', 'Numpy', 'Pandas', 'Scikit-learn'],
+      title: 'BAFCC - Football Coaching Camp Management System',
+      description: 'Web app for football camp management using React (TypeScript) + FastAPI. Designed modular financial dashboard handling 100+ records with real-time management and RBAC.',
+      image: '/course.svg',
+      category: 'fullstack',
+      technologies: ['React', 'TypeScript', 'FastAPI', 'RBAC'],
       liveUrl: null,
-      githubUrl: null,
-      period: 'October 2024'
+      githubUrl: 'https://github.com/Uttam-Mahata/bafcc',
+      featured: true,
+      period:''
     },
     {
       id: 3,
-      title: 'Course Recommendation System',
-      description: 'A recommendation model for suggesting similar Coursera courses based on user input, utilizing NLP techniques like CountVectorizer and TF-IDF, paired with cosine similarity.',
+      title: 'Winners Education – Coaching Institute Management System',
+      description: 'Developed with Angular + Spring Boot + MySQL. Enabled seamless course & exam tracking for 100+ students with secure admin/student modules. Built scoreboard management system with PDF export for question papers, automating offline exam results.',
       image: '/course.svg',
-      category: 'datascience',
-      technologies: ['Python', 'Pandas', 'Scikit-learn', 'TF-IDF', 'Cosine Similarity'],
-      liveUrl: null,
-      githubUrl: null,
-      period:'September 2024'
-    },
-    {
-      id: 4,
-      title: 'Educational RBAC System',
-      description: 'The Educational Role-Based Access Control (RBAC) system is a web application developed using Angular to demonstrate the concepts of user roles, permissions, and authentication within an educational environment.',
-      image: 'rbac.svg',
-      category: 'frontend',
-      technologies: ['Angular', 'HTML', 'CSS', 'TypeScript', 'Bootstrap'],
-      liveUrl: null,
-      githubUrl: null,
-    },
-    {
-      id: 5,
-      title: 'Travelling-Salesman-Problem-using-Genetic-Algorithm',
-      description: 'A solution to the Traveling Salesman Problem using the genetic algorithm',
-      image: '/tsp.svg',
-      category: 'all',
-      technologies:['Python', 'Genetic Algorithm'],
-      liveUrl: null,
-      githubUrl: null,
-    },
-    {
-      id: 6,
-      title: 'ShortlyUrl url shortner web application',
-      description: 'A url shortening web application',
-      image: '/shortly.svg',
       category: 'fullstack',
-      technologies:['Python', 'HTML','CSS', 'Spring Boot', 'Angular Material UI', 'MySQL', 'REST APIs', 'Docker'],
-      liveUrl: null,
-      githubUrl: null
-    },
+      technologies: ['Angular', 'Spring Boot', 'MySQL', 'PDF Export'],
+      liveUrl: 'https://winnerseducation.org/',
+      githubUrl: null,
+      featured: true,
+      period:''
+    }
   ];
 
   const categories = [
