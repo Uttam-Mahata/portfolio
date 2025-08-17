@@ -60,14 +60,14 @@ const Hero = () => {
             />
             
             <SocialLink 
-              href="https://www.linkedin.com/in/uttam-mahata-4b0364259/" 
+              href="https://www.linkedin.com/in/uttam-mahata"
               icon={<FaLinkedin size={20} />} 
               label="LinkedIn"
               className="bg-white dark:bg-dark-card hover:themed-bg hover:text-white border border-gray-200 dark:border-gray-700 hover:themed-border themed-glow-hover"
             />
             
             <SocialLink 
-              href="mailto:uttam-mahata-cs@outlook.com" 
+              href="mailto:mahatauttam0408@gmail.com"
               icon={<MdEmail size={20} />} 
               label="Email"
               className="bg-white dark:bg-dark-card hover:themed-bg hover:text-white border border-gray-200 dark:border-gray-700 hover:themed-border themed-glow-hover"
