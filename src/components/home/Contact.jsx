@@ -70,19 +70,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      value: 'uttam-mahata-cs@outlook.com',
-      link: 'mailto:uttam-mahata-cs@outlook.com'
+      value: 'mahatauttam0408@gmail.com',
+      link: 'mailto:mahatauttam0408@gmail.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone',
-      value: '+91 9679244057',
+      value: '9679244057',
       link: 'tel:+919679244057'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Location',
-      value: 'Howrah, India',
+      value: 'Medinipur, India',
       link: 'https://maps.app.goo.gl/r7WcftPiGACcgZQN8'
     }
   ];
@@ -91,17 +91,12 @@ const Contact = () => {
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/uttam-mahata-4b0364259/'
+      url: 'https://www.linkedin.com/in/uttam-mahata'
     },
     {
       icon: <Github className="w-6 h-6" />,
       name: 'GitHub',
       url: 'https://github.com/Uttam-Mahata'
-    },
-    {
-      icon: <Facebook className="w-6 h-6" />,
-      name: 'Facebook',
-      url: 'https://www.facebook.com/dummy.uttam.0.0.0.0/'
     }
   ];
 
