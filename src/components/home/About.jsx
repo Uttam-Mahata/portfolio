@@ -1,11 +1,8 @@
 import { Code, Server, Database, Brain, Terminal, Coffee, Award } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 import QuickFact from '../QuickFact';
 import TechCategory from '../TechCategory';
 
 const About = () => {
-  const { theme } = useTheme();
-
   const techIcons = {
     // Programming Languages
     'C/C++': 'https://img.icons8.com/color/48/000000/c-plus-plus-logo.png',
