@@ -15,10 +15,10 @@ const About = () => {
     // Technical Skills
     'Data Structures': 'https://img.icons8.com/external-flaticons-flat-flat-icons/48/000000/external-algorithm-computer-science-flaticons-flat-flat-icons.png',
     'Algorithms': 'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/48/000000/external-algorithm-data-analytics-flaticons-lineal-color-flat-icons.png',
+    'Computer Architecture': 'https://img.icons8.com/?size=100&id=nQuaNO36nu68&format=png&color=000000',
     'DBMS': 'https://img.icons8.com/color/48/000000/database.png',
     'OS': 'https://img.icons8.com/color/48/000000/operating-system.png',
     'Computer Networking': 'https://img.icons8.com/color/48/000000/network.png',
-    
     // Web Development
     'HTML': 'https://img.icons8.com/color/48/000000/html-5.png',
     'CSS': 'https://img.icons8.com/color/48/000000/css3.png',
@@ -34,7 +34,6 @@ const About = () => {
     'Flask': 'https://img.icons8.com/cute-clipart/48/000000/flask.png',
     'FastAPI': 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.svg',
     'Firebase': 'https://img.icons8.com/color/48/000000/firebase.png',
-    'Computer Architecture & Organization': 'https://www.flaticon.com/svg/static/icons/svg/1835/1835276.svg',
     'Google Cloud': 'https://gcpicons.com/gcp-logo.svg',
     
     
