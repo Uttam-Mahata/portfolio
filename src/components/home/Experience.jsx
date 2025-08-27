@@ -10,7 +10,7 @@ const Experience = () => {
       company: 'Alpha AI Service Pvt Ltd',
       url: null,
       location: 'Remote | New Delhi, India',
-      period: 'Aug 2024 – Present',
+      period: 'June 2025 - Aug 2025',
       description: 'Integrated advanced content generation and features using Gemini and Langchain, supporting 10+ content types.',
       achievements: [
         'Built and optimized 15+ scalable, stateless AI service endpoints using Python (FastAPI, Flask), reducing latency by 16%.',
