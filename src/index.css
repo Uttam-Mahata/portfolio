@@ -285,6 +285,20 @@
     background-image: radial-gradient(circle at 25px 25px, currentColor 1px, transparent 0);
     background-size: 50px 50px;
   }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .glass-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 @layer utilities {

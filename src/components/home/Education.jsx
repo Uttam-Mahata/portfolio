@@ -66,7 +66,7 @@ const Education = () => {
           {education.map((edu, index) => (
             <div 
               key={edu.id}
-              className="bg-white dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl animate-slide-up hover:themed-border themed-glow-hover group relative"
+              className="glass-card rounded-lg overflow-hidden transition-all duration-300 animate-slide-up group relative"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Add glowing accent bar at top */}
@@ -99,38 +99,37 @@ const Education = () => {
                       {edu.location}
                     </div>
                   </div>
+                </div>
 
-                  {/* Right Column */}
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-gray-900 dark:text-dark-text flex items-center">
-                        <BookOpen className="w-5 h-5 mr-2 themed-text" />
-                        Relevant Coursework
-                      </h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {edu.relevantCourses.map((course, index) => (
-                          <div 
-                            key={index}
-                            className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-dark-bg rounded-lg p-2 hover:themed-accent-bg-light hover:text-gray-900 transition-colors duration-300"
-                          >
-                            {course}
-                          </div>
-                        ))}
-                      </div>
+                <div className="mt-6 space-y-6">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-dark-text flex items-center mb-3">
+                      <BookOpen className="w-5 h-5 mr-2 themed-text" />
+                      Relevant Coursework
+                    </h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                      {edu.relevantCourses.map((course, index) => (
+                        <div
+                          key={index}
+                          className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-dark-bg rounded-lg p-2 hover:themed-accent-bg-light hover:text-gray-900 transition-colors duration-300"
+                        >
+                          {course}
+                        </div>
+                      ))}
                     </div>
+                  </div>
 
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-2">Key Skills Gained</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {edu.skills.map((skill, index) => (
-                          <span
-                            key={index}
-                            className="themed-badge group-hover:animate-pulse"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-3">Key Skills Gained</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {edu.skills.map((skill, index) => (
+                        <span
+                          key={index}
+                          className="themed-badge group-hover:animate-pulse"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
