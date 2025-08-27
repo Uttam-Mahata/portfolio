@@ -65,9 +65,9 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 gap-16 items-start">
           {/* Left Column - Personal Info */}
-          <div className="space-y-6 animate-slide-up bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-700/30 p-6 rounded-lg shadow transition-all duration-500 hover:shadow-lg hover:from-gray-100 hover:to-gray-200 dark:hover:from-gray-800/60 dark:hover:to-gray-700/40 border border-gray-200 dark:border-gray-700/30 hover:themed-border themed-glow-hover group relative overflow-hidden">
+          <div className="space-y-6 animate-slide-up p-6 glass-card group relative overflow-hidden">
             {/* Shimmer effect */}
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             
@@ -90,7 +90,7 @@ const About = () => {
           </div>
 
           {/* Right Column - Tech Stacks */}
-          <div className="space-y-6 animate-slide-up delay-200 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-700/30 p-6 rounded-lg shadow transition-all duration-500 hover:shadow-lg hover:from-gray-100 hover:to-gray-200 dark:hover:from-gray-800/60 dark:hover:to-gray-700/40 border border-gray-200 dark:border-gray-700/30 hover:themed-border themed-glow-hover group relative overflow-hidden">
+          <div className="space-y-6 animate-slide-up delay-200 p-6 glass-card group relative overflow-hidden">
             {/* Shimmer effect */}
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             
