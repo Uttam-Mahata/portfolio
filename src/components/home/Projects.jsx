@@ -48,6 +48,42 @@ const Projects = () => {
       githubUrl: null,
       featured: true,
       period:''
+    },
+    {
+      id: 4,
+      title: 'QuestCart - AI-Powered Question Paper Generator',
+      description: 'An AI-powered application that generates custom question papers using the Gemini API. This application allows you to create exams with multiple sections and automatically generates questions for each section based on the requirements.',
+      image: '/shortly.svg',
+      category: 'fullstack',
+      technologies: ['React', 'FastAPI', 'TypeScript', 'Tailwind CSS'],
+      liveUrl: null,
+      githubUrl: 'https://github.com/Uttam-Mahata/questcart',
+      featured: true,
+      period:''
+    },
+    {
+      id: 5,
+      title: 'ICRoGen - Central Routine Generator',
+      description: 'A Go-based backend for the ICRoGen (Central Routine Generator) system. This system automates the creation of conflict-free academic schedules.',
+      image: '/shortly.svg',
+      category: 'fullstack',
+      technologies: ['React', 'Go', 'TypeScript', 'Material UI'],
+      liveUrl: null,
+      githubUrl: 'https://github.com/Uttam-Mahata/icrogen',
+      featured: true,
+      period:''
+    },
+    {
+      id: 6,
+      title: 'Project Aegis: A Framework for a Secure Financial Environment',
+      description: 'The Aegis Security API provides comprehensive device security and fraud detection services for mobile applications. It includes device registration, cryptographic signature validation, organization management, and advanced fraud detection capabilities.',
+      image: '/shortly.svg',
+      category: 'fullstack',
+      technologies: ['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Material UI'],
+      liveUrl: null,
+      githubUrl: 'https://github.com/Uttam-Mahata/aegis',
+      featured: true,
+      period:''
     }
   ];
 
