@@ -29,7 +29,7 @@ const Projects = () => {
       id: 2,
       title: 'BAFCC - Football Coaching Camp Management System',
       description: 'Web app for football camp management using React (TypeScript) + FastAPI. Designed modular financial dashboard handling 100+ records with real-time management and RBAC.',
-      image: '/course.svg',
+      image: '/bafcc-logo.png',
       category: 'fullstack',
       technologies: ['React', 'TypeScript', 'FastAPI', 'RBAC'],
       liveUrl: null,
