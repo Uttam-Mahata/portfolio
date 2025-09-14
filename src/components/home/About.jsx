@@ -31,7 +31,7 @@ const About = () => {
     'Flask': 'https://img.icons8.com/cute-clipart/48/000000/flask.png',
     'FastAPI': 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.svg',
     'Firebase': 'https://img.icons8.com/color/48/000000/firebase.png',
-    'Google Cloud': 'https://gcpicons.com/gcp-logo.svg',
+    'Google Cloud': 'https://img.icons8.com/color/600/google-cloud.png',
     
     
     // Data Science & ML
