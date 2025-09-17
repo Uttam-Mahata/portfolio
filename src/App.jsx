@@ -30,14 +30,6 @@ const achievements = [
     date: "2021",
     url: null,
   },
-  {
-    id: 3,
-    title: "IIEST-UCO Bank Hackathon",
-    subtitle: "Finalist in UCO Bank–sponsored Hackathon at IIEST Shibpur",
-    description: "Designed and developed a prototype focused on building a secure financial environment through innovative technology solutions.",
-    date: "Jul 2025 – Aug 2025",
-    url: null,
-  }
 ];
 
 function App() {
