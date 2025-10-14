@@ -43,12 +43,22 @@ const Hero = () => {
             <span className="themed-text">Uttam Mahata</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400">
-            Full Stack Developer & AI/ML Enthusiast
+            Computer Science and Engineering Student
           </p>
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            I&apos;m a full-stack developer and ML enthusiast who builds innovative web applications with modern technologies. 
-            I focus on writing clean code while exploring AI and creating scalable solutions.
-          </p>
+          <div className="max-w-3xl mx-auto text-gray-600 dark:text-gray-400 space-y-4">
+            <p>
+              I am a Computer Science and Engineering student with a foundation in core domains such as Operating Systems, Computer Networks, and Database Management Systems. My interests lie in building scalable systems, exploring DevOps practices, and developing efficient, reliable web applications.
+            </p>
+            <p>
+              I am also enthusiastic about leveraging Generative AI technologies to build practical, user-focused applications.
+            </p>
+            <p>
+              My goal is to combine system-level knowledge with hands-on development to create applications that are robust, efficient, and user-friendly.
+            </p>
+            <p className="font-semibold">
+              <span className="themed-text">Areas of Interest:</span> Operating Systems & Computer Networks, DevOps & Cloud-Native Development, Web Development. Learning about distributed systems
+            </p>
+          </div>
 
           {/* Social Links - Now using CSS variables for theming */}
           <div className="flex justify-center space-x-6">
