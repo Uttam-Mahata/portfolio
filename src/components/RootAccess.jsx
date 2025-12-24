@@ -32,7 +32,6 @@ const RootAccess = () => {
       } else {
         // Hint for the challenge solver
         console.warn('⚠ ACCESS DENIED: User identity is "guest". Expected "daemon".');
-        console.log('Hint: "I am who I am" - Check your Storage.');
       }
     };
 
