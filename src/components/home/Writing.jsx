@@ -32,7 +32,7 @@ const Writing = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title dark:text-dark-text">My Writings</span></h2>
+          <h2 className="section-title dark:text-dark-text">My Writings</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Books, articles, and thoughts on technology and life
           </p>
