@@ -11,7 +11,7 @@ const Writing = () => {
       title: 'State of Emotions',
       subtitle: 'A personal, intellectual exercise in understanding the chaos of human emotions through the lens of computation.',
       description: 'This book explores how our feelings shape our reality and provides insights into understanding and managing them using formalisms of Automata Theory as metaphors with mathematical discipline. It is not a psychology textbook nor a treatise on automata theory, but a bridge between the two—a tool for thought.',
-      image: '/course.svg', // Using a placeholder for now, ideally this would be the book cover
+      image: '/stateofemotions.png', // Using a placeholder for now, ideally this would be the book cover
       link: '/State_of_Emotions.pdf',
       tags: ['Automata Theory', 'Philosophy', 'Human Behavior'],
       date: '2025'
