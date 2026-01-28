@@ -1,9 +1,24 @@
 import { Briefcase, ExternalLink, Calendar, MapPin } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import PropTypes from 'prop-types';
+
 const Experience = () => {
   const { theme } = useTheme();
+
+  // The order in this array determines the visual order on the page.
+  // OpenLM is first (Index 0), so it will be at the top.
   const experiences = [
+    {
+      id: 2,
+      role: 'Engineer Trainee',
+      company: 'OpenLM',
+      url: 'https://www.openlm.com',
+      location: 'Kolkata, India',
+      period: 'Jan 2026 - Present',
+      description: 'Joined DevOps Team as an Engineer Trainee.',
+      achievements: [], 
+      technologies: [] 
+    },
     {
       id: 1,
       role: 'Software Development Intern',
@@ -44,7 +59,7 @@ const Experience = () => {
         </div>
 
         <div className={`relative ${isSingleExperience ? 'flex justify-center' : ''}`}>
-            {/* Conditional Timeline Line (Only when multiple experiences) */}
+           {/* Conditional Timeline Line (Only when multiple experiences) */}
           {!isSingleExperience && (
             <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700" />
           )}
@@ -55,7 +70,7 @@ const Experience = () => {
               <ExperienceCard 
                 key={exp.id} 
                 experience={exp} 
-                isLeft={!isSingleExperience && index % 2 === 0} // Determine side only if multiple
+                isLeft={!isSingleExperience && index % 2 === 0} 
                 isSingle={isSingleExperience}
                 delay={index * 200}
               />
@@ -97,10 +112,10 @@ const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => (
                 href={experience.url} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="themed-text hover:text-theme-primary-dark dark:hover:text-theme-primary-light font-medium"
+                className={`font-medium ${experience.url ? 'themed-text hover:text-theme-primary-dark dark:hover:text-theme-primary-light' : 'text-gray-700 dark:text-gray-300 pointer-events-none'}`}
               >
                 {experience.company}
-                <ExternalLink className="inline-block w-4 h-4 ml-1" />
+                {experience.url && <ExternalLink className="inline-block w-4 h-4 ml-1" />}
               </a>
             </div>
           </div>
@@ -119,30 +134,36 @@ const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => (
 
         <p className="text-gray-600 dark:text-gray-400 mb-4">{experience.description}</p>
 
-        <div className="space-y-2">
-          <h4 className="font-semibold text-gray-900 dark:text-dark-text">Key Achievements:</h4>
-          <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
-            {experience.achievements.map((achievement, index) => (
-              <li key={index} className="hover-themed-text transition-colors duration-200">
-                {achievement}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-          <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-2">Technologies:</h4>
-          <div className="flex flex-wrap gap-2">
-            {experience.technologies.map((tech, index) => (
-              <span 
-                key={index}
-                className="themed-badge group-hover:animate-pulse"
-              >
-                {tech}
-              </span>
-            ))}
+        {/* Conditionally render Achievements only if they exist */}
+        {experience.achievements.length > 0 && (
+          <div className="space-y-2">
+            <h4 className="font-semibold text-gray-900 dark:text-dark-text">Key Achievements:</h4>
+            <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
+              {experience.achievements.map((achievement, index) => (
+                <li key={index} className="hover-themed-text transition-colors duration-200">
+                  {achievement}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        )}
+
+        {/* Conditionally render Technologies only if they exist */}
+        {experience.technologies.length > 0 && (
+          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-2">Technologies:</h4>
+            <div className="flex flex-wrap gap-2">
+              {experience.technologies.map((tech, index) => (
+                <span 
+                  key={index}
+                  className="themed-badge group-hover:animate-pulse"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   </div>
