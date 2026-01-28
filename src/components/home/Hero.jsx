@@ -42,9 +42,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-dark-text">
             <span className="themed-text">Uttam Mahata</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400">
-            Full Stack Developer & AI/ML Enthusiast
-          </p>
+      
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
             {/* I&apos;m a full-stack developer and ML enthusiast who builds innovative web applications with modern technologies. 
             I focus on writing clean code while exploring AI and creating scalable solutions. */}
