@@ -16,7 +16,7 @@ const Education = () => {
       institution: "Indian Institute of Engineering Science and Technology, Shibpur",
       location: "Howrah, India",
       period: "2022 - 2026",
-      gpa: "9.04 (Till 6th Semester)",
+      gpa: "9.07 (Till 7th Semester)",
       // achievements: [
       //   "Published research paper on AI algorithms",
       //   "Teaching Assistant for Web Development course",
