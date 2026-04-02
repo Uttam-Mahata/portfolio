@@ -36,7 +36,6 @@ const Education = () => {
         "Computer Networks",
         "Introduction to Data Science",
       ],
-      skills: ["Data Structures & Algorithms", 'Data Science', 'Object Oriented Programming', 'Database Management', 'Computer Architecture'],
     }
   ];
 
@@ -115,20 +114,6 @@ const Education = () => {
                         >
                           {course}
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-3">Key Skills Gained</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {edu.skills.map((skill, index) => (
-                        <span
-                          key={index}
-                          className="themed-badge group-hover:animate-pulse"
-                        >
-                          {skill}
-                        </span>
                       ))}
                     </div>
                   </div>
