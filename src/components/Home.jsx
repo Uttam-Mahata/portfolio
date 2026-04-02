@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/home/Hero';
@@ -12,6 +12,7 @@ import Achievements from '../components/home/Achievements';
 import Blog from '../components/home/Blog';
 import ThemeColorPicker from '../components/ThemeColorPicker';
 import FontPicker from '../components/FontPicker';
+import { ArrowUp } from 'lucide-react';
 
 const achievements = [
   {
@@ -33,6 +34,8 @@ const achievements = [
 ];
 
 const Home = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   useEffect(() => {
     // Set default identity for the challenge
     if (!localStorage.getItem('identity_token')) {
@@ -42,7 +45,22 @@ const Home = () => {
     // Hint for CTF players
     console.log("%cSystem Status: Operational", "color: green; font-weight: bold;");
     console.log("Admin Portal: Moved to /rootaccess [Restricted]");
-  }, []);
+
+    const checkScrollTop = () => {
+      if (!showScrollTop && window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else if (showScrollTop && window.scrollY <= 400) {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollTop);
+    return () => window.removeEventListener('scroll', checkScrollTop);
+  }, [showScrollTop]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-dark-bg transition-colors duration-300">
@@ -63,16 +81,29 @@ const Home = () => {
       </main>
       <Footer />
       
-      {/* Fixed Position Controls for Mobile */}
-      <div className="fixed bottom-6 right-6 z-30 flex flex-col space-y-4">
-        <ThemeColorPicker 
-          className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
-          isMobile={true}
-        />
-        <FontPicker 
-          className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
-          isMobile={true}
-        />
+      {/* Fixed Position Controls */}
+      <div className="fixed bottom-6 right-6 z-30 flex flex-col items-center gap-3">
+        <div className="flex flex-col space-y-3">
+          <ThemeColorPicker 
+            className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
+            isMobile={false}
+          />
+          <FontPicker 
+            className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
+            isMobile={false}
+          />
+        </div>
+        
+        {/* Back to top button */}
+        <button
+          onClick={scrollToTop}
+          className={`p-3 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none ${
+            showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+          }`}
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
       </div>
     </div>
   );

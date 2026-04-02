@@ -45,20 +45,6 @@ const categoryColors = {
       tag: 'dark:bg-amber-900/30 dark:text-amber-300 dark:hover:bg-amber-900/40'
     }
   },
-  'Data Science & ML': {
-    light: {
-      container: 'bg-gradient-to-br from-purple-50 to-violet-50 hover:from-purple-100 hover:to-violet-100 border-purple-200',
-      icon: 'text-purple-600',
-      title: 'text-purple-800',
-      tag: 'bg-purple-100 text-purple-700 hover:bg-purple-200'
-    },
-    dark: {
-      container: 'dark:bg-gradient-to-br dark:from-purple-900/20 dark:to-violet-900/10 dark:hover:from-purple-900/30 dark:hover:to-violet-900/20 dark:border-purple-900/30',
-      icon: 'dark:text-purple-400',
-      title: 'dark:text-purple-300',
-      tag: 'dark:bg-purple-900/30 dark:text-purple-300 dark:hover:bg-purple-900/40'
-    }
-  },
   'Others': {
     light: {
       container: 'bg-gradient-to-br from-gray-50 to-slate-50 hover:from-gray-100 hover:to-slate-100 border-gray-200',

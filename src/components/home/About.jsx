@@ -1,8 +1,13 @@
-import { Code, Server, Database, Brain, Terminal, Coffee, Award } from 'lucide-react';
+import React from 'react';
+import { GitHubCalendar } from 'react-github-calendar';
+import { Code, Server, Database, Terminal, Coffee, Award } from 'lucide-react';
 import QuickFact from '../QuickFact';
 import TechCategory from '../TechCategory';
+import { useTheme } from '../../context/ThemeContext';
 
 const About = () => {
+  const { theme } = useTheme();
+  
   const techIcons = {
     // Programming Languages
     'C/C++': 'https://img.icons8.com/color/48/000000/c-plus-plus-logo.png',
@@ -33,16 +38,6 @@ const About = () => {
     'Firebase': 'https://img.icons8.com/color/48/000000/firebase.png',
     'Google Cloud': 'https://img.icons8.com/color/600/google-cloud.png',
     
-    
-    // Data Science & ML
-    'NumPy': 'https://img.icons8.com/color/48/000000/numpy.png',
-    'Pandas': 'https://img.icons8.com/color/48/000000/pandas.png',
-    'Scikit-learn': 'https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png',
-    'Jupyter': 'https://img.icons8.com/fluency/48/000000/jupyter.png',
-    'Matplotlib': 'https://img.icons8.com/color/48/000000/graph.png',
-    'Seaborn': 'https://img.icons8.com/external-soft-fill-juicy-fish/48/000000/external-chart-graphs-and-charts-soft-fill-soft-fill-juicy-fish.png',
-    'Keras': 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Keras_Logo.jpg?20160918183624',
-    'TensorFlow': 'https://img.icons8.com/color/48/000000/tensorflow.png',
     // Others
     'Linux': 'https://img.icons8.com/color/48/000000/linux.png',
     'Git': 'https://img.icons8.com/color/48/000000/git.png',
@@ -69,13 +64,17 @@ const About = () => {
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-dark-text group-hover:themed-text">
-              My <span className="themed-text">Journey</span>
+              About <span className="themed-text">Me</span>
             </h3>
-            <div className="prose prose-lg text-gray-600 dark:text-gray-400">
+            <div className="prose prose-lg text-gray-600 dark:text-gray-400 space-y-4">
               <p>
-                My journey in technology began in high school, where I discovered my passion for coding and web development. 
-                Through self-learning and curiosity about how the internet works, I taught myself programming despite having 
-                no formal computer science education. This self-driven exploration sparked my ongoing passion for technology.
+                Focused on Systems Engineering — Operating Systems, Computer Networks, and Distributed Systems.
+              </p>
+              <p>
+                Interested in DevOps, Cloud Infrastructure, and Scalable Backend Systems.
+              </p>
+              <p>
+                I like breaking down systems — from kernel-level concepts to distributed architectures.
               </p>
             </div>
             
@@ -121,16 +120,6 @@ const About = () => {
               />
 
               <TechCategory 
-                icon={<Brain />}
-                title="Data Science & ML"
-                technologies={[
-                  'NumPy', 'Pandas', 'Scikit-learn', 'Jupyter',
-                  'Matplotlib', 'Seaborn', 'Keras', 'TensorFlow'
-                ]}
-                techIcons={techIcons}
-              />
-
-              <TechCategory 
                 icon={<Terminal />}
                 title="Others"
                 technologies={[
@@ -140,6 +129,23 @@ const About = () => {
                 techIcons={techIcons}
               />
             </div>
+          </div>
+        </div>
+
+        {/* GitHub Contribution Calendar */}
+        <div className="mt-16 animate-slide-up delay-300 p-6 md:p-8 glass-card group relative overflow-hidden flex flex-col items-center">
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">
+            Days I <span className="themed-text">Code</span>
+          </h3>
+          <div className="w-full overflow-x-auto flex justify-center p-4 rounded-xl bg-white dark:bg-[#161b22] border border-gray-100 dark:border-gray-800 shadow-sm">
+            <GitHubCalendar 
+              username="Uttam-Mahata" 
+              colorScheme={theme === 'dark' ? 'dark' : 'light'}
+              fontSize={14}
+              blockSize={14}
+              blockMargin={5}
+            />
           </div>
         </div>
       </div>

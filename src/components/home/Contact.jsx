@@ -3,13 +3,11 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Send, 
-  Linkedin, 
-  Github, 
-  Facebook,
+  Send,
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 
 const Contact = () => {
@@ -89,12 +87,12 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: <Linkedin className="w-6 h-6" />,
+      icon: <FaLinkedin className="w-6 h-6" />,
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/uttam-mahata'
     },
     {
-      icon: <Github className="w-6 h-6" />,
+      icon: <FaGithub className="w-6 h-6" />,
       name: 'GitHub',
       url: 'https://github.com/Uttam-Mahata'
     }
