@@ -16,8 +16,10 @@ const Experience = () => {
       location: 'Kolkata, India',
       period: 'Jan 2026 - Present',
       description: 'Joined DevOps Team as an Engineer Trainee.',
-      achievements: [], 
-      technologies: [] 
+      achievements: [
+        'Working on the implementation of CI/CD pipelines and Observability.'
+      ], 
+      technologies: ['CI/CD', 'Observability', 'DevOps', 'Docker', 'Kubernetes', 'Datadog'] 
     },
     {
       id: 1,

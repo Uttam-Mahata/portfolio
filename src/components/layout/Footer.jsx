@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,13 +13,7 @@ const Footer = () => {
       icon: <FaLinkedin className="w-6 h-6" />,
       href: "https://www.linkedin.com/in/uttam-mahata-4b0364259/",
       label: "LinkedIn"
-    },
-    {
-      icon: <FaFacebook className="w-6 h-6" />,
-      href: "https://www.facebook.com/dummy.uttam.0.0.0.0/",
-      label: "Facebook"
     }
-
   ];
 
   return (
