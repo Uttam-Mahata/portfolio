@@ -44,9 +44,7 @@ const Hero = () => {
           </h1>
       
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            {/* I&apos;m a full-stack developer and ML enthusiast who builds innovative web applications with modern technologies. 
-            I focus on writing clean code while exploring AI and creating scalable solutions. */}
-            Full-stack developer with a strong interest in operating systems, computer networks, and DevOps. I build scalable and efficient web applications while deepening my understanding of system design, infrastructure, and modern development practices.
+            I am who I am. Full-stack developer with a strong interest in operating systems, computer networks, DevOps, Information Security, Cryptography, and Cybersecurity. I build scalable and efficient web applications while deepening my understanding of system design, infrastructure, and modern development practices.
           </p>
 
           {/* Social Links - Now using CSS variables for theming */}
