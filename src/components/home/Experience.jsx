@@ -1,164 +1,153 @@
 import { Briefcase, ExternalLink, Calendar, MapPin } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 import PropTypes from 'prop-types';
 
-const Experience = () => {
-  const { theme } = useTheme();
+const experiences = [
+  {
+    id: 2,
+    role: 'Engineer Trainee',
+    company: 'OpenLM',
+    url: 'https://www.openlm.com',
+    location: 'Kolkata, India',
+    period: 'Jan 2026 – Present',
+    current: true,
+    description: 'Joined the DevOps team as an Engineer Trainee, contributing to infrastructure automation and observability.',
+    achievements: [
+      'Working on the implementation of CI/CD pipelines and Observability.',
+      'Optimizing Docker images using multistage builds, reducing image size by ~61%.',
+      'Performing RCA across multiple microservices, analysing CPU and memory health metrics to identify and resolve bottlenecks.',
+    ],
+    technologies: ['CI/CD', 'Observability', 'DevOps', 'DevSecOps', 'Docker', 'Kubernetes', 'Datadog'],
+  },
+  {
+    id: 1,
+    role: 'Software Development Intern',
+    company: 'Alpha AI Service Pvt Ltd',
+    url: null,
+    location: 'Remote · New Delhi, India',
+    period: 'June 2025 – Aug 2025',
+    current: false,
+    description: 'Integrated advanced content generation features using Gemini and Langchain, supporting 10+ content types.',
+    achievements: [
+      'Built and optimized 15+ scalable, stateless AI service endpoints using Python (FastAPI, Flask), reducing latency by 16%.',
+      'Developed a FastAPI backend for a travel assistant mobile app with 6+ AI-powered services using MongoDB + JWT auth.',
+      'Created a Generative AI voice generation platform (~90% speech synthesis accuracy) with a React real-time interface.',
+    ],
+    technologies: ['Python', 'FastAPI', 'Flask', 'Gemini', 'Langchain', 'MongoDB', 'JWT', 'React'],
+  },
+];
 
-  // The order in this array determines the visual order on the page.
-  // OpenLM is first (Index 0), so it will be at the top.
-  const experiences = [
-    {
-      id: 2,
-      role: 'Engineer Trainee',
-      company: 'OpenLM',
-      url: 'https://www.openlm.com',
-      location: 'Kolkata, India',
-      period: 'Jan 2026 - Present',
-      description: 'Joined DevOps Team as an Engineer Trainee.',
-      achievements: [
-        'Working on the implementation of CI/CD pipelines and Observability.'
-      ], 
-      technologies: ['CI/CD', 'Observability', 'DevOps', 'Docker', 'Kubernetes', 'Datadog'] 
-    },
-    {
-      id: 1,
-      role: 'Software Development Intern',
-      company: 'Alpha AI Service Pvt Ltd',
-      url: null,
-      location: 'Remote | New Delhi, India',
-      period: 'June 2025 - Aug 2025',
-      description: 'Integrated advanced content generation and features using Gemini and Langchain, supporting 10+ content types.',
-      achievements: [
-        'Built and optimized 15+ scalable, stateless AI service endpoints using Python (FastAPI, Flask), reducing latency by 16%.',
-        'Developed a FastAPI-based backend for a travel assistant mobile app with 6+ AI-powered services (trip planning, landmark recognition, cultural insights) using MongoDB + JWT authentication.',
-        'Created a Generative AI-based voice generation platform (~90% speech synthesis accuracy) with a React interface for real-time interaction.'
-      ],
-      technologies: ['Python', 'FastAPI', 'Flask', 'Gemini', 'Langchain', 'MongoDB', 'JWT', 'React']
-    }
-  ];
+const ExperienceCard = ({ experience, isLast }) => (
+  <div className="relative pl-12 sm:pl-14 group/entry animate-slide-up">
+    {/* Timeline dot */}
+    <div
+      className={`absolute left-0 top-6 flex items-center justify-center w-9 h-9 rounded-full border-2 shadow-sm z-10 transition-all duration-300 group-hover/entry:scale-110 ${
+        experience.current
+          ? 'bg-[var(--theme-primary)] border-[var(--theme-primary)] shadow-[0_0_12px_var(--theme-primary)] opacity-90'
+          : 'bg-white dark:bg-dark-bg border-gray-300 dark:border-gray-600'
+      }`}
+    >
+      <Briefcase
+        className={`w-4 h-4 ${experience.current ? 'text-white' : 'text-gray-400 dark:text-gray-500'}`}
+        strokeWidth={1.8}
+      />
+    </div>
 
-  const isSingleExperience = experiences.length === 1;
-
-  return (
-    <section id="experience" className="relative py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
-      {/* Background pattern */}
-      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: theme === 'light' 
-            ? 'radial-gradient(circle at 25px 25px, black 1px, transparent 0)'
-            : 'radial-gradient(circle at 25px 25px, white 1px, transparent 0)',
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title dark:text-dark-text">Professional <span className="themed-text">Experience</span></h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            My professional journey and key achievements throughout my career
-          </p>
-        </div>
-
-        <div className={`relative ${isSingleExperience ? 'flex justify-center' : ''}`}>
-           {/* Conditional Timeline Line (Only when multiple experiences) */}
-          {!isSingleExperience && (
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700" />
-          )}
-
-          {/* Experience Cards */}
-          <div className={`space-y-16 ${isSingleExperience ? 'max-w-3xl' : ''}`}>
-            {experiences.map((exp, index) => (
-              <ExperienceCard 
-                key={exp.id} 
-                experience={exp} 
-                isLeft={!isSingleExperience && index % 2 === 0} 
-                isSingle={isSingleExperience}
-                delay={index * 200}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ExperienceCard = ({ experience, isLeft, delay, isSingle }) => (
-  <div 
-    className={`relative flex flex-col md:flex-row items-center ${
-      !isSingle && (isLeft ? 'md:flex-row-reverse' : '')
-    } ${isSingle ? 'justify-center' : ''} animate-slide-up`}
-    style={{ animationDelay: `${delay}ms` }}
-  >
-    {!isSingle && (
-      <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 themed-bg rounded-full border-4 border-white dark:border-dark-bg"></div>
+    {/* Connector line to next card */}
+    {!isLast && (
+      <div className="absolute left-[17px] top-[52px] bottom-[-40px] w-px bg-gradient-to-b from-gray-200 dark:from-gray-700 to-transparent" />
     )}
 
     {/* Card */}
-    <div className={`w-full ${isSingle ? 'md:w-full' : 'md:w-5/12'} ${
-      !isSingle && (isLeft ? 'md:ml-8' : 'md:mr-8')
-    } ${isSingle ? 'ml-0 md:ml-0' : 'ml-12 md:ml-0'}`}>
-      <div className="bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:themed-border themed-glow-hover group">
-        {/* Glowing accent on hover */}
-        <div className="absolute inset-0 rounded-lg overflow-hidden">
-          <div className="absolute inset-x-0 bottom-0 h-1 themed-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-        </div>
-        
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text">{experience.role}</h3>
-            <div className="flex items-center mt-1 space-x-2">
-              <Briefcase className="w-4 h-4 themed-text" />
-              <a 
-                href={experience.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`font-medium ${experience.url ? 'themed-text hover:text-theme-primary-dark dark:hover:text-theme-primary-light' : 'text-gray-700 dark:text-gray-300 pointer-events-none'}`}
+    <div className="relative bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+      {/* Colored left accent bar */}
+      <div
+        className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-2xl transition-opacity duration-300 opacity-50 group-hover/entry:opacity-100"
+        style={{ background: 'var(--theme-primary)' }}
+      />
+
+      <div className="px-5 py-5 sm:px-6 sm:py-6 pl-6 sm:pl-7">
+        {/* Header row */}
+        <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 mb-1">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-dark-text leading-tight">
+              {experience.role}
+            </h3>
+            {experience.current && (
+              <span
+                className="px-2 py-0.5 text-[11px] font-semibold rounded-full border"
+                style={{
+                  color: 'var(--theme-primary)',
+                  borderColor: 'var(--theme-primary)',
+                  background: 'color-mix(in srgb, var(--theme-primary) 10%, transparent)',
+                }}
               >
-                {experience.company}
-                {experience.url && <ExternalLink className="inline-block w-4 h-4 ml-1" />}
-              </a>
-            </div>
+                Current
+              </span>
+            )}
           </div>
-        </div>
 
-        <div className="space-y-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
-          <div className="flex items-center">
-            <Calendar className="w-4 h-4 mr-2" />
+          {/* Period pill */}
+          <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/80 px-3 py-1.5 rounded-full border border-gray-100 dark:border-gray-700 shrink-0">
+            <Calendar className="w-3 h-3" strokeWidth={1.8} />
             {experience.period}
-          </div>
-          <div className="flex items-center">
-            <MapPin className="w-4 h-4 mr-2" />
-            {experience.location}
-          </div>
+          </span>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-400 mb-4">{experience.description}</p>
+        {/* Company */}
+        <a
+          href={experience.url ?? undefined}
+          target={experience.url ? '_blank' : undefined}
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-1.5 text-sm font-medium mb-3 transition-opacity duration-200 ${
+            experience.url
+              ? 'themed-text hover:opacity-80'
+              : 'text-gray-500 dark:text-gray-400 pointer-events-none'
+          }`}
+        >
+          <Briefcase className="w-3.5 h-3.5" strokeWidth={1.8} />
+          {experience.company}
+          {experience.url && <ExternalLink className="w-3 h-3 opacity-70" />}
+        </a>
 
-        {/* Conditionally render Achievements only if they exist */}
+        {/* Location */}
+        <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-4">
+          <MapPin className="w-3.5 h-3.5 shrink-0" strokeWidth={1.8} />
+          {experience.location}
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          {experience.description}
+        </p>
+
+        {/* Achievements */}
         {experience.achievements.length > 0 && (
-          <div className="space-y-2">
-            <h4 className="font-semibold text-gray-900 dark:text-dark-text">Key Achievements:</h4>
-            <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
-              {experience.achievements.map((achievement, index) => (
-                <li key={index} className="hover-themed-text transition-colors duration-200">
-                  {achievement}
+          <div className="mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2.5">
+              Key Achievements
+            </p>
+            <ul className="space-y-2">
+              {experience.achievements.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <span
+                    className="mt-[7px] w-1.5 h-1.5 rounded-full shrink-0"
+                    style={{ background: 'var(--theme-primary)' }}
+                  />
+                  {item}
                 </li>
               ))}
             </ul>
           </div>
         )}
 
-        {/* Conditionally render Technologies only if they exist */}
+        {/* Technologies */}
         {experience.technologies.length > 0 && (
-          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <h4 className="font-semibold text-gray-900 dark:text-dark-text mb-2">Technologies:</h4>
-            <div className="flex flex-wrap gap-2">
-              {experience.technologies.map((tech, index) => (
-                <span 
-                  key={index}
-                  className="themed-badge group-hover:animate-pulse"
+          <div className="pt-4 border-t border-gray-50 dark:border-gray-800">
+            <div className="flex flex-wrap gap-1.5">
+              {experience.technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700 transition-colors duration-200 hover:border-[var(--theme-primary)] hover:text-[var(--theme-primary)]"
                 >
                   {tech}
                 </span>
@@ -178,13 +167,39 @@ ExperienceCard.propTypes = {
     url: PropTypes.string,
     location: PropTypes.string.isRequired,
     period: PropTypes.string.isRequired,
+    current: PropTypes.bool,
     description: PropTypes.string.isRequired,
     achievements: PropTypes.arrayOf(PropTypes.string).isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
-  isLeft: PropTypes.bool,
-  delay: PropTypes.number,
-  isSingle: PropTypes.bool,
+  isLast: PropTypes.bool,
 };
+
+const Experience = () => (
+  <section id="experience" className="relative py-20 bg-gray-50 dark:bg-dark-bg transition-colors duration-300">
+    <div className="relative z-10 max-w-3xl mx-auto pl-4 pr-14 sm:px-6 lg:px-8">
+      {/* Section header */}
+      <div className="text-center mb-14 animate-fade-in">
+        <h2 className="section-title dark:text-dark-text">
+          Professional <span className="themed-text">Experience</span>
+        </h2>
+        <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+          My professional journey and key achievements throughout my career
+        </p>
+      </div>
+
+      {/* Timeline */}
+      <div className="space-y-10">
+        {experiences.map((exp, i) => (
+          <ExperienceCard
+            key={exp.id}
+            experience={exp}
+            isLast={i === experiences.length - 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Experience;
