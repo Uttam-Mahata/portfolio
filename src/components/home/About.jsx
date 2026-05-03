@@ -68,14 +68,10 @@ const About = () => {
             </h3>
             <div className="prose prose-lg text-gray-600 dark:text-gray-400 space-y-4">
               <p>
-                Focused on Systems Engineering — Operating Systems, Computer Networks, and Distributed Systems.
+           I am a Computer Science and Engineering student with a foundation in core domains such as Operating Systems, Computer Networks, Information Security & Cryptography. My interests lie in building scalable systems, exploring DevOps practices, and developing efficient, reliable applications.
+I am also enthusiastic about leveraging Generative AI technologies to build practical, user-focused applications.My goal is to combine system-level knowledge with hands-on development to create applications that are robust, efficient, and reliable.
               </p>
-              <p>
-                Interested in DevOps, Cloud Infrastructure, and Scalable Backend Systems.
-              </p>
-              <p>
-                I like breaking down systems — from kernel-level concepts to distributed architectures.
-              </p>
+            
             </div>
             
             {/* Quick Facts */}

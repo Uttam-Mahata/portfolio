@@ -1,4 +1,5 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,6 +14,21 @@ const Footer = () => {
       icon: <FaLinkedin className="w-6 h-6" />,
       href: "https://www.linkedin.com/in/uttam-mahata-4b0364259/",
       label: "LinkedIn"
+    },
+    {
+      icon: <FaXTwitter className="w-6 h-6" />,
+      href: "https://x.com/daemonized_u",
+      label: "X (Twitter)"
+    },
+    {
+      icon: <FaInstagram className="w-6 h-6" />,
+      href: "https://www.instagram.com/daemonized_u/",
+      label: "Instagram"
+    },
+    {
+      icon: <FaFacebook className="w-6 h-6" />,
+      href: "https://www.facebook.com/daemonized.u",
+      label: "Facebook"
     }
   ];
 

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Mail } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { useTheme } from '../../context/ThemeContext';
-import ThemeColorPicker from '../ThemeColorPicker';
-import FontPicker from '../FontPicker';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +45,9 @@ const Navbar = () => {
     { href: 'https://github.com/Uttam-Mahata', icon: <FaGithub size={18} />, label: 'GitHub' },
     { href: 'https://www.linkedin.com/in/uttam-mahata-4b0364259/', icon: <FaLinkedin size={18} />, label: 'LinkedIn' },
     { href: 'mailto:uttam-mahata-cs@outlook.com', icon: <Mail size={18} strokeWidth={1.5} />, label: 'Email' },
+    { href: 'https://x.com/daemonized_u', icon: <FaXTwitter size={18} />, label: 'X (Twitter)' },
+    { href: 'https://www.instagram.com/daemonized_u/', icon: <FaInstagram size={18} />, label: 'Instagram' },
+    { href: 'https://www.facebook.com/daemonized.u', icon: <FaFacebook size={18} />, label: 'Facebook' },
   ];
 
   return (

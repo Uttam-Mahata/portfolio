@@ -1,5 +1,6 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { MdEmail, MdDownload, MdKeyboardArrowDown } from 'react-icons/md';
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { MdEmail, MdDownload } from 'react-icons/md';
 import { useTheme } from '../../context/ThemeContext';
 import SocialLink from '../SocialLink';
 
@@ -44,7 +45,8 @@ const Hero = () => {
           </h1>
       
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            I am who I am. Full-stack developer with a strong interest in operating systems, computer networks, DevOps, Information Security, Cryptography, and Cybersecurity. I build scalable and efficient web applications while deepening my understanding of system design, infrastructure, and modern development practices.
+     Full-stack developer with a strong interest in operating systems, computer networks, DevOps, Information Security, Cryptography, and Cybersecurity.
+                                Interested in building scalable and efficient web applications while deepening my understanding of system design, infrastructure, and modern development practices.
           </p>
 
           {/* Social Links - Now using CSS variables for theming */}
@@ -53,21 +55,42 @@ const Hero = () => {
               href="https://github.com/Uttam-Mahata" 
               icon={<FaGithub size={20} />} 
               label="GitHub" 
-              className="bg-white dark:bg-dark-card hover:themed-bg hover:text-white border border-gray-200 dark:border-gray-700 hover:themed-border themed-glow-hover"
+              className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 hover:text-[var(--theme-primary)] dark:hover:text-[var(--theme-primary-light)] hover:border-[var(--theme-primary)] dark:hover:border-[var(--theme-primary-light)] themed-glow-hover"
             />
             
             <SocialLink 
               href="https://www.linkedin.com/in/uttam-mahata"
               icon={<FaLinkedin size={20} />} 
               label="LinkedIn"
-              className="bg-white dark:bg-dark-card hover:themed-bg hover:text-white border border-gray-200 dark:border-gray-700 hover:themed-border themed-glow-hover"
+              className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 hover:text-[var(--theme-primary)] dark:hover:text-[var(--theme-primary-light)] hover:border-[var(--theme-primary)] dark:hover:border-[var(--theme-primary-light)] themed-glow-hover"
             />
             
-            <SocialLink 
+            <SocialLink
               href="mailto:mahatauttam0408@gmail.com"
-              icon={<MdEmail size={20} />} 
+              icon={<MdEmail size={20} />}
               label="Email"
-              className="bg-white dark:bg-dark-card hover:themed-bg hover:text-white border border-gray-200 dark:border-gray-700 hover:themed-border themed-glow-hover"
+              className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 hover:text-[var(--theme-primary)] dark:hover:text-[var(--theme-primary-light)] hover:border-[var(--theme-primary)] dark:hover:border-[var(--theme-primary-light)] themed-glow-hover"
+            />
+
+            <SocialLink
+              href="https://x.com/daemonized_u"
+              icon={<FaXTwitter size={20} />}
+              label="X (Twitter)"
+              className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 hover:text-[var(--theme-primary)] dark:hover:text-[var(--theme-primary-light)] hover:border-[var(--theme-primary)] dark:hover:border-[var(--theme-primary-light)] themed-glow-hover"
+            />
+
+            <SocialLink
+              href="https://www.instagram.com/daemonized_u/"
+              icon={<FaInstagram size={20} />}
+              label="Instagram"
+              className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 hover:text-[var(--theme-primary)] dark:hover:text-[var(--theme-primary-light)] hover:border-[var(--theme-primary)] dark:hover:border-[var(--theme-primary-light)] themed-glow-hover"
+            />
+
+            <SocialLink
+              href="https://www.facebook.com/daemonized.u"
+              icon={<FaFacebook size={20} />}
+              label="Facebook"
+              className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 hover:text-[var(--theme-primary)] dark:hover:text-[var(--theme-primary-light)] hover:border-[var(--theme-primary)] dark:hover:border-[var(--theme-primary-light)] themed-glow-hover"
             />
           </div>
 
@@ -92,10 +115,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce themed-text">
-          <MdKeyboardArrowDown className="w-6 h-6" />
-        </div>
       </div>
     </section>
   );

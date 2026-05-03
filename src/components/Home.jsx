@@ -10,8 +10,7 @@ import Education from '../components/home/Education';
 import Contact from '../components/home/Contact';
 import Achievements from '../components/home/Achievements';
 import Blog from '../components/home/Blog';
-import ThemeColorPicker from '../components/ThemeColorPicker';
-import FontPicker from '../components/FontPicker';
+import FloatingControls from '../components/FloatingControls';
 import { ArrowUp } from 'lucide-react';
 
 const achievements = [
@@ -81,30 +80,19 @@ const Home = () => {
       </main>
       <Footer />
       
-      {/* Fixed Position Controls */}
-      <div className="fixed bottom-6 right-6 z-30 flex flex-col items-center gap-3">
-        <div className="flex flex-col space-y-3">
-          <ThemeColorPicker 
-            className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
-            isMobile={false}
-          />
-          <FontPicker 
-            className="bg-white dark:bg-dark-card rounded-full shadow-xl p-2" 
-            isMobile={false}
-          />
-        </div>
-        
-        {/* Back to top button */}
-        <button
-          onClick={scrollToTop}
-          className={`p-3 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none ${
-            showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-          }`}
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="w-5 h-5" />
-        </button>
-      </div>
+      {/* Floating right-edge controls */}
+      <FloatingControls />
+
+      {/* Back to top button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 z-30 p-3 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none ${
+          showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        }`}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
     </div>
   );
 };
