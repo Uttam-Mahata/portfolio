@@ -49,7 +49,7 @@ const Blog = () => {
     console.log(`Fetching posts for ${HASHNODE_USERNAME}...`);
 
     try {
-      const response = await fetch('https://gql.hashnode.com/', {
+      const response = await fetch('/api/hashnode/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

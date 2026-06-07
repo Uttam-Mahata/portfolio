@@ -9,7 +9,6 @@ import Writing from '../components/home/Writing';
 import Education from '../components/home/Education';
 import Contact from '../components/home/Contact';
 import Achievements from '../components/home/Achievements';
-import Blog from '../components/home/Blog';
 import FloatingControls from '../components/FloatingControls';
 import { ArrowUp } from 'lucide-react';
 
@@ -74,7 +73,6 @@ const Home = () => {
         <Experience />
         <Projects />
         <Writing />
-        <Blog />
         <Achievements achievements={achievements} />
         <Contact />
       </main>

@@ -36,7 +36,6 @@ const Navbar = () => {
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
-    { href: '#blog', label: 'Blog' },
     { href: '#education', label: 'Education' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -44,6 +43,7 @@ const Navbar = () => {
   const socialLinks = [
     { href: 'https://github.com/Uttam-Mahata', icon: <FaGithub size={18} />, label: 'GitHub' },
     { href: 'https://www.linkedin.com/in/uttam-mahata-4b0364259/', icon: <FaLinkedin size={18} />, label: 'LinkedIn' },
+    { href: 'https://uttammahata.hashnode.dev', icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.351 8.019l-6.37-6.37a5.63 5.63 0 0 0-7.962 0l-6.37 6.37a5.63 5.63 0 0 0 0 7.962l6.37 6.37a5.63 5.63 0 0 0 7.962 0l6.37-6.37a5.63 5.63 0 0 0 0-7.962zM12 15.953a3.953 3.953 0 1 1 0-7.906 3.953 3.953 0 0 1 0 7.906z" /></svg>, label: 'Hashnode Blog' },
     { href: 'mailto:uttam-mahata-cs@outlook.com', icon: <Mail size={18} strokeWidth={1.5} />, label: 'Email' },
     { href: 'https://x.com/daemonized_u', icon: <FaXTwitter size={18} />, label: 'X (Twitter)' },
     { href: 'https://www.instagram.com/daemonized_u/', icon: <FaInstagram size={18} />, label: 'Instagram' },
