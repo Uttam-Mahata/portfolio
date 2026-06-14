@@ -3,13 +3,25 @@ import PropTypes from 'prop-types';
 
 const experiences = [
   {
-    id: 2,
-    role: 'Engineer Trainee',
-    company: 'OpenLM',
+    id: 3,
+    role: 'Software Development Engineer',
+    company: 'OpenLM India',
     url: 'https://www.openlm.com',
     location: 'Kolkata, India',
-    period: 'Jan 2026 – Present',
+    period: 'June 2026 – Present',
     current: true,
+    description: 'Joined OpenLM India as a Software Development Engineer, contributing to infrastructure automation and observability.',
+    achievements: [],
+    technologies: ['CI/CD', 'Observability', 'DevOps', 'DevSecOps', 'Docker', 'Kubernetes', 'Datadog'],
+  },
+  {
+    id: 2,
+    role: 'Engineer Trainee',
+    company: 'OpenLM India',
+    url: 'https://www.openlm.com',
+    location: 'Kolkata, India',
+    period: 'Jan 2026 – June 2026',
+    current: false,
     description: 'Joined the DevOps team as an Engineer Trainee, contributing to infrastructure automation and observability.',
     achievements: [
       'Working on the implementation of CI/CD pipelines and Observability.',
