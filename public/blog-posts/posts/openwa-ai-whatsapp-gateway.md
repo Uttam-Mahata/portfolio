@@ -21,7 +21,7 @@ cover: "/blog-posts/images/openwa-ai-whatsapp-gateway.png"
 
 # Building an AI Layer on OpenWA
 
-[OpenWA](https://github.com/Uttam-Mahata/OpenWA) is an open-source WhatsApp API gateway built on `whatsapp-web.js` and NestJS. What it doesn't ship with — and what I built on top of it — is a full **agentic AI stack**: stateful multi-turn conversations with LangGraph, cloud LLM inference via Cloudflare Workers AI, dual-layer memory using PostgreSQL `pgvector` and local ONNX embeddings, and real-time observability via OpenObserve.
+OpenWA is an open-source WhatsApp API gateway built on `whatsapp-web.js` and NestJS. What it doesn't ship with — and what I built on top of it — is a full **agentic AI stack**: stateful multi-turn conversations with LangGraph, cloud LLM inference via Cloudflare Workers AI, dual-layer memory using PostgreSQL `pgvector` and local ONNX embeddings, and real-time observability via OpenObserve.
 
 This post documents what I added, the engineering decisions behind each choice, and the specific challenges of running this on **Oracle Cloud Infrastructure ARM64 Ampere**.
 
