@@ -1,5 +1,15 @@
 [
   {
+    "slug": "ctfd-ha-linuxone-s390x",
+    "title": "High Availability CTFd on IBM LinuxONE (s390x) with Nginx, PostgreSQL 18, and Redis",
+    "description": "A production-grade 3-tier HA architecture for CTFd deployed on IBM LinuxONE s390x VMs — Nginx least_conn load balancing, centralized Redis sessions, PostgreSQL 18, and a multi-stage Docker build that handles s390x-incompatible Python wheels.",
+    "date": "2026-07-20",
+    "readingTime": 10,
+    "category": "DevOps",
+    "tags": ["CTF", "Docker", "Nginx", "PostgreSQL", "Redis", "IBM LinuxONE", "s390x", "High Availability"],
+    "cover": "https://cdn.hashnode.com/res/hashnode/image/upload/v1769105907247/bdb02532-78c4-450e-bf24-55d54e17abd1.jpeg"
+  },
+  {
     "slug": "k3s-vps-production-architecture",
     "title": "Production K3s on VPS: A 4-Node Architecture with HA, Monitoring, and CI/CD",
     "description": "A production-oriented K3s architecture across four VPS nodes — WireGuard mesh, dual control plane, HAProxy failover, Traefik ingress, Prometheus monitoring, and GitHub Actions CI/CD, at ~80% lower cost than managed Kubernetes.",
