@@ -1,9 +1,19 @@
 [
   {
+    "slug": "mongodump-mongorestore-guide",
+    "title": "Moving Data Between MongoDB Deployments Without Overwriting Production",
+    "description": "The core mongodump/mongorestore workflow, plus the real-world variations: merge vs. replace, partial migrations, namespace renaming, oplog-based continuous sync, and when to use Atlas Live Migrate instead.",
+    "date": "2026-07-05",
+    "readingTime": 12,
+    "category": "MongoDB",
+    "tags": ["MongoDB", "DevOps", "Database", "Migration", "Atlas"],
+    "cover": "https://cdn.hashnode.com/uploads/covers/5f28172bdd589b06462d426f/e76d83b0-424f-41d3-866e-a135240d8ad8.png"
+  },
+  {
     "slug": "securing-mongodb-atlas-tailscale",
     "title": "Locking Down MongoDB Atlas: Tailscale App Connectors for Roaming Clients",
     "description": "How I replaced Atlas's open 0.0.0.0/0 network access rule with two static IPs — one for production pods, one for a Tailscale App Connector that transparently proxies operator laptops no matter where they are.",
-    "date": "2026-08-02",
+    "date": "2026-07-05",
     "readingTime": 10,
     "category": "DevOps",
     "tags": ["MongoDB", "Tailscale", "K3s", "Kubernetes", "Networking", "Security"],

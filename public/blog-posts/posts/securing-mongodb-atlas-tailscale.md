@@ -2,7 +2,7 @@
 slug: securing-mongodb-atlas-tailscale
 title: "Locking Down MongoDB Atlas: Tailscale App Connectors for Roaming Clients"
 description: "How I replaced Atlas's open 0.0.0.0/0 network access rule with two static IPs — one for production pods, one for a Tailscale App Connector that transparently proxies operator laptops no matter where they are."
-date: "2026-08-02"
+date: "2026-07-05"
 readingTime: 10
 category: DevOps
 tags:
