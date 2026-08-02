@@ -330,3 +330,11 @@ html {
 body {
   overflow-x: hidden;
 }
+
+/* Mermaid diagram sizing — make SVGs fill their container */
+.mermaid-svg-wrapper svg {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 200px;
+}
