@@ -161,13 +161,13 @@ const BlogList = () => {
                     className="glass-card rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:themed-border themed-glow-hover group cursor-pointer"
                     onClick={() => navigate(`/blogs/${post.slug}`)}
                   >
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative w-full aspect-video overflow-hidden bg-gray-900">
                       <img
                         src={post.cover}
                         alt={post.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute top-4 right-4 themed-bg text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      <div className="absolute top-3 right-3 themed-bg text-white px-3 py-1 rounded-full text-xs font-semibold">
                         {post.category}
                       </div>
                     </div>
