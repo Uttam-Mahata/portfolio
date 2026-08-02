@@ -1,5 +1,15 @@
 [
   {
+    "slug": "openwa-ai-whatsapp-gateway",
+    "title": "Building an Enterprise-Grade AI Layer on OpenWA: LangGraph, Cloudflare Workers AI, pgvector & OpenObserve on OCI",
+    "description": "How I extended the open-source OpenWA WhatsApp gateway with a full agentic AI stack — LangGraph stateful workflows, Cloudflare Workers AI inference (Gemma 4 26B / Llama 3.3 70B), local FastEmbed ONNX vectors, PostgreSQL pgvector dual-layer memory, and OpenObserve observability — deployed on Oracle Cloud ARM64 Ampere.",
+    "date": "2026-07-25",
+    "readingTime": 18,
+    "category": "AI & ML",
+    "tags": ["WhatsApp", "LangGraph", "LangChain", "Cloudflare", "PostgreSQL", "pgvector", "NestJS", "OCI", "AI", "RAG"],
+    "cover": "/blog-posts/images/openwa-ai-whatsapp-gateway.png"
+  },
+  {
     "slug": "ctfd-ha-linuxone-s390x",
     "title": "High Availability CTFd on IBM LinuxONE (s390x) with Nginx, PostgreSQL 18, and Redis",
     "description": "A production-grade 3-tier HA architecture for CTFd deployed on IBM LinuxONE s390x VMs — Nginx least_conn load balancing, centralized Redis sessions, PostgreSQL 18, and a multi-stage Docker build that handles s390x-incompatible Python wheels.",
