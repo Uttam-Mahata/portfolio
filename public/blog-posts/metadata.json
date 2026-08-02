@@ -1,5 +1,25 @@
 [
   {
+    "slug": "k3s-vps-production-architecture",
+    "title": "Production K3s on VPS: A 4-Node Architecture with HA, Monitoring, and CI/CD",
+    "description": "A production-oriented K3s architecture across four VPS nodes — WireGuard mesh, dual control plane, HAProxy failover, Traefik ingress, Prometheus monitoring, and GitHub Actions CI/CD, at ~80% lower cost than managed Kubernetes.",
+    "date": "2026-07-15",
+    "readingTime": 15,
+    "category": "Kubernetes",
+    "tags": ["K3s", "Kubernetes", "VPS", "WireGuard", "DevOps", "Self-Hosted", "Prometheus"],
+    "cover": "https://cdn.hashnode.com/res/hashnode/image/upload/v1770815560730/f45ca690-464a-44b7-be41-ce737819f772.png"
+  },
+  {
+    "slug": "k3s-android-management",
+    "title": "Managing K3s from an Android Device",
+    "description": "How to build a hybrid Kubernetes environment where a Linux laptop acts as the control plane and an Android device serves as a fully functional remote command center using K3s, Tailscale, and Headlamp.",
+    "date": "2026-07-10",
+    "readingTime": 8,
+    "category": "Kubernetes",
+    "tags": ["K3s", "Kubernetes", "Android", "Tailscale", "Termux", "DevOps"],
+    "cover": "https://cdn.hashnode.com/uploads/covers/5f28172bdd589b06462d426f/9645ca2b-6caf-4d4c-b137-cc9bb0367973.png"
+  },
+  {
     "slug": "mongodump-mongorestore-guide",
     "title": "Moving Data Between MongoDB Deployments Without Overwriting Production",
     "description": "The core mongodump/mongorestore workflow, plus the real-world variations: merge vs. replace, partial migrations, namespace renaming, oplog-based continuous sync, and when to use Atlas Live Migrate instead.",
