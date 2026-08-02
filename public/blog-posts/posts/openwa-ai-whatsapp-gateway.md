@@ -38,7 +38,7 @@ graph TD
     User["WhatsApp User"] <==>|WhatsApp Protocol| WACloud["WhatsApp Cloud Server"]
     WACloud <==>|WebSockets / Puppeteer| Chromium["Playwright ARM64 Chromium\n(Host Native)"]
 
-    subgraph OCI["OCI ARM64 Ampere VM (4 OCPUs / 24GB RAM)"]
+    subgraph OCI["OCI ARM64 Ampere VM (1 vOCPU / 6GB RAM)"]
         Nginx["Host Nginx (SSL)"] --> Dashboard["Dashboard Container\n(Port 2886)"]
         Nginx --> NestAPI["NestJS API Gateway\n(Port 2785)"]
 
