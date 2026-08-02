@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -9,6 +10,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +38,7 @@ const Navbar = () => {
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
+    { to: '/blogs', label: 'Blog', isRouter: true },
     { href: '#education', label: 'Education' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -78,20 +81,36 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1 mx-4">
-          {navLinks.map(({ href, label }) => {
-            const isActive = activeSection === href.slice(1);
-            return (
-              <a 
-                key={href} 
-                href={href} 
-                className={`group relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300
+          {navLinks.map((link) => {
+            const isRouter = link.isRouter;
+            const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
+            const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
+            
+            const className = `group relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300
                   ${isActive 
                     ? 'text-gray-900 dark:text-white'
                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
                   }
-                `}
+                `;
+            
+            if (isRouter) {
+              return (
+                <Link key={link.to} to={link.to} className={className}>
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute inset-x-0 -bottom-1 h-[2px] w-4 mx-auto bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out" />
+                  )}
+                </Link>
+              );
+            }
+            
+            return (
+              <a 
+                key={link.href} 
+                href={actualHref} 
+                className={className}
               >
-                {label}
+                {link.label}
                 {isActive && (
                   <span className="absolute inset-x-0 -bottom-1 h-[2px] w-4 mx-auto bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out" />
                 )}
@@ -151,20 +170,39 @@ const Navbar = () => {
         }`}
       >
         <div className="bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 p-4 flex flex-col gap-2">
-          {navLinks.map(({ href, label }) => {
-            const isActive = activeSection === href.slice(1);
-            return (
-              <a
-                key={href}
-                href={href}
-                className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+          {navLinks.map((link) => {
+            const isRouter = link.isRouter;
+            const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
+            const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
+            
+            const className = `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                   isActive
                     ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900'
                     : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`}
+                }`;
+
+            if (isRouter) {
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={className}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                  {isActive && <div className="w-1.5 h-1.5 rounded-full bg-current" />}
+                </Link>
+              );
+            }
+
+            return (
+              <a
+                key={link.href}
+                href={actualHref}
+                className={className}
                 onClick={() => setIsOpen(false)}
               >
-                {label}
+                {link.label}
                 {isActive && <div className="w-1.5 h-1.5 rounded-full bg-current" />}
               </a>
             );

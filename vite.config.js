@@ -12,5 +12,18 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api\/hashnode/, ''),
       }
     }
-  }
+  },
+  optimizeDeps: {
+    include: [
+      'react-markdown',
+      'remark-gfm',
+      'remark-math',
+      'rehype-katex',
+      'react-syntax-highlighter',
+      'react-syntax-highlighter/dist/esm/styles/prism',
+      'fuse.js',
+      'katex',
+      'mermaid',
+    ],
+  },
 })

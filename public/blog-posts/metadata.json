@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "docker-namespaces",
+    "title": "How Docker Uses Linux Namespaces",
+    "description": "Deep dive into Linux kernel namespaces (PID, NET, MNT, IPC, UTS, USER) and how Docker leverages them for process isolation.",
+    "date": "2026-07-20",
+    "readingTime": 8,
+    "category": "DevOps",
+    "tags": ["Linux", "Docker", "Containers", "Kernel"],
+    "cover": "/blog-posts/images/docker-namespaces.svg"
+  },
+  {
+    "slug": "cgroups-resource-control",
+    "title": "Linux cgroups and Container Resource Control",
+    "description": "Understanding cgroups v1 vs v2, CPU CFS bandwidth management, memory limits, and OOM killer mechanics in container runtimes.",
+    "date": "2026-07-22",
+    "readingTime": 10,
+    "category": "Linux",
+    "tags": ["Linux", "cgroups", "Containers", "Performance"],
+    "cover": "/blog-posts/images/cgroups-resource-control.svg"
+  },
+  {
+    "slug": "k8s-networking-deep-dive",
+    "title": "Kubernetes Networking Deep Dive",
+    "description": "Master the Kubernetes network model: Pod-to-Pod communication, CNI plugins, iptables vs IPVS kube-proxy, and eBPF routing.",
+    "date": "2026-07-25",
+    "readingTime": 12,
+    "category": "Kubernetes",
+    "tags": ["Kubernetes", "Networking", "CNI", "eBPF", "DevOps"],
+    "cover": "/blog-posts/images/k8s-networking-deep-dive.svg"
+  }
+]
