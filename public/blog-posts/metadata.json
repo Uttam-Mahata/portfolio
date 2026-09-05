@@ -2,11 +2,11 @@
   {
     "slug": "tailscale-permanent-exit-node",
     "title": "Turning an Old Laptop Into a Permanent Exit Node with Tailscale",
-    "description": "How I repurposed a headless old laptop on my home fiber connection into a permanent Tailscale exit node — auto-approved ACLs, tag-based device policies, and a policy-routing conflict that swallowed a separate private WireGuard mesh.",
-    "date": "2026-09-04",
-    "readingTime": 12,
+    "description": "How I repurposed a headless old laptop on my home fiber connection into a permanent Tailscale exit node — auto-approved ACLs, tag-based device policies, a policy-routing conflict that swallowed a separate private WireGuard mesh, a Wi-Fi QoS rabbit hole through tc and mac80211's WMM classifier, and the reboot that actually fixed it.",
+    "date": "2026-09-05",
+    "readingTime": 17,
     "category": "Networking",
-    "tags": ["Tailscale", "VPN", "Networking", "Self-Hosted", "DevOps", "Linux"],
+    "tags": ["Tailscale", "VPN", "Networking", "Self-Hosted", "DevOps", "Linux", "QoS"],
     "cover": "/blog-posts/images/tailscale-permanent-exit-node.png"
   },
   {
