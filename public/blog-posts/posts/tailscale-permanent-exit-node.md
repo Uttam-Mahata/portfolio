@@ -1,9 +1,9 @@
 ---
 slug: tailscale-permanent-exit-node
 title: "Turning an Old Laptop Into a Permanent Exit Node with Tailscale"
-description: "How I repurposed a headless old laptop on my home fiber connection into a permanent Tailscale exit node — auto-approved ACLs, tag-based device policies, and the firewall/routing pitfalls that come with it."
+description: "How I repurposed a headless old laptop on my home fiber connection into a permanent Tailscale exit node — auto-approved ACLs, tag-based device policies, and a policy-routing conflict that swallowed a separate private WireGuard mesh."
 date: "2026-09-04"
-readingTime: 9
+readingTime: 12
 category: Networking
 tags:
   - Tailscale
@@ -221,10 +221,97 @@ fails, it's routing — worth checking the NAT/masquerade rule on the exit node:
 sudo iptables -t nat -L -v -n
 ```
 
-This is where I left off — a useful reminder that "it should just work" VPN
-tooling still has real plumbing underneath, and a single stale approval or ACL
-tag change can leave that plumbing in a half-updated state until you dig in with
-`iptables` and `ping` to find where the packet actually stops.
+A useful reminder that "it should just work" VPN tooling still has real plumbing
+underneath, and a single stale approval or ACL tag change can leave that plumbing
+in a half-updated state until you dig in with `iptables` and `ping` to find where
+the packet actually stops. In this instance, the firewall/NAT layer turned out to
+be fine — the real culprit showed up a bit later, once I started actually using
+the client for something else.
+
+---
+
+## The Real Culprit: Exit-Node Routing Swallowing a Private Mesh
+
+The client laptop also connects to a Kubernetes cluster over a **separate**
+private WireGuard mesh (`wg0`, `10.0.0.0/24`) — nothing to do with Tailscale,
+just a plain `wg-quick` VPN to reach the cluster's nodes. With the exit node
+enabled, `kubectl` started failing outright:
+
+```
+dial tcp 10.0.0.1:6443: i/o timeout
+```
+
+An `i/o timeout` (not "connection refused", not a DNS lookup failure) points
+straight at routing — packets are going somewhere, just not getting a reply back.
+The single most useful diagnostic here is `ip route get`, which shows exactly
+which interface/table the kernel picks for a destination *right now*:
+
+```bash
+ip route get 10.0.0.1
+```
+
+```
+10.0.0.1 dev tailscale0 table 52 src 100.122.157.12 uid 1000
+```
+
+That's the smoking gun: traffic to the cluster's private `10.0.0.0/24` mesh was
+being routed through `tailscale0`, not `wg0` — even though `wg0` had a more
+specific route for that exact subnet sitting in the main routing table. Digging
+into *why* meant looking at the actual policy-routing rules and the contents of
+Tailscale's exit-node table:
+
+```bash
+ip rule show
+ip route show table 52
+```
+
+```
+5210:  from all fwmark 0x80000/0xff0000 lookup main
+5230:  from all fwmark 0x80000/0xff0000 lookup default
+5250:  from all fwmark 0x80000/0xff0000 unreachable
+5270:  from all lookup 52
+32766: from all lookup main
+32767: from all lookup default
+```
+
+```
+default dev tailscale0
+10.0.0.0/24 dev tailscale0
+192.168.29.0/24 dev tailscale0
+172.17.0.0/16 dev tailscale0
+...
+```
+
+Two things stood out. First, rule `5270` (`lookup 52`) is checked *before* rule
+`32766` (`lookup main`) — so anything table 52 has an entry for wins outright,
+regardless of what's sitting in the main table. Second, table 52 wasn't just
+holding a `default` route for the exit node — it also explicitly listed every
+locally-connected subnet on the machine (`wg0`'s mesh, the home LAN, even
+Docker's bridge network), all pointed at `tailscale0` instead of their real
+interfaces. Enabling the exit node had quietly taken over routing for networks
+that had nothing to do with the internet-bound traffic it was actually meant to
+handle.
+
+`--accept-routes` looked like a plausible cause at first (it's what accepts
+subnet routes advertised by *other* tailnet peers), so I tried disabling it:
+
+```bash
+sudo tailscale up --exit-node=<exit-node-tailscale-ip> --ssh --accept-routes=false
+```
+
+No change — `ip route get 10.0.0.1` still resolved to `table 52`. That ruled out
+peer-advertised routes as the cause; this was exit-node behavior itself, not
+route acceptance. The actual fix is a flag built specifically for this situation
+— it tells Tailscale to leave your own directly-connected local subnets alone
+even while an exit node is active:
+
+```bash
+sudo tailscale set --exit-node-allow-lan-access=true
+```
+
+After that, `ip route get 10.0.0.1` correctly showed `dev wg0`, and `kubectl`
+started working again — with the exit node still fully active for everything
+else.
 
 ---
 
@@ -232,13 +319,19 @@ tag change can leave that plumbing in a half-updated state until you dig in with
 
 - Exit-node setup itself is two commands (`--advertise-exit-node` on the exit
   node, `--exit-node=<ip>` on the client) — the complexity is almost entirely in
-  approval flow and ACLs, not the networking itself.
+  approval flow, ACLs, and routing edge cases, not the core networking.
 - `autoApprovers` for a tagged device is worth setting up immediately if the exit
   node is meant to be permanent — otherwise a reboot or reinstall means walking
   back to the admin console to click approve again.
 - When exit-node traffic silently dies, check firewall policy first (`ufw`,
   `iptables -L FORWARD`), then split DNS from raw routing with `ping <ip>` vs.
   `ping <hostname>` before going further down the NAT/masquerade rabbit hole.
+- If a *different* private network (a separate VPN, a Kubernetes cluster mesh,
+  anything with its own overlay) breaks specifically when the exit node turns
+  on, suspect Tailscale's own policy-routing table (`ip route get <ip>`, `ip rule
+  show`, `ip route show table 52` will tell you immediately) rather than
+  `--accept-routes` — and reach for `--exit-node-allow-lan-access` before hand-
+  rolling custom `ip rule` overrides.
 - Enabling Tailscale SSH (`--ssh`) is a separate, tailnet-wide capability worth
   being deliberate about — it's governed by your ACL's `ssh` block, not your local
   `sshd`, and defaults to allowing any tailnet member unless you scope it down.
