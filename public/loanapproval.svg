@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Dollar Bill -->
+  <g transform="translate(30,40)">
+    <!-- Base bill -->
+    <rect x="0" y="0" width="140" height="60" rx="3" fill="#c1f7c8"/>
+    
+    <!-- Inner border -->
+    <rect x="5" y="5" width="130" height="50" rx="2" 
+          fill="none" stroke="#0a4c15" stroke-width="1"/>
+    
+    <!-- Bill details -->
+    <circle cx="30" cy="30" r="20" fill="#0a4c15" opacity="0.1"/>
+    <rect x="60" y="15" width="70" height="10" fill="#0a4c15" opacity="0.1"/>
+    <rect x="60" y="35" width="70" height="10" fill="#0a4c15" opacity="0.1"/>
+    
+    <!-- Corner numbers -->
+    <text x="10" y="20" fill="#0a4c15" font-size="12" font-weight="bold">$</text>
+    <text x="125" y="20" fill="#0a4c15" font-size="12" font-weight="bold">$</text>
+  </g>
+  
+  <!-- Gold Coin -->
+  <g transform="translate(100,90)">
+    <!-- Base coin -->
+    <circle cx="0" cy="0" r="30" fill="#ffd700"/>
+    <circle cx="0" cy="0" r="28" fill="#ffed4a"/>
+    
+    <!-- Rim details -->
+    <circle cx="0" cy="0" r="30" fill="none" 
+            stroke="#b7791f" stroke-width="2"/>
+    
+    <!-- Dollar symbol -->
+    <text x="-8" y="8" fill="#b7791f" 
+          font-size="24" font-weight="bold">$</text>
+    
+    <!-- Coin ridges -->
+    <g stroke="#b7791f" stroke-width="1">
+      {Array.from({length: 24}).map((_, i) => (
+        `<path d="M${28 * Math.cos(i * Math.PI / 12)},${28 * Math.sin(i * Math.PI / 12)} 
+                 L${30 * Math.cos(i * Math.PI / 12)},${30 * Math.sin(i * Math.PI / 12)}" />`
+      ))}
+    </g>
+  </g>
+  
+  <!-- Second Bill (slightly rotated) -->
+  <g transform="translate(20,30) rotate(-10)">
+    <rect x="0" y="0" width="140" height="60" rx="3" fill="#c1f7c8"/>
+    <rect x="5" y="5" width="130" height="50" rx="2" 
+          fill="none" stroke="#0a4c15" stroke-width="1"/>
+    <circle cx="30" cy="30" r="20" fill="#0a4c15" opacity="0.1"/>
+    <rect x="60" y="15" width="70" height="10" fill="#0a4c15" opacity="0.1"/>
+    <rect x="60" y="35" width="70" height="10" fill="#0a4c15" opacity="0.1"/>
+  </g>
+  
+  <!-- Small Coins (scattered) -->
+  <g transform="translate(40,120)">
+    <circle cx="0" cy="0" r="15" fill="#ffd700"/>
+    <circle cx="0" cy="0" r="14" fill="#ffed4a"/>
+    <text x="-5" y="5" fill="#b7791f" font-size="12" font-weight="bold">$</text>
+  </g>
+  
+  <g transform="translate(150,110)">
+    <circle cx="0" cy="0" r="15" fill="#ffd700"/>
+    <circle cx="0" cy="0" r="14" fill="#ffed4a"/>
+    <text x="-5" y="5" fill="#b7791f" font-size="12" font-weight="bold">$</text>
+  </g>
+</svg>

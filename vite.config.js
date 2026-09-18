@@ -1,0 +1,29 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/api/hashnode': {
+        target: 'https://gql.hashnode.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/hashnode/, ''),
+      }
+    }
+  },
+  optimizeDeps: {
+    include: [
+      'react-markdown',
+      'remark-gfm',
+      'remark-math',
+      'rehype-katex',
+      'react-syntax-highlighter',
+      'react-syntax-highlighter/dist/esm/styles/prism',
+      'fuse.js',
+      'katex',
+      'mermaid',
+    ],
+  },
+})

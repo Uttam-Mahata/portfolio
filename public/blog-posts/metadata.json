@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "tailscale-permanent-exit-node",
+    "title": "Turning an Old Laptop Into a Permanent Exit Node with Tailscale",
+    "description": "How I repurposed a headless old laptop on my home fiber connection into a permanent Tailscale exit node — auto-approved ACLs, tag-based device policies, a policy-routing conflict that swallowed a separate private WireGuard mesh, a Wi-Fi QoS rabbit hole through tc and mac80211's WMM classifier, and the reboot that actually fixed it.",
+    "date": "2026-09-05",
+    "readingTime": 17,
+    "category": "Networking",
+    "tags": ["Tailscale", "VPN", "Networking", "Self-Hosted", "DevOps", "Linux", "QoS"],
+    "cover": "/blog-posts/images/tailscale-permanent-exit-node.png"
+  },
+  {
+    "slug": "openwa-ai-whatsapp-gateway",
+    "title": "Building an AI Layer on OpenWA: LangGraph, Cloudflare Workers AI, pgvector & OpenObserve on OCI",
+    "description": "How I added an AI layer on top of the open-source OpenWA WhatsApp gateway — LangGraph stateful workflows, Cloudflare Workers AI inference (Gemma 4 26B / Llama 3.3 70B), local FastEmbed ONNX vectors, PostgreSQL pgvector dual-layer memory, and OpenObserve observability — deployed on Oracle Cloud ARM64 Ampere.",
+    "date": "2026-07-25",
+    "readingTime": 18,
+    "category": "AI & ML",
+    "tags": ["WhatsApp", "LangGraph", "LangChain", "Cloudflare", "PostgreSQL", "pgvector", "NestJS", "OCI", "AI", "RAG"],
+    "cover": "/blog-posts/images/openwa-ai-whatsapp-gateway.png"
+  },
+  {
+    "slug": "ctfd-ha-linuxone-s390x",
+    "title": "High Availability CTFd on IBM LinuxONE (s390x) with Nginx, PostgreSQL 18, and Redis",
+    "description": "A production-grade 3-tier HA architecture for CTFd deployed on IBM LinuxONE s390x VMs — Nginx least_conn load balancing, centralized Redis sessions, PostgreSQL 18, and a multi-stage Docker build that handles s390x-incompatible Python wheels.",
+    "date": "2026-07-20",
+    "readingTime": 10,
+    "category": "DevOps",
+    "tags": ["CTF", "Docker", "Nginx", "PostgreSQL", "Redis", "IBM LinuxONE", "s390x", "High Availability"],
+    "cover": "https://cdn.hashnode.com/res/hashnode/image/upload/v1769105907247/bdb02532-78c4-450e-bf24-55d54e17abd1.jpeg"
+  },
+  {
+    "slug": "k3s-vps-production-architecture",
+    "title": "Production K3s on VPS: A 4-Node Architecture with HA, Monitoring, and CI/CD",
+    "description": "A production-oriented K3s architecture across four VPS nodes — WireGuard mesh, dual control plane, HAProxy failover, Traefik ingress, Prometheus monitoring, and GitHub Actions CI/CD, at ~80% lower cost than managed Kubernetes.",
+    "date": "2026-07-15",
+    "readingTime": 15,
+    "category": "Kubernetes",
+    "tags": ["K3s", "Kubernetes", "VPS", "WireGuard", "DevOps", "Self-Hosted", "Prometheus"],
+    "cover": "https://cdn.hashnode.com/res/hashnode/image/upload/v1770815560730/f45ca690-464a-44b7-be41-ce737819f772.png"
+  },
+  {
+    "slug": "k3s-android-management",
+    "title": "Managing K3s from an Android Device",
+    "description": "How to build a hybrid Kubernetes environment where a Linux laptop acts as the control plane and an Android device serves as a fully functional remote command center using K3s, Tailscale, and Headlamp.",
+    "date": "2026-07-10",
+    "readingTime": 8,
+    "category": "Kubernetes",
+    "tags": ["K3s", "Kubernetes", "Android", "Tailscale", "Termux", "DevOps"],
+    "cover": "https://cdn.hashnode.com/uploads/covers/5f28172bdd589b06462d426f/9645ca2b-6caf-4d4c-b137-cc9bb0367973.png"
+  },
+  {
+    "slug": "mongodump-mongorestore-guide",
+    "title": "Moving Data Between MongoDB Deployments Without Overwriting Production",
+    "description": "The core mongodump/mongorestore workflow, plus the real-world variations: merge vs. replace, partial migrations, namespace renaming, oplog-based continuous sync, and when to use Atlas Live Migrate instead.",
+    "date": "2026-07-05",
+    "readingTime": 12,
+    "category": "MongoDB",
+    "tags": ["MongoDB", "DevOps", "Database", "Migration", "Atlas"],
+    "cover": "https://cdn.hashnode.com/uploads/covers/5f28172bdd589b06462d426f/e76d83b0-424f-41d3-866e-a135240d8ad8.png"
+  },
+  {
+    "slug": "securing-mongodb-atlas-tailscale",
+    "title": "Locking Down MongoDB Atlas: Tailscale App Connectors for Roaming Clients",
+    "description": "How I replaced Atlas's open 0.0.0.0/0 network access rule with two static IPs — one for production pods, one for a Tailscale App Connector that transparently proxies operator laptops no matter where they are.",
+    "date": "2026-07-05",
+    "readingTime": 10,
+    "category": "DevOps",
+    "tags": ["MongoDB", "Tailscale", "K3s", "Kubernetes", "Networking", "Security"],
+    "cover": "https://cdn.hashnode.com/uploads/covers/5f28172bdd589b06462d426f/c03573c6-f0ce-478a-a07c-634507575da9.png"
+  }
+]
