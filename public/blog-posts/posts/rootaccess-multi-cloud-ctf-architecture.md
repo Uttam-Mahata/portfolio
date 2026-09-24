@@ -18,7 +18,7 @@ tags:
   - Serverless
   - Multi-Cloud
   - Architecture
-cover: "/blog-posts/images/rootaccess-architecture.jpg"
+cover: "/blog-posts/images/rootaccess-multi-cloud-ctf-architecture.png"
 ---
 
 # Building RootAccess: A Zero-Cost, Multi-Cloud Serverless CTF Platform

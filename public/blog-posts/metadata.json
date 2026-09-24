@@ -7,7 +7,7 @@
     "readingTime": 14,
     "category": "Cloud & DevOps",
     "tags": ["CTF", "Go", "Angular", "AWS Lambda", "GCP", "Cloudflare", "OCI", "Turso", "Redis", "Serverless", "Multi-Cloud", "Architecture"],
-    "cover": "/blog-posts/images/rootaccess-architecture.jpg"
+    "cover": "/blog-posts/images/rootaccess-multi-cloud-ctf-architecture.png"
   },
   {
     "slug": "tailscale-permanent-exit-node",
