@@ -1,5 +1,15 @@
 [
   {
+    "slug": "rootaccess-multi-cloud-ctf-architecture",
+    "title": "Building RootAccess: A Zero-Cost, Multi-Cloud Serverless CTF Platform on AWS, GCP, Cloudflare, and OCI",
+    "description": "How I engineered RootAccess — a production full-stack CTF platform running entirely within always-free cloud tiers: Cloudflare Worker quota routing, AWS Lambda + GCP Cloud Functions, persistent WebSockets on OCI Always Free, Turso edge SQLite, and 6 Upstash Redis instances.",
+    "date": "2026-09-24",
+    "readingTime": 14,
+    "category": "Cloud & DevOps",
+    "tags": ["CTF", "Go", "Angular", "AWS Lambda", "GCP", "Cloudflare", "OCI", "Turso", "Redis", "Serverless", "Multi-Cloud", "Architecture"],
+    "cover": "/blog-posts/images/rootaccess-architecture.jpg"
+  },
+  {
     "slug": "tailscale-permanent-exit-node",
     "title": "Turning an Old Laptop Into a Permanent Exit Node with Tailscale",
     "description": "How I repurposed a headless old laptop on my home fiber connection into a permanent Tailscale exit node — auto-approved ACLs, tag-based device policies, a policy-routing conflict that swallowed a separate private WireGuard mesh, a Wi-Fi QoS rabbit hole through tc and mac80211's WMM classifier, and the reboot that actually fixed it.",
