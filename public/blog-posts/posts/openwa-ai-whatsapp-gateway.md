@@ -31,35 +31,14 @@ This post documents what I added, the engineering decisions behind each choice, 
 
 ## What the Stack Looks Like
 
-![OpenWA AI Architecture](/blog-posts/images/openwa-ai-whatsapp-gateway.png)
-
-```mermaid
-graph TD
-    User["WhatsApp User"] <==>|WhatsApp Protocol| WACloud["WhatsApp Cloud Server"]
-    WACloud <==>|WebSockets / Puppeteer| Chromium["Playwright ARM64 Chromium\n(Host Native)"]
-
-    subgraph OCI["OCI ARM64 Ampere VM (1 vOCPU / 6GB RAM)"]
-        Nginx["Host Nginx (SSL)"] --> Dashboard["Dashboard Container\n(Port 2886)"]
-        Nginx --> NestAPI["NestJS API Gateway\n(Port 2785)"]
-
-        NestAPI <==> Chromium
-        NestAPI <==>|DB0/1/2| Redis["Redis 7 Container\n(Port 6379)"]
-        NestAPI <==>|SQL + pgvector| PG["PostgreSQL 16 pgvector\n(Port 5433)"]
-
-        subgraph AI["LangGraph Cognitive Engine"]
-            FastEmbed["FastEmbed\nONNX AllMiniLML6V2 (384d)"]
-            LangGraph["LangGraph StateGraph\n(AgentState)"]
-        end
-
-        NestAPI <==> AI
-        FastEmbed -.->|Vector Embeddings| PG
-
-        Shipper["Python Log Shipper Daemon"] ===>|HTTP POST JSON| OO["OpenObserve\n(Port 5081)"]
-    end
-
-    LangGraph <==>|HTTPS Bearer Auth| CFProxy["Cloudflare Workers AI Proxy"]
-    CFProxy <==> CFModels["Gemma 4 26B / Llama 3.3 70B"]
-```
+<figure class="architecture-diagram" markdown>
+  <a href="../images/openwa_ai_architecture_diagram.png" class="diagram-link" target="_blank" title="Click to view full resolution">
+    ![OpenWA AI WhatsApp Gateway Architecture](../images/openwa_ai_architecture_diagram.png){ loading=lazy }
+  </a>
+  <figcaption>
+    <strong>Figure 1: OpenWA AI Cognitive Engine Architecture</strong> — Host-native ARM64 Playwright Chromium, NestJS Gateway, Redis 7 session cache, PostgreSQL 16 pgvector, LangGraph StateGraph &amp; Cloudflare Workers AI (<a href="../diagrams/openwa_ai_architecture_diagram.svg" target="_blank">Vector SVG</a> • <a href="../diagrams/openwa_ai_architecture_diagram.excalidraw" download>Excalidraw Source</a>)
+  </figcaption>
+</figure>
 
 ---
 

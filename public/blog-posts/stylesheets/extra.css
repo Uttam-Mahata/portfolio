@@ -1,0 +1,79 @@
+/* Architecture Diagrams & Excalidraw Presentation */
+.architecture-diagram {
+  margin: 2.2rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.architecture-diagram a.diagram-link {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #0b0f19;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+[data-md-color-scheme="default"] .architecture-diagram a.diagram-link {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.architecture-diagram a.diagram-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  border-color: var(--md-accent-fg-color, #38bdf8);
+}
+
+.architecture-diagram img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.architecture-diagram figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light, #94a3b8);
+}
+
+.architecture-diagram figcaption strong {
+  color: var(--md-default-fg-color, #f8fafc);
+}
+
+.architecture-diagram figcaption a {
+  color: var(--md-accent-fg-color, #38bdf8);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.architecture-diagram figcaption a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.diagram-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.diagram-badge:hover {
+  background: rgba(56, 189, 248, 0.2);
+}

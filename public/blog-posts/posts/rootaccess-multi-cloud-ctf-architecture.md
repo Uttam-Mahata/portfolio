@@ -39,31 +39,14 @@ Here is the deep-dive architecture of how AWS Lambda, Google Cloud Functions, Cl
 
 Instead of locking into a single cloud provider, RootAccess leverages the strongest always-free tier features across four major clouds:
 
-```mermaid
-graph TD
-    Client["🌐 Competitors (Browser SPA / CLI)"] --> CF["Cloudflare Edge\n(DNS + CDN + Worker Router)"]
-
-    subgraph cloudflare["Cloudflare Edge Layer"]
-        CF --> WAF["Native Rate Limiter\n(300 req/60s per IP)"]
-        WAF --> Router["API Router Worker\n(Quota Aware Proxy)"]
-    end
-
-    subgraph compute["Serverless Compute Layer (3M req/mo free)"]
-        Router -- "Primary (Up to 950k calls, 100 GB egress)" --> Lambda["AWS Lambda\n(Go 1.24 Gin Binary)"]
-        Router -- "Fallback / Overflow (2M calls)" --> GCF["GCP Cloud Functions\n(Go 1.24 Gin Binary)"]
-    end
-
-    subgraph state["Database & Cache Layer"]
-        Lambda & GCF --> Turso["Turso Edge SQLite\n(500 DBs, 500M row reads)"]
-        Lambda & GCF --> Redis["Upstash Redis\n(6 Namespaces, 3M cmds)"]
-    end
-
-    subgraph oci["Oracle Cloud (Always Free 24/7)"]
-        Client <-.->|"Live Scoreboard & Solves (WSS)"| OCI_VM["OCI VM (ARM Ampere)\nGo WebSocket Broadcaster"]
-        OCI_VM <--> Redis
-        Lambda & GCF --> OCI_OS["OCI Object Storage\n(20 GB Free S3-Compatible)"]
-    end
-```
+<figure class="architecture-diagram" markdown>
+  <a href="../images/rootaccess_architecture_diagram.png" class="diagram-link" target="_blank" title="Click to view full resolution">
+    ![RootAccess Multi-Cloud Serverless CTF Architecture](../images/rootaccess_architecture_diagram.png){ loading=lazy }
+  </a>
+  <figcaption>
+    <strong>Figure 1: RootAccess Multi-Cloud Serverless Architecture</strong> — Autonomous routing across Cloudflare Edge, AWS Lambda, GCP Cloud Functions, Turso Edge SQLite, Upstash Redis &amp; OCI (<a href="../diagrams/rootaccess_architecture_diagram.svg" target="_blank">Vector SVG</a> • <a href="../diagrams/rootaccess_architecture_diagram.excalidraw" download>Excalidraw Source</a>)
+  </figcaption>
+</figure>
 
 ### The Component Breakdown
 

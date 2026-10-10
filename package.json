@@ -8,6 +8,7 @@
     "build": "vite build && (mkdocs build || ./.venv/bin/mkdocs build || python3 -m mkdocs build)",
     "build:docs": "mkdocs build || ./.venv/bin/mkdocs build || python3 -m mkdocs build",
     "serve:docs": "mkdocs serve || ./.venv/bin/mkdocs serve || python3 -m mkdocs serve",
+    "build:diagrams": "python3 scripts/generate_blog_diagrams.py",
     "build:all": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"

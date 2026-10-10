@@ -43,11 +43,14 @@ Both are just peers on the same [tailnet](https://tailscale.com/kb/1136/tailnet)
 (Tailscale's term for your private WireGuard mesh) — no port forwarding, no public
 IP required, no messing with the router.
 
-```mermaid
-graph LR
-    Client["Client laptop\n(anywhere)"] -- "WireGuard\n(encrypted)" --> ExitNode["Old laptop\nExit Node\n(home fiber)"]
-    ExitNode -- "NAT'd egress" --> Internet["Internet"]
-```
+<figure class="architecture-diagram" markdown>
+  <a href="../images/tailscale_exit_node_diagram.png" class="diagram-link" target="_blank" title="Click to view full resolution">
+    ![Tailscale Residential Exit Node Architecture](../images/tailscale_exit_node_diagram.png){ loading=lazy }
+  </a>
+  <figcaption>
+    <strong>Figure 1: Permanent Tailscale Residential Exit Node</strong> — Client device roaming worldwide routed over an encrypted WireGuard tunnel via home fiber Linux gateway with IP forwarding (<a href="../diagrams/tailscale_exit_node_diagram.svg" target="_blank">Vector SVG</a> • <a href="../diagrams/tailscale_exit_node_diagram.excalidraw" download>Excalidraw Source</a>)
+  </figcaption>
+</figure>
 
 ---
 

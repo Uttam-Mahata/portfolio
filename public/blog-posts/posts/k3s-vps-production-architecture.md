@@ -41,24 +41,14 @@ The cluster consists of four VPS instances, each assigned a distinct responsibil
 
 The key design principle is **functional isolation**: compute-heavy workloads reside on the app node, stateful services live on the data node, caching is isolated, and ingress is distributed.
 
-```mermaid
-graph TD
-    Internet["🌐 Internet"] --> CF["Cloudflare\n(Edge SSL + DNS Failover)"]
-    CF --> GW1["Gateway Node\nHAProxy + CP1\n8GB / 100GB"]
-    CF --> GW2["Data Node\nSecondary HAProxy + CP2\n8GB / 100GB"]
-
-    subgraph wireguard["WireGuard Mesh VPN (10.0.0.0/24)"]
-        GW1 <--> App["App Node\nWorker + CI/CD Runner\n32GB / 400GB"]
-        GW1 <--> Cache["Cache Node\nRedis\n8GB / 100GB"]
-        GW1 <--> GW2
-        App <--> Cache
-        App <--> GW2
-        Cache <--> GW2
-    end
-
-    App --> Registry["Private Docker Registry\n(WireGuard only)"]
-    GW2 --> DB["MySQL + MongoDB\n+ NFS Volumes"]
-```
+<figure class="architecture-diagram" markdown>
+  <a href="../images/k3s_production_architecture_diagram.png" class="diagram-link" target="_blank" title="Click to view full resolution">
+    ![Production K3s 4-Node HA Architecture](../images/k3s_production_architecture_diagram.png){ loading=lazy }
+  </a>
+  <figcaption>
+    <strong>Figure 1: Production 4-Node HA K3s Topology</strong> — Full-mesh WireGuard VPN (10.0.0.0/24) with Cloudflare failover, dual HAProxy ingress gateways, and functionally isolated nodes (<a href="../diagrams/k3s_production_architecture_diagram.svg" target="_blank">Vector SVG</a> • <a href="../diagrams/k3s_production_architecture_diagram.excalidraw" download>Excalidraw Source</a>)
+  </figcaption>
+</figure>
 
 ---
 
