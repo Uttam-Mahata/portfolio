@@ -34,6 +34,23 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on Escape key press or window resize to desktop
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setIsOpen(false);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const navLinks = [
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
@@ -53,181 +70,191 @@ const Navbar = () => {
     { href: 'https://www.facebook.com/daemonized.u', icon: <FaFacebook size={18} />, label: 'Facebook' },
   ];
 
+  const isFrosted = isScrolled || isOpen;
+
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 flex justify-center w-full px-4 pt-4 sm:pt-6 pointer-events-none">
-      <div 
-        className={`pointer-events-auto flex items-center justify-between w-full max-w-6xl mx-auto rounded-2xl md:rounded-full transition-all duration-500 ease-in-out border ${
-          isScrolled 
-            ? 'bg-white/70 dark:bg-[#0a0a0a]/70 shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] backdrop-blur-xl border-gray-200/50 dark:border-gray-800/50 py-2.5 px-4 md:px-6' 
-            : 'bg-transparent shadow-none border-transparent py-4 px-2 md:px-4'
-        }`}
-      >
-        {/* Logo Section */}
-        <a 
-          href="#" 
-          className="group flex items-center gap-3 shrink-0 focus:outline-none"
+    <>
+      {/* Mobile Menu Backdrop Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm z-40 lg:hidden pointer-events-auto transition-opacity duration-300"
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      <nav className="fixed top-0 inset-x-0 z-50 flex justify-center w-full px-4 pt-3 sm:pt-5 pointer-events-none">
+        <div 
+          className={`pointer-events-auto flex items-center justify-between w-full max-w-6xl mx-auto rounded-2xl md:rounded-full transition-all duration-300 ease-in-out border ${
+            isFrosted 
+              ? 'bg-white/90 dark:bg-[#0a0a0a]/90 shadow-[0_8px_30px_rgb(0,0,0,0.1)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.45)] backdrop-blur-xl border-gray-200/60 dark:border-gray-800/60 py-2 sm:py-2.5 px-3.5 sm:px-5 md:px-6' 
+              : 'bg-white/75 dark:bg-[#0a0a0a]/75 shadow-sm backdrop-blur-lg border-gray-200/40 dark:border-gray-800/40 py-2 sm:py-2.5 px-3.5 sm:px-5 md:px-6'
+          }`}
         >
-          <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-gradient-to-tr from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 text-white dark:text-gray-900 shadow-md transform group-hover:scale-105 transition-all duration-300 ease-out">
-            <span className="text-sm font-bold tracking-wider">UM</span>
-          </div>
-          <span className={`hidden sm:block font-semibold tracking-tight transition-all duration-300 ${
-            isScrolled 
-              ? 'text-gray-800 dark:text-gray-100 text-base' 
-              : 'text-gray-900 dark:text-white text-lg'
-          }`}>
-            Uttam Mahata
-          </span>
-        </a>
-        
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-1 mx-4">
-          {navLinks.map((link) => {
-            const isRouter = link.isRouter;
-            const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
-            const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
-            
-            const className = `group relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300
-                  ${isActive 
-                    ? 'text-gray-900 dark:text-white'
-                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
-                  }
-                `;
-            
-            if (isRouter) {
+          {/* Logo Section */}
+          <a 
+            href="#" 
+            className="group flex items-center gap-2.5 sm:gap-3 shrink-0 focus:outline-none"
+          >
+            <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-gradient-to-tr from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 text-white dark:text-gray-900 shadow-md transform group-hover:scale-105 transition-all duration-300 ease-out">
+              <span className="text-xs sm:text-sm font-bold tracking-wider">UM</span>
+            </div>
+            <span className="hidden sm:block font-semibold tracking-tight text-gray-900 dark:text-white text-base sm:text-lg transition-colors">
+              Uttam Mahata
+            </span>
+          </a>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 mx-2 xl:mx-4">
+            {navLinks.map((link) => {
+              const isRouter = link.isRouter;
+              const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
+              const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
+              
+              const className = `group relative px-3 xl:px-4 py-1.5 xl:py-2 text-sm font-medium rounded-full transition-all duration-300
+                    ${isActive 
+                      ? 'text-gray-900 dark:text-white font-semibold'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100/60 dark:hover:bg-gray-800/60'
+                    }
+                  `;
+              
+              if (isRouter) {
+                return (
+                  <Link key={link.to} to={link.to} className={className}>
+                    {link.label}
+                    {isActive && (
+                      <span className="absolute inset-x-0 -bottom-0.5 h-[2px] w-4 mx-auto bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out" />
+                    )}
+                  </Link>
+                );
+              }
+              
               return (
-                <Link key={link.to} to={link.to} className={className}>
+                <a 
+                  key={link.href} 
+                  href={actualHref} 
+                  className={className}
+                >
                   {link.label}
                   {isActive && (
-                    <span className="absolute inset-x-0 -bottom-1 h-[2px] w-4 mx-auto bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out" />
+                    <span className="absolute inset-x-0 -bottom-0.5 h-[2px] w-4 mx-auto bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out" />
                   )}
-                </Link>
+                </a>
               );
-            }
-            
-            return (
-              <a 
-                key={link.href} 
-                href={actualHref} 
-                className={className}
-              >
-                {link.label}
-                {isActive && (
-                  <span className="absolute inset-x-0 -bottom-1 h-[2px] w-4 mx-auto bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out" />
-                )}
-              </a>
-            );
-          })}
-        </div>
-        
-        {/* Controls Section (Social + Theme + Mobile Menu) */}
-        <div className="flex items-center gap-1 sm:gap-3 shrink-0">
-          {/* Social Links (Hidden on small screens) */}
-          <div className="hidden sm:flex items-center gap-1 border-r border-gray-200 dark:border-gray-800 pr-3 mr-1">
-            {socialLinks.map(({ href, icon, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
-                aria-label={label}
-              >
-                {icon}
-              </a>
-            ))}
+            })}
           </div>
           
-          {/* Light/Dark Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2.5 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 focus:outline-none"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? (
-              <Moon className="w-5 h-5" strokeWidth={1.5} />
-            ) : (
-              <Sun className="w-5 h-5" strokeWidth={1.5} />
-            )}
-          </button>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2.5 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Dropdown */}
-      <div 
-        className={`lg:hidden absolute top-[calc(100%+0.5rem)] left-4 right-4 max-w-6xl mx-auto rounded-2xl overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-2xl ${
-          isOpen 
-            ? 'opacity-100 translate-y-0 pointer-events-auto' 
-            : 'opacity-0 -translate-y-4 pointer-events-none'
-        }`}
-      >
-        <div className="bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 p-4 flex flex-col gap-2">
-          {navLinks.map((link) => {
-            const isRouter = link.isRouter;
-            const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
-            const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
+          {/* Controls Section (Social + Theme + Mobile Menu) */}
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+            {/* Social Links (Shown on XL screens to prevent header crowding) */}
+            <div className="hidden xl:flex items-center gap-1 border-r border-gray-200 dark:border-gray-800 pr-2.5 mr-1">
+              {socialLinks.map(({ href, icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+                  aria-label={label}
+                >
+                  {icon}
+                </a>
+              ))}
+            </div>
             
-            const className = `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`;
+            {/* Light/Dark Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 sm:p-2.5 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 focus:outline-none"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <Moon className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
+              ) : (
+                <Sun className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
+              )}
+            </button>
 
-            if (isRouter) {
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 sm:p-2.5 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 focus:outline-none"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Dropdown */}
+        <div 
+          className={`lg:hidden absolute top-[calc(100%+0.5rem)] left-4 right-4 max-w-6xl mx-auto rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-2xl z-50 ${
+            isOpen 
+              ? 'opacity-100 translate-y-0 pointer-events-auto' 
+              : 'opacity-0 -translate-y-4 pointer-events-none'
+          }`}
+        >
+          <div className="bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-2xl border border-gray-200/60 dark:border-gray-800/60 p-4 flex flex-col gap-1.5 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            {navLinks.map((link) => {
+              const isRouter = link.isRouter;
+              const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
+              const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
+              
+              const className = `flex items-center justify-between px-4 py-2.5 sm:py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-semibold'
+                      : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/70'
+                  }`;
+
+              if (isRouter) {
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className={className}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                    {isActive && <div className="w-1.5 h-1.5 rounded-full bg-current" />}
+                  </Link>
+                );
+              }
+
               return (
-                <Link
-                  key={link.to}
-                  to={link.to}
+                <a
+                  key={link.href}
+                  href={actualHref}
                   className={className}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                   {isActive && <div className="w-1.5 h-1.5 rounded-full bg-current" />}
-                </Link>
+                </a>
               );
-            }
-
-            return (
-              <a
-                key={link.href}
-                href={actualHref}
-                className={className}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-                {isActive && <div className="w-1.5 h-1.5 rounded-full bg-current" />}
-              </a>
-            );
-          })}
-          
-          <div className="h-px bg-gray-200 dark:bg-gray-800 my-2" />
-          
-          {/* Mobile Social Links */}
-          <div className="flex items-center justify-center gap-4 py-2">
-            {socialLinks.map(({ href, icon, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
-                aria-label={label}
-              >
-                {icon}
-              </a>
-            ))}
+            })}
+            
+            <div className="h-px bg-gray-200/80 dark:bg-gray-800/80 my-2" />
+            
+            {/* Mobile Social Links with Wrapping and Responsive Touch Targets */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 py-1.5 px-1">
+              {socialLinks.map(({ href, icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-xl bg-gray-100/80 dark:bg-gray-800/60 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  aria-label={label}
+                >
+                  {icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

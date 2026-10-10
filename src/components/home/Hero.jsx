@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 import SocialLink from '../SocialLink';
 
 const Hero = () => {
-  const { theme, colorTheme } = useTheme();
+  const { theme } = useTheme();
 
   const handleProjectsClick = () => {
     const projectsSection = document.getElementById('projects');
@@ -15,7 +15,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-white to-gray-50 dark:from-dark-bg dark:to-dark-bg transition-colors duration-300">
+    <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-36 md:pb-24 bg-gradient-to-r from-white to-gray-50 dark:from-dark-bg dark:to-dark-bg transition-colors duration-300">
       {/* Background pattern */}
       <div className="absolute inset-0 z-0 opacity-30 dark:opacity-10">
         <div className="absolute inset-0" style={{
