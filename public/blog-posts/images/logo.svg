@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="umGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#0f172a" />
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="none" stroke="url(#umGrad)" stroke-width="3" />
+  <text x="50" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="800" text-anchor="middle" fill="#f8fafc" letter-spacing="1">UM</text>
+</svg>

@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:docs": "mkdocs build",
+    "serve:docs": "mkdocs serve",
+    "build:all": "vite build && mkdocs build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

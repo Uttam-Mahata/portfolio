@@ -1,0 +1,114 @@
+site_name: Uttam Mahata | Engineering Blog
+site_description: Systems Engineering, Distributed Architectures, Cloud Platforms, Linux, and Kubernetes Deep-Dives by Uttam Mahata.
+site_author: Uttam Mahata
+site_url: https://uttamm.web.app/blogs/
+repo_url: https://github.com/Uttam-Mahata/portfolio
+repo_name: Uttam-Mahata/portfolio
+
+docs_dir: public/blog-posts
+site_dir: dist/blogs
+
+theme:
+  name: material
+  logo: images/logo.svg
+  favicon: images/favicon.svg
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for dark mode (default)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: cyan
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: cyan
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Uttam-Mahata
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/uttam-mahata-4b0364259/
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/daemonized_u
+    - icon: fontawesome/solid/globe
+      link: https://uttamm.web.app/
+
+nav:
+  - Home: https://uttamm.web.app/
+  - Overview: index.md
+  - Cloud & Architecture:
+      - RootAccess Multi-Cloud Serverless CTF: posts/rootaccess-multi-cloud-ctf-architecture.md
+  - Networking & Linux:
+      - Permanent Tailscale Exit Node: posts/tailscale-permanent-exit-node.md
+  - AI & Systems:
+      - AI Layer on OpenWA: posts/openwa-ai-whatsapp-gateway.md
+  - Kubernetes & Containers:
+      - Production K3s VPS Architecture: posts/k3s-vps-production-architecture.md
+      - Managing K3s from Android: posts/k3s-android-management.md
+  - DevOps & Infrastructure:
+      - High Availability CTFd on LinuxONE: posts/ctfd-ha-linuxone-s390x.md
+      - Securing MongoDB Atlas with Tailscale: posts/securing-mongodb-atlas-tailscale.md
+  - Databases:
+      - Moving Data Between MongoDB Deployments: posts/mongodump-mongorestore-guide.md
