@@ -1,7 +1,7 @@
 site_name: Uttam Mahata | Engineering Blog
 site_description: Systems Engineering, Distributed Architectures, Cloud Platforms, Linux, and Kubernetes Deep-Dives by Uttam Mahata.
 site_author: Uttam Mahata
-site_url: https://uttamm.web.app/blogs/
+site_url: https://uttammahata.in/blogs/
 repo_url: https://github.com/Uttam-Mahata/portfolio
 repo_name: Uttam-Mahata/portfolio
 
@@ -93,10 +93,11 @@ extra:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/daemonized_u
     - icon: fontawesome/solid/globe
-      link: https://uttamm.web.app/
+      link: https://uttammahata.in/
+      name: uttammahata.in
 
 nav:
-  - Home: https://uttamm.web.app/
+  - Portfolio: https://uttammahata.in/
   - Overview: index.md
   - Cloud & Architecture:
       - RootAccess Multi-Cloud Serverless CTF: posts/rootaccess-multi-cloud-ctf-architecture.md

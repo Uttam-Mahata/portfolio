@@ -6,7 +6,7 @@ icon: material/book-open-page-variant
 
 <div class="doc-badge-row" markdown>
 [![Author](https://img.shields.io/badge/Author-Uttam_Mahata-00ADD8?logo=github&logoColor=white)](https://github.com/Uttam-Mahata)
-[![Portfolio](https://img.shields.io/badge/Portfolio-uttamm.web.app-purple)](https://uttamm.web.app/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-uttammahata.in-purple)](https://uttammahata.in/)
 [![Focus](https://img.shields.io/badge/Focus-Systems_%26_Cloud_Architecture-orange)](#topics-covered)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Uttam-Mahata/portfolio/blob/main/LICENSE)
 </div>
@@ -56,7 +56,7 @@ graph TD
 
 I am **Uttam Mahata**, a full-stack engineer and systems enthusiast focusing on operating systems, computer networks, DevOps, information security, and distributed computing. 
 
-* 🌐 Portfolio: [uttamm.web.app](https://uttamm.web.app/)
+* 🌐 Portfolio: [uttammahata.in](https://uttammahata.in/)
 * 🐙 GitHub: [@Uttam-Mahata](https://github.com/Uttam-Mahata)
 * 💼 LinkedIn: [uttam-mahata](https://www.linkedin.com/in/uttam-mahata-4b0364259/)
 * 🐦 X / Twitter: [@daemonized_u](https://x.com/daemonized_u)
