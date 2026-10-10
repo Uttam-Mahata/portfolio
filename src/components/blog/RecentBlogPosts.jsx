@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, Calendar, ArrowRight } from 'lucide-react';
 import { getRecentPosts } from '../../services/blogService';
@@ -52,7 +51,7 @@ const RecentBlogPosts = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white dark:bg-dark-card rounded-lg border border-gray-200 dark:border-dark-border overflow-hidden flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:themed-border themed-glow-hover group glass-card"
               >
-                <Link to={`/blogs/${post.slug}`} className="block relative h-48 overflow-hidden">
+                <a href={`/blogs/posts/${post.slug}/`} className="block relative h-48 overflow-hidden">
                   <img
                     src={post.cover}
                     alt={post.title}
@@ -61,13 +60,13 @@ const RecentBlogPosts = () => {
                   <div className="absolute top-4 right-4 themed-bg text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {post.category}
                   </div>
-                </Link>
+                </a>
                 <div className="p-6 flex flex-col flex-grow">
-                  <Link to={`/blogs/${post.slug}`}>
+                  <a href={`/blogs/posts/${post.slug}/`}>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-dark-text mb-3 transition-colors duration-300 group-hover:themed-text line-clamp-2">
                       {post.title}
                     </h3>
-                  </Link>
+                  </a>
                   <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 text-sm">
                     {post.description}
                   </p>
@@ -95,10 +94,10 @@ const RecentBlogPosts = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Link to="/blogs" className="btn-primary themed-gradient-primary text-white px-6 py-3 rounded-full font-medium inline-flex items-center transition-transform hover:scale-105">
+          <a href="/blogs/" className="btn-primary themed-gradient-primary text-white px-6 py-3 rounded-full font-medium inline-flex items-center transition-transform hover:scale-105">
             View All Posts
             <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

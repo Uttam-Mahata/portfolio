@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:docs": "mkdocs build",
-    "serve:docs": "mkdocs serve",
-    "build:all": "vite build && mkdocs build",
+    "build": "vite build && (mkdocs build || ./.venv/bin/mkdocs build || python3 -m mkdocs build)",
+    "build:docs": "mkdocs build || ./.venv/bin/mkdocs build || python3 -m mkdocs build",
+    "serve:docs": "mkdocs serve || ./.venv/bin/mkdocs serve || python3 -m mkdocs serve",
+    "build:all": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

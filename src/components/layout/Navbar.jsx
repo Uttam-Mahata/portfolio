@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -55,7 +55,7 @@ const Navbar = () => {
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
-    { to: '/blogs', label: 'Blog', isRouter: true },
+    { href: '/blogs/', label: 'Blog' },
     { href: '#education', label: 'Education' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -107,9 +107,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 mx-2 xl:mx-4">
             {navLinks.map((link) => {
-              const isRouter = link.isRouter;
-              const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
-              const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
+              const isDirectLink = link.href.startsWith('/');
+              const isActive = isDirectLink 
+                ? location.pathname.startsWith('/blogs') 
+                : activeSection === link.href.slice(1);
+              const actualHref = isDirectLink 
+                ? link.href 
+                : (location.pathname !== '/' ? `/${link.href}` : link.href);
               
               const className = `group relative px-3 xl:px-4 py-1.5 xl:py-2 text-sm font-medium rounded-full transition-all duration-300
                     ${isActive 
@@ -117,17 +121,6 @@ const Navbar = () => {
                       : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100/60 dark:hover:bg-gray-800/60'
                     }
                   `;
-              
-              if (isRouter) {
-                return (
-                  <Link key={link.to} to={link.to} className={className}>
-                    {link.label}
-                    {isActive && (
-                      <span className="absolute inset-x-0 -bottom-0.5 h-[2px] w-4 mx-auto bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out" />
-                    )}
-                  </Link>
-                );
-              }
               
               return (
                 <a 
@@ -197,29 +190,19 @@ const Navbar = () => {
         >
           <div className="bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-2xl border border-gray-200/60 dark:border-gray-800/60 p-4 flex flex-col gap-1.5 max-h-[calc(100vh-6rem)] overflow-y-auto">
             {navLinks.map((link) => {
-              const isRouter = link.isRouter;
-              const isActive = isRouter ? location.pathname.startsWith(link.to) : activeSection === link.href.slice(1);
-              const actualHref = isRouter ? undefined : (location.pathname !== '/' ? `/${link.href}` : link.href);
+              const isDirectLink = link.href.startsWith('/');
+              const isActive = isDirectLink 
+                ? location.pathname.startsWith('/blogs') 
+                : activeSection === link.href.slice(1);
+              const actualHref = isDirectLink 
+                ? link.href 
+                : (location.pathname !== '/' ? `/${link.href}` : link.href);
               
               const className = `flex items-center justify-between px-4 py-2.5 sm:py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-semibold'
                       : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/70'
                   }`;
-
-              if (isRouter) {
-                return (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    className={className}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                    {isActive && <div className="w-1.5 h-1.5 rounded-full bg-current" />}
-                  </Link>
-                );
-              }
 
               return (
                 <a
